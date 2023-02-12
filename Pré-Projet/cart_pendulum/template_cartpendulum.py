@@ -136,7 +136,7 @@ def compute_derivatives(t, y, data):
     # Matrice M #
     M11 = data.m1 + data.m2
     M_other = data.m2
-    M = np.array[[M11,M_other],[M_other;M_other]]
+    M = np.array[[M11,M_other],[M_other,M_other]]
     
     # Vecteur Q #
     Q1 = 

@@ -54,23 +54,23 @@ class MBSData:
     qd2:   Initial velocity coordinate of the pendulum
     """
     
-    def __init__(self,m1,m2,Lp):  #Initial parameters of the pendulum
+    def __init__(self):  #Initial parameters of the pendulum
         "general parameters"
         self.g = 9.81  # [m/s^2]
         
         "masses"
-        self.m1 = m1  # [Kg]
-        self.m2 = m2  # [Kg]
+        self.m1 = 1  # [Kg]
+        self.m2 = 0.5  # [Kg]
         
         "parameters of the pendulum"
-        self.Lp = Lp  # [m]
+        self.Lp = 1  # [m]
         
         "parameter of the external force"
-        self.Fmax = None  # [N]
-        self.f0 = None  # [Hz]
-        self.t0 = None  # [s]
-        self.f1 = None  # [Hz]
-        self.t1 = None  # [s]
+        self.Fmax = 0.5  # [N]
+        self.f0 = 1  # [Hz]
+        self.t0 = 0  # [s]
+        self.f1 = 10  # [Hz]
+        self.t1 = 10  # [s]
         
         
         "parameter of the controller"
@@ -78,15 +78,11 @@ class MBSData:
         self.Kd = None  
         
         "initial positions and velocities"
-        self.q1 = None  # [m]
-        self.q2 = None  # [deg]
-        self.qd1 = None  # [m/s]
-        self.qd2 = None  # [m/s]
-        
-        
-        
+        self.q1 = 0  # [m]
+        self.q2 = pi/6  # [deg]
+        self.qd1 = 0  # [m/s]
+        self.qd2 = 0  # [m/s]
     
-    ............
         
 # * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 def sweep(t, t0, f0, t1, f1, Fmax):
@@ -105,7 +101,6 @@ def sweep(t, t0, f0, t1, f1, Fmax):
     :return Fext: the value of the sweep function.
     """
     return Fmax*sin(2*pi*t*(f0 + (f1-f0)/(t1-t0)*(t/2)))
-    ............
 
 
 # * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *    
@@ -130,27 +125,33 @@ def compute_derivatives(t, y, data):
     """
     On résout avec le système M*qdd = Q - c avec les définitions données au cours
     """
-    yd = [y[2],y[3],0,0]  #on déterminera les coéfficient de ¨q juste après pour avoir le yd final
+    # yd = np.array([y[2],y[3],0,0])  #on déterminera les coéfficient de ¨q juste après pour avoir le yd final
                           # -> yd = d[y]/dt -> yd = [qd1, qd2, qdd1, qdd2]
     
     # Matrice M #
+<<<<<<< HEAD
+    M = np.array([[data.m1 + data.m2 , -data.m2 * data.Lp * cos(y[1])],
+                  [- cos(y[1])       , data.Lp]])
+=======
     M11 = data.m1 + data.m2
     M_other = data.m2
     M = np.array[[M11,M_other],[M_other,M_other]]
+>>>>>>> 52398903c66d8e886c8e2ff3455375ed63f24cbc
     
     # Vecteur Q #
-    Q1 = 
-    Q2 =
-    Q = np.array[Q1,Q2]
+    Q1 = sweep(t, data.t0, data.f0, data.t1, data.f1, data.Fmax)
+    Q2 = 0
+    Q = np.array([Q1,Q2])
     
     # Matrice c #
-    c1 = - (data.m1 +data.m2)*data.g
-    c2 = - data.m2*data.g
-    c = np.array[c1,c2]
+    c1 = data.m2 * data.Lp * y[3]**2 * sin(y[1])
+    c2 = data.g * sin(y[1])
+    c = np.array([c1,c2])
     
     # solve système
+    ydd = np.linalg.solve(M,Q-c)
     
-    ............    
+    return np.array([y[2],y[3],ydd[0],ydd[1]])
     # sweep function should be called here: sweep(t, data.t0, data.f0, data.t1, data.f1, data.Fmax)
 
 
@@ -166,7 +167,6 @@ def compute_dynamic_response(data):
        :param data: the MBSData object containing the parameters of the model
      """
     # Write your code here
-    ............
     # ### Runge Kutta ###   should be called via solve_ivp()
     # to pass the MBSData object to compute_derivative function in solve_ivp, you may use lambda mechanism:
     #
@@ -177,8 +177,12 @@ def compute_dynamic_response(data):
     # Note that you can change the tolerances with rtol and atol options (see online solve_iv doc)
     #
     # Write some code here
-    ............
-  
+    fprime = lambda t, y: compute_derivatives(t, y, data)
+    init = np.array([data.q1,data.q2,data.qd1,data.qd2])
+    sol = solve_ivp(fprime,(data.t0,data.t1),init)
+    
+    return sol
+    
 
 
 # * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -187,4 +191,9 @@ def compute_dynamic_response(data):
 if __name__ == '__main__':
     mbs_data = MBSData()
     
-    compute_dynamic_response(mbs_data)  
+    compute_dynamic_response(mbs_data)
+    
+    
+    
+    
+    

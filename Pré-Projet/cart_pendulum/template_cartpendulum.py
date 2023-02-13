@@ -129,15 +129,9 @@ def compute_derivatives(t, y, data):
                           # -> yd = d[y]/dt -> yd = [qd1, qd2, qdd1, qdd2]
     
     # Matrice M #
-<<<<<<< HEAD
     M = np.array([[data.m1 + data.m2 , -data.m2 * data.Lp * cos(y[1])],
                   [- cos(y[1])       , data.Lp]])
-=======
-    M11 = data.m1 + data.m2
-    M_other = data.m2
-    M = np.array[[M11,M_other],[M_other,M_other]]
->>>>>>> 52398903c66d8e886c8e2ff3455375ed63f24cbc
-    
+
     # Vecteur Q #
     Q1 = sweep(t, data.t0, data.f0, data.t1, data.f1, data.Fmax)
     Q2 = 0
@@ -178,8 +172,8 @@ def compute_dynamic_response(data):
     #
     # Write some code here
     fprime = lambda t, y: compute_derivatives(t, y, data)
-    init = np.array([data.q1,data.q2,data.qd1,data.qd2])
-    sol = solve_ivp(fprime,(data.t0,data.t1),init)
+    init = np.array([data.q1, data.q2, data.qd1, data.qd2])
+    sol = solve_ivp(fprime, (data.t0, data.t1), init)
     
     return sol
     

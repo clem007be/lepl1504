@@ -74,8 +74,8 @@ class MBSData:
         
         
         "parameter of the controller"
-        self.Kp = None  
-        self.Kd = None  
+        self.Kp = 0  
+        self.Kd = 0  
         
         "initial positions and velocities"
         self.q1 = 0  # [m]
@@ -174,9 +174,9 @@ def compute_dynamic_response(data):
     fprime = lambda t, y: compute_derivatives(t, y, data)
     init = np.array([data.q1, data.q2, data.qd1, data.qd2])
     
-    teval = np.linspace(data.t0, data.t1, 100, endpoint=True)
+    teval = np.linspace(data.t0, data.t1, 1000, endpoint=True)
     
-    sol = solve_ivp(fprime, (data.t0, data.t1), init,'Radau', t_eval=teval)
+    sol = solve_ivp(fprime, (data.t0, data.t1), init,'Radau', t_eval=teval,rtol=1e-9)
 
     q = np.array([sol.t, sol.y[0], sol.y[1]])
     qd = np.array([sol.t, sol.y[2], sol.y[3]])

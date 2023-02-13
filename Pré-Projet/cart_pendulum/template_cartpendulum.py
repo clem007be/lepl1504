@@ -173,7 +173,7 @@ def compute_dynamic_response(data):
     # Write some code here
     fprime = lambda t, y: compute_derivatives(t, y, data)
     init = np.array([data.q1, data.q2, data.qd1, data.qd2])
-    sol = solve_ivp(fprime, (data.t0, data.t1), init)
+    sol = solve_ivp(fprime, (data.t0, data.t1), init, 'Radau')
     
     return sol
     

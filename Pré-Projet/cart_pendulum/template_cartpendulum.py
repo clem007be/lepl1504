@@ -129,9 +129,8 @@ def compute_derivatives(t, y, data):
                           # -> yd = d[y]/dt -> yd = [qd1, qd2, qdd1, qdd2]
     
     # Matrice M #
-    M11 = data.m1 + data.m2
-    M_other = 1 #data.m2
-    M = np.array([[M11,data.m2],[M_other,M_other]])
+    M = np.array([[data.m1 + data.m2 , -data.m2 * data.Lp * cos(y[1])],
+                  [- cos(y[1])       , data.Lp]])
     
     # Vecteur Q #
     Q1 = sweep(t, data.t0, data.f0, data.t1, data.f1, data.Fmax)

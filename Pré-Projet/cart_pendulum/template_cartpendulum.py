@@ -129,8 +129,8 @@ def compute_derivatives(t, y, data):
                           # -> yd = d[y]/dt -> yd = [qd1, qd2, qdd1, qdd2]
     
     # Matrice M #
-    M = np.array([[data.m1 + data.m2 , -data.m2 * data.Lp * cos(y[1])],
-                  [- cos(y[1])       , data.Lp]])
+    M = np.array([[data.m1 + data.m2 ,  data.m2 * data.Lp/2 * cos(y[1])],
+                  [ cos(y[1])       , 2/3 * data.Lp]])
 
     # Vecteur Q #
     Q1 = sweep(t, data.t0, data.f0, data.t1, data.f1, data.Fmax)
@@ -138,8 +138,8 @@ def compute_derivatives(t, y, data):
     Q = np.array([Q1,Q2])
     
     # Matrice c #
-    c1 = data.m2 * data.Lp * y[3]**2 * sin(y[1])
-    c2 = data.g * sin(y[1])
+    c1 = - data.m2 * data.Lp/2 * y[3]**2 * sin(y[1])
+    c2 = - data.g * sin(y[1])
     c = np.array([c1,c2])
     
     # solve système
@@ -173,7 +173,22 @@ def compute_dynamic_response(data):
     # Write some code here
     fprime = lambda t, y: compute_derivatives(t, y, data)
     init = np.array([data.q1, data.q2, data.qd1, data.qd2])
-    sol = solve_ivp(fprime, (data.t0, data.t1), init, 'Radau')
+    
+    teval = np.linspace(data.t0, data.t1, 100, endpoint=True)
+    
+    sol = solve_ivp(fprime, (data.t0, data.t1), init,'Radau', t_eval=teval)
+
+    q = np.array([sol.t, sol.y[0], sol.y[1]])
+    qd = np.array([sol.t, sol.y[2], sol.y[3]])
+    qdd = np.zeros((3,len(sol.t)))
+    qdd[0] = sol.t
+    for i in range(len(sol.t)):
+        qddtemp = compute_derivatives(teval[i], sol.y[:,i] , data)
+        qdd[1][i] = qddtemp[2]
+        qdd[2][i] = qddtemp[3]
+    np.savetxt('dirdyn_q.res',q.transpose())
+    np.savetxt('dirdyn_qd.res',qd.transpose())
+    np.savetxt('dirdyn_qdd.res',qdd.transpose())
     
     return sol
     

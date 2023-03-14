@@ -1,0 +1,79 @@
+
+    Compute car wheel kinematics which are necessary inputs for a tire/ground contact model.
+
+    Note that the car tire is defined by a nominal radius (from wheel center to
+    contact patch).
+
+    The frames [I,S,T,Y] are described in the module documentation.
+
+    Be advised: the geometrical contact point velocity can NOT be zero as the slip
+    would be infinite. This function should only be called for a tyre in motion.
+
+    This function calls a C-library.
+
+    Parameters
+    ----------
+    Pw : numpy.ndarray
+         Position of the wheel center in the frame [I] as [3., P_x, P_y, P_z].
+    Rw : numpy.ndarray
+         Rotation Matrix of the wheel body of shape (4,4): [Y] = Rw[I]. The rotation
+         matrix is contained in Rw[1:,1:].
+    Vw : numpy.ndarray
+         Velocity of the wheel center in the frame [I] as [3., V_x, V_y, V_z].
+    OMw : numpy.ndarray
+          Angular velocity of the wheel center in the frame [I] as [3., W_x, W_y, W_z].
+    rnom : float
+           Wheel nominal radius.
+
+    Returns
+    -------
+    pen : float
+          Tire vertical deflection.
+    rz : float
+         Distance between the wheel center and the intersection of frame [S] with
+         the flat ground.
+    angslip : float
+              Lateral slip angle.
+    angcamb : float
+              Camber angle.
+    slip : float
+           Longitudinal slip. Be careful that the geometrical contact point
+           velocity can not be zero (infinite slip !).
+    Pct : numpy.ndarray
+          Position of the contact point expressed in the frame [I] as
+          [3., Pct_x, Pct_y, Pct_z].
+    Vmct : numpy.ndarray
+           Velocity of the material point in contact expressed in the frame [I]
+           as [3., Vmct_x, Vmct_y, Vmct_z].
+    Rt_ground : numpy.ndarray
+                Transpose of Rotation matrix from [I] to [T] of shape (4,4):
+                [T]=Rt_ground[I]. The rotation matrix is contained in Rt_ground[1:,1:].
+    dxF : numpy.ndarray
+          Vector of force application (from the wheel center to the contact point)
+          expressed in the rotating wheel frame [Y] as [3., dxF_x, dxF_y, dxF_z]
+
+===============================================================================================================================================
+    
+    Compute tire/ground contact forces according to the Bakker model.
+
+    The frame [T] is described in the module documentation.
+
+    Parameters
+    ----------
+    Fwhl : numpy.ndarray
+           Tire/ground contact forces expressed in [T] frame, will be filled
+           with Fwhl[1:4] = [Fwhl_x, Fwhl_y, Fwhl_z].
+    Mwhl : numpy.ndarray
+           tire/ground contact torques expressed in [T] frame, will be filled
+           with Mwhl[1:4] = [Mwhl_x, Mwhl_y, Mwhl_z].
+    angslip : float
+              Lateral slip angle expressed in rad.
+    angcamb : float
+              Camber angle expressed in rad.
+    slip : float
+           Longitudinal slip. Be careful that the geometrical contact point
+           velocity can not be zero (infinite slip !).
+    Return
+    ------
+    Nothing, computation results are stored in the arguments
+    

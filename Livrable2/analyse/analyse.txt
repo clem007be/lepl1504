@@ -1,0 +1,12 @@
+Pen : 44.09763659640294
+Distance between wheel center intersection : -43.74763659640294
+angle slip: 0.0,
+angle camb : 0.0,
+long slip : 0.0,
+Pos contact point [I] : array([3.        , 0.68365101, 0.        , 0.        ]),
+vel contact point [I] : array([ 3.00000000e+00,  2.93442057e-17,  0.00000000e+00, -2.94300000e+01]),
+Rot mtx [I]-[T] : array([[ 3.,  0.,  0.,  0.],
+       [ 3.,  1., -0.,  0.],
+       [ 3.,  0.,  1.,  0.],
+       [ 3., -0.,  0.,  1.]]),
+FVec wheel to contact point [Y] : array([ 3.        , 17.03613212,  0.        , 40.29424165]))

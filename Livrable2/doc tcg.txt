@@ -1,3 +1,4 @@
+mbs_tgc.tgc_car_kine_wheel(Pw, Rw, Vw, OMw, rnom)
 
     Compute car wheel kinematics which are necessary inputs for a tire/ground contact model.
 
@@ -53,7 +54,8 @@
           expressed in the rotating wheel frame [Y] as [3., dxF_x, dxF_y, dxF_z]
 
 ===============================================================================================================================================
-    
+mbs_tgc.tgc_bakker_contact(Fwhl, Mwhl, angslip, angcamb, slip)
+
     Compute tire/ground contact forces according to the Bakker model.
 
     The frame [T] is described in the module documentation.

@@ -100,9 +100,6 @@
         <jointname>T1Frame</jointname>
         <type>T1</type>
         <nature>independent</nature>
-        <initialvalue>
-          <qd>3.0</qd>
-        </initialvalue>
         <graphics>
           <x2D>
             <position>
@@ -138,7 +135,7 @@
         <type>T3</type>
         <nature>independent</nature>
         <initialvalue>
-          <q>0.35</q>
+          <q>0.4</q>
         </initialvalue>
         <graphics>
           <x2D>

@@ -62,11 +62,24 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     Mz = 0.0
     idpt = mbs_data.xfidpt[ixF]
     dxF = mbs_data.dpt[1:, idpt]
-
-    R = mbs_data.user_model['roue']['R0']
+    verbose = False
+    R0 = mbs_data.user_model['roue']['R0']
     
+    tgc = mbs_tgc.tgc_car_kine_wheel(PxF, RxF, VxF, OMxF, R0)
     
-    tgc = mbs_tgc.tgc_car_kine_wheel(PxF, RxF, VxF, OMxF, R)
+    #Transformation en dictionnaire pour une utilisation plus simple ===========
+    arg = ['pen','rz','angslip','angcamb','slip','Pct','Vmct','Rt_ground','dxF']
+    tgc_dic = {}
+    for i in range(len(tgc)):
+        tgc_dic[arg[i]] = tgc[i] 
+    #==========================================================================
+    
+    if(tgc_dic['pen'] > 0):
+        K = mbs_data.user_model['roue']['K']
+        D = mbs_data.user_model['roue']['D']
+        dedt = np.dot(tgc_dic['Rt_ground'],tgc_dic['Vmct'])
+        Fz = K*tgc_dic['pen']-D*dedt[3]
+        
     
     
     # pen = tgc[0]
@@ -87,13 +100,13 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     # My = MWhl[2]
     # Mz = MWhl[3]
     # dxF = tgc[8][1:]
-    
-    # try :
-    #     f = open('../analyse/analyse.txt','w')
-    #     f.write("{}".format(dxF))
-    #     f.close()
-    # except :
-    #     print("unable to open the file") 
+    if(verbose):
+        try :
+            f = open('../analyse/analyse.txt','a')
+            f.write("{}\n\n".format(tgc_dic))
+            f.close()
+        except :
+            print("unable to open the file") 
     
     # Concatenating force, torque and force application point to returned array.
     # This must not be modified.

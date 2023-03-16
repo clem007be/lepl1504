@@ -5,6 +5,17 @@
 from mbs_tgc import *
 import numpy as np
 
+def verbose(boo,file,tgc_dic):
+    if(boo):
+        try :
+            f = open(file,'a')
+            for i in tgc_dic:
+                f.write("{} : {}\n".format(i,tgc_dic[i]))
+            f.write("\n")
+            f.close()
+        except :
+            print("unable to open the file") 
+
 def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     """Compute an user-specified external force.
 
@@ -62,26 +73,50 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     Mz = 0.0
     idpt = mbs_data.xfidpt[ixF]
     dxF = mbs_data.dpt[1:, idpt]
-    verbose = False
-    R0 = mbs_data.user_model['roue']['R0']
     
-    tgc = mbs_tgc.tgc_car_kine_wheel(PxF, RxF, VxF, OMxF, R0)
-    
-    #Transformation en dictionnaire pour une utilisation plus simple ===========
-    arg = ['pen','rz','angslip','angcamb','slip','Pct','Vmct','Rt_ground','dxF']
-    tgc_dic = {}
-    for i in range(len(tgc)):
-        tgc_dic[arg[i]] = tgc[i] 
-    #==========================================================================
-    
-    if(tgc_dic['pen'] > 0):
-        K = mbs_data.user_model['roue']['K']
-        D = mbs_data.user_model['roue']['D']
-        dedt = np.dot(tgc_dic['Rt_ground'],tgc_dic['Vmct'])
-        Fz = K*tgc_dic['pen']-D*dedt[3]
+    Fext = mbs_data.extforce_id["ExtForce_RWheel"]
+    if ixF == Fext:
         
+        R0 = mbs_data.user_model['roue']['R0']
     
+        tgc = tgc_car_kine_wheel(PxF, RxF, VxF, OMxF, R0)
     
+        #Transformation en dictionnaire pour une utilisation plus simple ===========
+        arg = ['pen','rz','angslip','angcamb','slip','Pct','Vmct','Rt_ground','dxF']
+        tgc_dic = {}
+        for i in range(len(tgc)):
+            tgc_dic[arg[i]] = tgc[i] 
+        #==========================================================================
+    
+        if(tgc_dic['pen'] > 0):
+            K = mbs_data.user_model['roue']['K']
+            D = mbs_data.user_model['roue']['D']
+            dedt = np.dot(tgc_dic['Rt_ground'],tgc_dic['Vmct'])
+            Fz = K*tgc_dic['pen']-50*dedt[3]
+        
+        verbose(False,'../analyse/analyse_RWheel.txt',tgc_dic)
+        
+    Fext = mbs_data.extforce_id["ExtForce_FWheel"]
+    if ixF == Fext:
+        
+        R0 = mbs_data.user_model['roue']['R0']
+    
+        tgc = tgc_car_kine_wheel(PxF, RxF, VxF, OMxF, R0)
+    
+        #Transformation en dictionnaire pour une utilisation plus simple ===========
+        arg = ['pen','rz','angslip','angcamb','slip','Pct','Vmct','Rt_ground','dxF']
+        tgc_dic = {}
+        for i in range(len(tgc)):
+            tgc_dic[arg[i]] = tgc[i] 
+        #==========================================================================
+    
+        if(tgc_dic['pen'] > 0):
+            K = mbs_data.user_model['roue']['K']
+            D = mbs_data.user_model['roue']['D']
+            dedt = np.dot(tgc_dic['Rt_ground'],tgc_dic['Vmct'])
+            Fz = K*tgc_dic['pen']-50*dedt[3]
+            verbose(False,'../analyse/analyse_FWheel.txt',tgc_dic)
+            
     # pen = tgc[0]
     # rz = tgc[1]
     # angslip = tgc[2]
@@ -100,13 +135,7 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     # My = MWhl[2]
     # Mz = MWhl[3]
     # dxF = tgc[8][1:]
-    if(verbose):
-        try :
-            f = open('../analyse/analyse.txt','a')
-            f.write("{}\n\n".format(tgc_dic))
-            f.close()
-        except :
-            print("unable to open the file") 
+    
     
     # Concatenating force, torque and force application point to returned array.
     # This must not be modified.

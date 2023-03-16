@@ -50,7 +50,7 @@ def user_DrivenJoints(mbs_data, tsim):
     
     #Angle Alpha
     id_j = mbs_data.joint_id['Alpha']
-    mbs_data.q[id_j] = -0
+    mbs_data.q[id_j] = -0.4
     mbs_data.qd[id_j] = 0
     mbs_data.qdd[id_j] = 0
     

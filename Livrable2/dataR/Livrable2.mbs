@@ -382,6 +382,7 @@
           <y>0.0</y>
           <z>0.0</z>
         </coordinates>
+        <sensor name="Sensor_RWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true" Jac="true" />
         <extforce name="ExtForce_RWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true">
           <x3D>
             <force show="true" showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
@@ -496,6 +497,9 @@
         <jointname>Alpha</jointname>
         <type>R2</type>
         <nature>driven</nature>
+        <initialvalue>
+          <q>-0.4</q>
+        </initialvalue>
         <symbols>
           <q />
           <qd />
@@ -662,6 +666,7 @@
           <y>0.0</y>
           <z>0.0</z>
         </coordinates>
+        <sensor name="Sensor_FWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true" Jac="true" />
         <extforce name="ExtForce_FWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true">
           <x3D>
             <force show="true" showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
@@ -779,7 +784,7 @@
       <parameter>
         <name>CFy/FN</name>
         <type>scalar</type>
-        <value>0.25</value>
+        <value>14.0</value>
       </parameter>
       <parameter>
         <name>Cphi/FN</name>

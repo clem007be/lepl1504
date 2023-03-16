@@ -3,6 +3,7 @@
 # Author: Robotran Team
 # (c) Universite catholique de Louvain, 2020
 
+from MBsysPy import MbsSensor
 
 def user_dirdyn_init(mbs_data, mbs_dirdyn):
     """Run specific operation required by the user before running direct dynamic.
@@ -49,6 +50,14 @@ def user_dirdyn_loop(mbs_data, mbs_dirdyn):
     -------
     None.
     """
+    sensor_RWheel = MbsSensor(mbs_data)
+    sensor_FWheel = MbsSensor(mbs_data)
+    sensor_RWheel.comp_s_sensor(1) 
+    sensor_FWheel.comp_s_sensor(2)
+    
+    mbs_data.set_output(sensor_RWheel.P[3], "Sensor_RWheel")
+    mbs_data.set_output(sensor_FWheel.P[3], "Sensor_FWheel")
+    
 
     # Example: The sensor, created in `user_dirdyn_init`, is computed (fields
     #          are updated) and the vertical velocity is added in the list.

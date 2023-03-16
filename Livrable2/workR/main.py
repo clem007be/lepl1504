@@ -38,7 +38,8 @@ mbs_data = Robotran.MbsData('../dataR/Livrable2.mbs')
 
 #cleaning file analyse.txt
 try:
-    f = open('../analyse/analyse.txt','w')
+    f = open('../analyse/analyse_RWheel.txt','w')
+    f = open('../analyse/analyse_FWheel.txt','w')
     f.close()
 except:
     print('unable to open file analyse.txt')
@@ -55,7 +56,7 @@ mbs_part.run()
 # =============================================================================
 mbs_data.process = 3
 mbs_dirdyn = Robotran.MbsDirdyn(mbs_data)
-mbs_dirdyn.set_options(dt0=1e-3, tf=5.0, save2file=1)
+mbs_dirdyn.set_options(dt0=1e-3, tf=3.0, save2file=1)
 results = mbs_dirdyn.run()
 
 # %%===========================================================================
@@ -79,6 +80,13 @@ axis.grid(True)
 axis.set_xlim(left=mbs_dirdyn.get_options('t0'), right=mbs_dirdyn.get_options('tf'))
 axis.set_xlabel('Time (s)')
 axis.set_ylabel('Coordinate value (m or rad)')
+axis.legend()
+
+fig2 = plt.figure(num='Sensor')
+axis = fig2.gca()
+axis.plot(results.t, results.outputs['Sensor_FWheel'], label='FWheel')
+axis.plot(results.t, results.outputs['Sensor_RWheel'], label='Rwheel')
+axis.grid(True)
 axis.legend()
 
 plt.show()

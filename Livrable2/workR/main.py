@@ -64,15 +64,19 @@ results = mbs_dirdyn.run()
 # =============================================================================
 try:
     import matplotlib.pyplot as plt
+    import matplotlib.gridspec as gridspec
+
 except Exception:
     raise RuntimeError('Unable to load matplotlib, plotting results unavailable.')
 
+
 # Figure creation
 fig = plt.figure(num='Example of plot')
+fig.clear()
 axis = fig.gca()
 
 # Plotting data's
-for i in range(1,len(results.q[0])):
+for i in range(2,len(results.q[0])):
     axis.plot(results.q[:, 0], results.q[:, i], label='q[{}]'.format(i))
 
 # Figure enhancement
@@ -82,11 +86,19 @@ axis.set_xlabel('Time (s)')
 axis.set_ylabel('Coordinate value (m or rad)')
 axis.legend()
 
-fig2 = plt.figure(num='Sensor')
-axis = fig2.gca()
-axis.plot(results.t, results.outputs['Sensor_FWheel'], label='FWheel')
-axis.plot(results.t, results.outputs['Sensor_RWheel'], label='Rwheel')
-axis.grid(True)
-axis.legend()
+# fig2 = plt.figure('Sensor')
+# fig2.clear()
+# gs = gridspec.GridSpec(2,1)
+# axis = fig2.add_subplot(gs[0,0])
+# axis.plot(results.t, results.outputs['Sensor_FWheelX'], label='FWheel')
+# axis.plot(results.t, results.outputs['Sensor_RWheelX'], label='Rwheel')
+# axis.grid(True)
+# axis.legend()
+
+# axis = fig2.add_subplot(gs[1,0])
+# axis.plot(results.t, results.outputs['Sensor_FWheelZ'], label='FWheel')
+# axis.plot(results.t, results.outputs['Sensor_RWheelZ'], label='Rwheel')
+# axis.grid(True)
+# axis.legend()
 
 plt.show()

@@ -55,8 +55,10 @@ def user_dirdyn_loop(mbs_data, mbs_dirdyn):
     sensor_RWheel.comp_s_sensor(1) 
     sensor_FWheel.comp_s_sensor(2)
     
-    mbs_data.set_output(sensor_RWheel.P[3], "Sensor_RWheel")
-    mbs_data.set_output(sensor_FWheel.P[3], "Sensor_FWheel")
+    mbs_data.set_output(sensor_RWheel.P[1], "Sensor_RWheelX")
+    mbs_data.set_output(sensor_FWheel.P[1], "Sensor_FWheelX")
+    mbs_data.set_output(sensor_RWheel.P[3], "Sensor_RWheelZ")
+    mbs_data.set_output(sensor_FWheel.P[3], "Sensor_FWheelZ")
     
 
     # Example: The sensor, created in `user_dirdyn_init`, is computed (fields

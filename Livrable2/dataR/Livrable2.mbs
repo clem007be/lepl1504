@@ -20,8 +20,8 @@
         </position>
         <base_body>
           <position>
-            <x>-52.0</x>
-            <y>-27.0</y>
+            <x>-53.0</x>
+            <y>-26.0</y>
           </position>
           <name_pos>
             <x>0.0</x>
@@ -34,20 +34,20 @@
           </size>
           <control_points>
             <control_point>
-              <x>51.0</x>
-              <y>-27.0</y>
+              <x>50.0</x>
+              <y>-26.0</y>
             </control_point>
             <control_point>
-              <x>51.0</x>
-              <y>28.0</y>
+              <x>50.0</x>
+              <y>29.0</y>
             </control_point>
             <control_point>
-              <x>-52.0</x>
-              <y>28.0</y>
+              <x>-53.0</x>
+              <y>29.0</y>
             </control_point>
             <control_point>
-              <x>-52.0</x>
-              <y>-27.0</y>
+              <x>-53.0</x>
+              <y>-26.0</y>
             </control_point>
           </control_points>
           <angle>0.0</angle>
@@ -99,7 +99,15 @@
       <joint>
         <jointname>T1Frame</jointname>
         <type>T1</type>
-        <nature>independent</nature>
+        <nature>driven</nature>
+        <initialvalue>
+          <qd>1.0</qd>
+        </initialvalue>
+        <symbols>
+          <q />
+          <qd />
+          <qdd />
+        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -356,6 +364,9 @@
         <jointname>R2RWheel</jointname>
         <type>R2</type>
         <nature>independent</nature>
+        <initialvalue>
+          <qd>0.001</qd>
+        </initialvalue>
         <graphics>
           <x2D>
             <position>
@@ -638,6 +649,7 @@
         <type>R2</type>
         <nature>independent</nature>
         <initialvalue>
+          <q>0.4</q>
           <qd>0.001</qd>
         </initialvalue>
         <graphics>
@@ -691,8 +703,8 @@
       <graphics>
         <x2D>
           <position>
-            <x>15.0</x>
-            <y>31.0</y>
+            <x>31.0</x>
+            <y>14.0</y>
           </position>
           <name_pos>
             <x>0.0</x>
@@ -705,8 +717,8 @@
           </size>
           <control_points>
             <control_point>
-              <x>65.0</x>
-              <y>31.0</y>
+              <x>81.0</x>
+              <y>14.0</y>
             </control_point>
           </control_points>
           <angle>0.0</angle>

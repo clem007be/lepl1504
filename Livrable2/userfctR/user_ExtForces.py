@@ -94,7 +94,19 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
             dedt = np.dot(tgc_dic['Rt_ground'],tgc_dic['Vmct'])
             Fz = K*tgc_dic['pen']-50*dedt[3]
         
-        verbose(False,'../analyse/analyse_RWheel.txt',tgc_dic)
+        FWheel = np.array([3,0,0,0])
+        MWheel = np.array([3,0,0,0])
+        tgc_bakker_contact(FWheel,MWheel, tgc_dic['angslip'],tgc_dic['angcamb'],tgc_dic['slip'])
+        FWheel = np.dot(tgc_dic['Rt_ground'],FWheel)
+        MWheel = np.dot(tgc_dic['Rt_ground'],MWheel)
+        Fx = FWheel[1]
+        My = MWheel[2]
+        #Ca part pas en couille ça mais c'est pas bon==============
+        # CFx = mbs_data.user_model['roue']['CFx']
+        # Flong = CFx*tgc_dic['slip']
+        #==========================================================
+        
+        verbose(True,'../analyse/analyse_RWheel.txt',tgc_dic)
         
     Fext = mbs_data.extforce_id["ExtForce_FWheel"]
     if ixF == Fext:
@@ -115,7 +127,21 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
             D = mbs_data.user_model['roue']['D']
             dedt = np.dot(tgc_dic['Rt_ground'],tgc_dic['Vmct'])
             Fz = K*tgc_dic['pen']-50*dedt[3]
-            verbose(False,'../analyse/analyse_FWheel.txt',tgc_dic)
+        
+        FWheel = np.array([3,0,0,0])
+        MWheel = np.array([3,0,0,0])
+        tgc_bakker_contact(FWheel,MWheel, tgc_dic['angslip'],tgc_dic['angcamb'],tgc_dic['slip'])
+        FWheel = np.dot(tgc_dic['Rt_ground'],FWheel)
+        MWheel = np.dot(tgc_dic['Rt_ground'],MWheel)
+        Fx = FWheel[1]
+        My = MWheel[2]
+        
+        #Ca part pas en couille ça mais c'est pas bon =========================
+        #CFx = mbs_data.user_model['roue']['CFx']
+        #Flong = CFx*tgc_dic['slip']
+        #======================================================================
+        
+        verbose(True,'../analyse/analyse_FWheel.txt',tgc_dic)
             
     # pen = tgc[0]
     # rz = tgc[1]

@@ -105,8 +105,8 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     idpt = mbs_data.xfidpt[ixF]
     dxF = mbs_data.dpt[1:, idpt]
     
-    analyseTGC = False
-    analyseForce = False
+    analyseTGC = True
+    analyseForce = True
     
     # Roue arrière ============================================================
     Fext = mbs_data.extforce_id["ExtForce_RWheel"]
@@ -114,28 +114,46 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
         
         R0 = mbs_data.user_model['roue']['R0']
         tgc = tgc_car_kine_wheel(PxF, RxF, VxF, OMxF, R0)
-        sensor_RWheel = MbsSensor(mbs_data)
-        sensor_RWheel.comp_s_sensor(mbs_data.sensor_id['Sensor_RWheel'])
-        R_Y_I = sensor_RWheel.R
     
         # Transformation en dictionnaire pour une utilisation plus simple =====
         arg = ['pen','rz','angslip','angcamb','slip','Pct','Vmct','Rt_ground','dxF']
         tgc_dic = {}
         for i in range(len(tgc)):
             tgc_dic[arg[i]] = tgc[i] 
+            
+        R_T_I = tgc_dic['Rt_ground']
+
         
         # Force Normale =======================================================
         if(tgc_dic['pen'] > 0):
             K = mbs_data.user_model['roue']['K']
             D = mbs_data.user_model['roue']['D']
-            FN = K*tgc_dic['pen']-D*tgc_dic['Vmct'][3]
-            F[3] += FN
-        
+            FN = K*tgc_dic['pen'] - D*tgc_dic['Vmct'][3]
+            FN_T = np.array([3., 0., 0., FN])
+            FN_I = matrix_vector_product(R_T_I.T, FN_T)
+            for i in range(1,4):
+                F[i] += FN_I[i]    
+            
         # Force longitudinale =================================================
         if (tgc_dic['pen'] > 0):
             CFx = mbs_data.user_model['roue']['CFx']
             Flong = CFx*tgc_dic['slip']
-            F[1] = Flong
+            Flong_T = np.array([3., Flong, 0., 0.])
+            Flong_I = matrix_vector_product(R_T_I.T, Flong_T)
+            for i in range(1,4):
+                F[i] += Flong_I[i]
+            
+        # Force latérale et moment d'autoalignement ===========================
+        if(tgc_dic['pen'] > 0):
+            CFy = mbs_data.user_model['roue']['CFy/FN'] * FN
+            Cphi = mbs_data.user_model['roue']['Cphi/FN'] * FN
+            CMz = CFy * mbs_data.user_model['roue']['coefRWheel']
+            Mz = CMz * tgc_dic['angslip']
+            Flat = -CFy * tgc_dic['angslip'] - Cphi * tgc_dic['angcamb']# - CMz * rw/V
+            Flat_T = np.array([3., 0., Flat, 0.])
+            Flat_I = matrix_vector_product(R_T_I.T, Flat_T)
+            for i in range(1,4):
+                F[i] += Flat_I[i]
         
         dxF = tgc_dic['dxF'][1:]
         
@@ -155,20 +173,39 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
         for i in range(len(tgc)):
             tgc_dic[arg[i]] = tgc[i] 
         
+        R_T_I = tgc_dic['Rt_ground']
+        
         # Force normale =======================================================
         if(tgc_dic['pen'] > 0):
             K = mbs_data.user_model['roue']['K']
             D = mbs_data.user_model['roue']['D']
             FN = K*tgc_dic['pen']-D*tgc_dic['Vmct'][3]
-            F[3] = FN       
-            
+            FN_T = np.array([3., 0., 0., FN])
+            FN_I = matrix_vector_product(R_T_I.T, FN_T)
+            for i in range(1,4):
+                F[i] += FN_I[i]               
+                
         # Force longitudinale =================================================
-        if (tgc_dic['pen'] >= 0):
+        if(tgc_dic['pen'] > 0):
             CFx = mbs_data.user_model['roue']['CFx']
             Flong = CFx*tgc_dic['slip']
-            F[1] = Flong
+            Flong_T = np.array([3., Flong, 0., 0.])
+            Flong_I = matrix_vector_product(R_T_I.T, Flong_T)
+            for i in range(1,4):
+                F[i] += Flong_I[i]
+        
+        # Force latérale et moment d'autoalignement ===========================
+        if(tgc_dic['pen'] > 0):
+            CFy = mbs_data.user_model['roue']['CFy/FN'] * FN
+            Cphi = mbs_data.user_model['roue']['Cphi/FN'] * FN
+            CMz = CFy * mbs_data.user_model['roue']['coefFWheel']
+            Mz = CMz * tgc_dic['angslip']
+            Flat = -CFy * tgc_dic['angslip'] - Cphi * tgc_dic['angcamb']# - CMz * rw/V
+            Flat_T = np.array([3., 0., Flat, 0.])
+            Flat_I = matrix_vector_product(R_T_I.T, Flat_T)
+            for i in range(1,4):
+                F[i] += Flat_I[i]
             
-
         dxF = tgc_dic['dxF'][1:]
         
         verbose_tgc(analyseTGC, 'analyse_FWheel', tgc_dic, tsim, ftype='txt')

@@ -5,10 +5,12 @@
 from mbs_tgc import *
 import numpy as np
 import csv
+from MBsysPy import MbsSensor
 from MBsysPy import matrix_vector_product
 
-def verbose_tgc(boo, file, tgc_dic, ftype='txt'):
+def verbose_tgc(boo, filename, tgc_dic, tsim, ftype='txt'):
     if(boo):
+        file = '../analyse/{}.{}'.format(filename,ftype)
         if(ftype == 'csv'):
             try :
                 f = open(file,'a')
@@ -20,6 +22,7 @@ def verbose_tgc(boo, file, tgc_dic, ftype='txt'):
         elif(ftype == 'txt'):
             try :
                 f = open(file,'a')
+                f.write('Time : {}\n'.format(tsim))
                 for i in tgc_dic:    
                     f.write('{} : {}\n'.format(i, tgc_dic[i]))
                 f.write('\n')
@@ -27,8 +30,9 @@ def verbose_tgc(boo, file, tgc_dic, ftype='txt'):
             except :
                 print("unable to open the file tgc.txt") 
             
-def verbose_Force(boo,file,Force,ftype='txt'):
+def verbose_Force(boo, filename, Force, tsim, ftype='txt'):
     if(boo):
+        file = '../analyse/{}.{}'.format(filename,ftype)
         if ftype == 'csv':
             try:
                 f = open(file,'a')
@@ -40,6 +44,7 @@ def verbose_Force(boo,file,Force,ftype='txt'):
         if ftype == 'txt':
             try:
                 f = open(file,'a')
+                f.write('Time : {}\n'.format(tsim))
                 f.write('Force : {:2e}, {:2e}, {:2e}\n'.format(Force[1],Force[2],Force[3]))
                 f.write('\n')
                 f.close()
@@ -100,50 +105,48 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     idpt = mbs_data.xfidpt[ixF]
     dxF = mbs_data.dpt[1:, idpt]
     
-    analyseTGC = True
-    analyseForce = True
+    analyseTGC = False
+    analyseForce = False
     
     # Roue arrière ============================================================
     Fext = mbs_data.extforce_id["ExtForce_RWheel"]
     if ixF == Fext:
         
         R0 = mbs_data.user_model['roue']['R0']
-    
         tgc = tgc_car_kine_wheel(PxF, RxF, VxF, OMxF, R0)
+        sensor_RWheel = MbsSensor(mbs_data)
+        sensor_RWheel.comp_s_sensor(mbs_data.sensor_id['Sensor_RWheel'])
+        R_Y_I = sensor_RWheel.R
     
         # Transformation en dictionnaire pour une utilisation plus simple =====
         arg = ['pen','rz','angslip','angcamb','slip','Pct','Vmct','Rt_ground','dxF']
         tgc_dic = {}
         for i in range(len(tgc)):
             tgc_dic[arg[i]] = tgc[i] 
-    
+        
         # Force Normale =======================================================
         if(tgc_dic['pen'] > 0):
             K = mbs_data.user_model['roue']['K']
             D = mbs_data.user_model['roue']['D']
-            dedt = np.dot(RxF,tgc_dic['Vmct'])
-            F[3] = K*tgc_dic['pen']-D*dedt[3]
+            FN = K*tgc_dic['pen']-D*tgc_dic['Vmct'][3]
+            F[3] += FN
         
         # Force longitudinale =================================================
-        # if (tgc_dic['pen'] > 0):
-        #     CFx = mbs_data.user_model['roue']['CFx']
-        #     Flong = CFx*tgc_dic['slip']
-        #     Flong_I = np.array([3., Flong, 0., 0.])
-        #     Flong_Y = matrix_vector_product(RxF, Flong_I)
-        #     for i in range(1,4):
-        #         F[i] += Flong_Y[i]
+        if (tgc_dic['pen'] > 0):
+            CFx = mbs_data.user_model['roue']['CFx']
+            Flong = CFx*tgc_dic['slip']
+            F[1] = Flong
         
         dxF = tgc_dic['dxF'][1:]
         
-        verbose_tgc(analyseTGC,'../analyse/analyse_RWheel.txt',tgc_dic,ftype='txt')
-        verbose_Force(analyseForce,'../analyse/Force_RWheel.txt', F, ftype='txt')
+        verbose_tgc(analyseTGC, 'analyse_RWheel', tgc_dic, tsim, ftype='txt')
+        verbose_Force(analyseForce, 'Force_RWheel', F, tsim, ftype='txt')
     
     # Roue avant ==============================================================
     Fext = mbs_data.extforce_id["ExtForce_FWheel"]
     if ixF == Fext:
         
         R0 = mbs_data.user_model['roue']['R0']
-    
         tgc = tgc_car_kine_wheel(PxF, RxF, VxF, OMxF, R0)
     
         # Transformation en dictionnaire pour une utilisation plus simple =====
@@ -156,22 +159,20 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
         if(tgc_dic['pen'] > 0):
             K = mbs_data.user_model['roue']['K']
             D = mbs_data.user_model['roue']['D']
-            dedt = np.dot(RxF,tgc_dic['Vmct'])
-            F[3] = K*tgc_dic['pen']-D*dedt[3]        
+            FN = K*tgc_dic['pen']-D*tgc_dic['Vmct'][3]
+            F[3] = FN       
             
         # Force longitudinale =================================================
-        # if (tgc_dic['pen'] >= 0):
-        #     CFx = mbs_data.user_model['roue']['CFx']
-        #     Flong = CFx*tgc_dic['slip']
-        #     Flong_I = np.array([3., Flong, 0.,0.])
-        #     Flong_Y = matrix_vector_product(RxF, Flong_I)
-        #     for i in range(1,4):
-        #         F[i] += Flong_Y[i]
+        if (tgc_dic['pen'] >= 0):
+            CFx = mbs_data.user_model['roue']['CFx']
+            Flong = CFx*tgc_dic['slip']
+            F[1] = Flong
+            
 
         dxF = tgc_dic['dxF'][1:]
         
-        verbose_tgc(analyseTGC,'../analyse/analyse_FWheel.txt',tgc_dic,ftype='txt')
-        verbose_Force(analyseForce,'../analyse/Force_FWheel.txt' , F,ftype='txt')
+        verbose_tgc(analyseTGC, 'analyse_FWheel', tgc_dic, tsim, ftype='txt')
+        verbose_Force(analyseForce, 'Force_FWheel', F, tsim, ftype='txt')
 
     # Concatenating force, torque and force application point to returned array.
     # This must not be modified.

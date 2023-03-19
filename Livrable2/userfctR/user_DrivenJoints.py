@@ -50,13 +50,16 @@ def user_DrivenJoints(mbs_data, tsim):
     
     #Cadre Vélo
     id_j = mbs_data.joint_id['T1Frame']
-    mbs_data.q[id_j] = tsim*1
-    mbs_data.qd[id_j] = 1
-    mbs_data.qdd[id_j] = 0
+    p0 = mbs_data.q0[id_j]
+    v0 = mbs_data.qd0[id_j]
+    a0 = mbs_data.qdd0[id_j]
+    mbs_data.q[id_j] = p0 + v0*tsim + a0/2 * tsim**2
+    mbs_data.qd[id_j] = v0 + a0 * tsim
+    mbs_data.qdd[id_j] = a0
     
     #Angle Alpha
     id_j = mbs_data.joint_id['Alpha']
-    mbs_data.q[id_j] = -0.4
+    mbs_data.q[id_j] = mbs_data.q0[id_j]
     mbs_data.qd[id_j] = 0
     mbs_data.qdd[id_j] = 0
     

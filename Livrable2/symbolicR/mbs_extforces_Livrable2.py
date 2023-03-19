@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Thu Mar 16 17:54:00 2023
+#	==> Generation Date: Sun Mar 19 12:29:06 2023
 #
 #	==> Project name: Livrable2
 #
@@ -93,9 +93,9 @@ def extforces(frc, trq, s, tsim):
     OPcp3_16 = OPcp3_15+qd[6]*(-qd[4]*ROcp3_55+OMcp3_25*S5)+qdd[6]*ROcp3_45
     OPcp3_26 = OPcp3_25+qd[6]*(qd[4]*ROcp3_45-OMcp3_15*S5)+qdd[6]*ROcp3_55
     OPcp3_36 = qdd[4]+qd[6]*(OMcp3_15*ROcp3_55-OMcp3_25*ROcp3_45)+qdd[6]*S5
-    RLcp3_17 = ROcp3_16*s.dpt[1,1]
-    RLcp3_27 = ROcp3_26*s.dpt[1,1]
-    RLcp3_37 = ROcp3_36*s.dpt[1,1]
+    RLcp3_17 = ROcp3_16*s.dpt[1,2]
+    RLcp3_27 = ROcp3_26*s.dpt[1,2]
+    RLcp3_37 = ROcp3_36*s.dpt[1,2]
     POcp3_17 = q[1]+RLcp3_17
     POcp3_27 = q[2]+RLcp3_27
     POcp3_37 = q[3]+RLcp3_37
@@ -176,9 +176,9 @@ def extforces(frc, trq, s, tsim):
     OPcp4_16 = OPcp4_15+qd[6]*(-qd[4]*ROcp4_55+OMcp4_25*S5)+qdd[6]*ROcp4_45
     OPcp4_26 = OPcp4_25+qd[6]*(qd[4]*ROcp4_45-OMcp4_15*S5)+qdd[6]*ROcp4_55
     OPcp4_36 = qdd[4]+qd[6]*(OMcp4_15*ROcp4_55-OMcp4_25*ROcp4_45)+qdd[6]*S5
-    RLcp4_17 = ROcp4_16*s.dpt[1,2]+ROcp4_76*s.dpt[3,2]
-    RLcp4_27 = ROcp4_26*s.dpt[1,2]+ROcp4_86*s.dpt[3,2]
-    RLcp4_37 = ROcp4_36*s.dpt[1,2]+ROcp4_96*s.dpt[3,2]
+    RLcp4_17 = ROcp4_16*s.dpt[1,3]+ROcp4_76*s.dpt[3,3]
+    RLcp4_27 = ROcp4_26*s.dpt[1,3]+ROcp4_86*s.dpt[3,3]
+    RLcp4_37 = ROcp4_36*s.dpt[1,3]+ROcp4_96*s.dpt[3,3]
     POcp4_17 = q[1]+RLcp4_17
     POcp4_27 = q[2]+RLcp4_27
     POcp4_37 = q[3]+RLcp4_37
@@ -203,9 +203,9 @@ def extforces(frc, trq, s, tsim):
     OPcp4_18 = OPcp4_17+qd[9]*(OMcp4_27*ROcp4_98-OMcp4_37*ROcp4_88)+qdd[9]*ROcp4_78
     OPcp4_28 = OPcp4_27+qd[9]*(-OMcp4_17*ROcp4_98+OMcp4_37*ROcp4_78)+qdd[9]*ROcp4_88
     OPcp4_38 = OPcp4_37+qd[9]*(OMcp4_17*ROcp4_88-OMcp4_27*ROcp4_78)+qdd[9]*ROcp4_98
-    RLcp4_19 = ROcp4_78*s.dpt[3,4]
-    RLcp4_29 = ROcp4_88*s.dpt[3,4]
-    RLcp4_39 = ROcp4_98*s.dpt[3,4]
+    RLcp4_19 = ROcp4_78*s.dpt[3,5]
+    RLcp4_29 = ROcp4_88*s.dpt[3,5]
+    RLcp4_39 = ROcp4_98*s.dpt[3,5]
     POcp4_19 = POcp4_17+RLcp4_19
     POcp4_29 = POcp4_27+RLcp4_29
     POcp4_39 = POcp4_37+RLcp4_39

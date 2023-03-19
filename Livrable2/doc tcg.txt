@@ -39,7 +39,7 @@ mbs_tgc.tgc_car_kine_wheel(Pw, Rw, Vw, OMw, rnom)
               Camber angle.
     slip : float
            Longitudinal slip. Be careful that the geometrical contact point
-           velocity can not be zero (infinite slip !).
+           velocity can not be zero (infinite slip !). 
     Pct : numpy.ndarray
           Position of the contact point expressed in the frame [I] as
           [3., Pct_x, Pct_y, Pct_z].

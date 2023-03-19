@@ -39,10 +39,15 @@ mbs_data = Robotran.MbsData('../dataR/Livrable2.mbs')
 #cleaning file analyse.txt
 try:
     f = open('../analyse/analyse_RWheel.txt','w')
+    f.close()
     f = open('../analyse/analyse_FWheel.txt','w')
     f.close()
+    f = open('../analyse/Force_FWheel.txt','w')
+    f.close()
+    f = open('../analyse/Force_RWheel.txt','w')
+    f.close()
 except:
-    print('unable to open file analyse.txt')
+    print('unable to open file')
 # %%===========================================================================
 # Partitionning
 # =============================================================================
@@ -71,20 +76,24 @@ except Exception:
 
 
 # Figure creation
-fig = plt.figure(num='Example of plot')
+fig = plt.figure(num='Example of plot',)
 fig.clear()
-axis = fig.gca()
+fig.set_tight_layout(True)
+gs = gridspec.GridSpec(3,4)
 
 # Plotting data's
-for i in range(2,len(results.q[0])):
-    axis.plot(results.q[:, 0], results.q[:, i], label='q[{}]'.format(i))
+for i in range(1,len(results.q[0])):
+    axis = fig.add_subplot(gs[(i-1)//4, (i-1)%4])
+    axis.plot(results.q[:, 0], results.q[:, i])
+    
+    axis.set_title('q[{}]'.format(i))
+    axis.grid(True)
+    axis.set_xlabel('Time (s)')
+    axis.set_ylabel('Coordinate value (m or rad)')
 
 # Figure enhancement
-axis.grid(True)
-axis.set_xlim(left=mbs_dirdyn.get_options('t0'), right=mbs_dirdyn.get_options('tf'))
-axis.set_xlabel('Time (s)')
-axis.set_ylabel('Coordinate value (m or rad)')
-axis.legend()
+# axis.set_xlim(left=mbs_dirdyn.get_options('t0'), right=mbs_dirdyn.get_options('tf'))
+
 
 # fig2 = plt.figure('Sensor')
 # fig2.clear()

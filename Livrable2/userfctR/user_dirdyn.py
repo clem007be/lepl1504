@@ -50,22 +50,6 @@ def user_dirdyn_loop(mbs_data, mbs_dirdyn):
     -------
     None.
     """
-    sensor_RWheel = MbsSensor(mbs_data)
-    sensor_FWheel = MbsSensor(mbs_data)
-    sensor_RWheel.comp_s_sensor(mbs_data.sensor_id["Sensor_RWheel"]) 
-    sensor_FWheel.comp_s_sensor(mbs_data.sensor_id["Sensor_FWheel"])
-    
-    mbs_data.set_output(sensor_RWheel.A[1], "Sensor_RWheelFx")
-    mbs_data.set_output(sensor_FWheel.A[1], "Sensor_FWheelFx")
-    mbs_data.set_output(sensor_RWheel.A[3], "Sensor_RWheelFz")
-    mbs_data.set_output(sensor_FWheel.A[3], "Sensor_FWheelFz")
-    
-
-    # Example: The sensor, created in `user_dirdyn_init`, is computed (fields
-    #          are updated) and the vertical velocity is added in the list.
-    #
-    # mbs_data.my_sensor.comp_s_sensor(1)
-    # mbs_data.my_sensor_v.append(mbs_data.my_sensor.V[3])
 
     return
 

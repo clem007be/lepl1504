@@ -61,7 +61,7 @@ mbs_part.run()
 # =============================================================================
 mbs_data.process = 3
 mbs_dirdyn = Robotran.MbsDirdyn(mbs_data)
-mbs_dirdyn.set_options(dt0=1e-3, tf=3.0, save2file=1)
+mbs_dirdyn.set_options(dt0=1e-3, tf=10.0, save2file=1)
 results = mbs_dirdyn.run()
 
 # %%===========================================================================
@@ -76,7 +76,7 @@ except Exception:
 
 
 # Figure creation
-fig = plt.figure(num='Example of plot',)
+fig = plt.figure(num='Example of plot')
 fig.clear()
 fig.set_tight_layout(True)
 gs = gridspec.GridSpec(3,4)

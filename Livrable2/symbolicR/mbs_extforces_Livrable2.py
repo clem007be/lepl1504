@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Mon Mar 20 02:18:32 2023
+#	==> Generation Date: Thu Mar 23 00:40:48 2023
 #
 #	==> Project name: Livrable2
 #
@@ -293,9 +293,9 @@ def extforces(frc, trq, s, tsim):
     OPcp5_18 = OPcp5_17+qd[9]*(OMcp5_27*ROcp5_98-OMcp5_37*ROcp5_88)+qdd[9]*ROcp5_78
     OPcp5_28 = OPcp5_27+qd[9]*(-OMcp5_17*ROcp5_98+OMcp5_37*ROcp5_78)+qdd[9]*ROcp5_88
     OPcp5_38 = OPcp5_37+qd[9]*(OMcp5_17*ROcp5_88-OMcp5_27*ROcp5_78)+qdd[9]*ROcp5_98
-    RLcp5_19 = ROcp5_78*s.dpt[3,6]
-    RLcp5_29 = ROcp5_88*s.dpt[3,6]
-    RLcp5_39 = ROcp5_98*s.dpt[3,6]
+    RLcp5_19 = ROcp5_78*s.dpt[3,7]
+    RLcp5_29 = ROcp5_88*s.dpt[3,7]
+    RLcp5_39 = ROcp5_98*s.dpt[3,7]
     POcp5_19 = POcp5_17+RLcp5_19
     POcp5_29 = POcp5_27+RLcp5_29
     POcp5_39 = POcp5_37+RLcp5_39
@@ -359,8 +359,8 @@ def extforces(frc, trq, s, tsim):
     xtrq14 = RxF2[1,1]*SWr2[4]+RxF2[1,2]*SWr2[5]+RxF2[1,3]*SWr2[6]
     xtrq24 = RxF2[2,1]*SWr2[4]+RxF2[2,2]*SWr2[5]+RxF2[2,3]*SWr2[6]
     xtrq34 = RxF2[3,1]*SWr2[4]+RxF2[3,2]*SWr2[5]+RxF2[3,3]*SWr2[6]
-    trqext_1_9_3 = xtrq14-xfrc24*SWr2[9]+xfrc34*SWr2[8]
-    trqext_2_9_3 = xtrq24+xfrc14*SWr2[9]-xfrc34*SWr2[7]
+    trqext_1_9_3 = xtrq14-xfrc24*(SWr2[9]-s.l[3,9])+xfrc34*SWr2[8]
+    trqext_2_9_3 = xtrq24+xfrc14*(SWr2[9]-s.l[3,9])-xfrc34*SWr2[7]
     trqext_3_9_3 = xtrq34-xfrc14*SWr2[8]+xfrc24*SWr2[7]
     xfrc15 = RxF3[1,1]*SWr3[1]+RxF3[1,2]*SWr3[2]+RxF3[1,3]*SWr3[3]
     xfrc25 = RxF3[2,1]*SWr3[1]+RxF3[2,2]*SWr3[2]+RxF3[2,3]*SWr3[3]

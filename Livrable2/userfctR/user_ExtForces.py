@@ -211,29 +211,6 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
         
         verbose_tgc(analyseTGC, 'analyse_FWheel', tgc_dic, tsim, ftype='txt')
         verbose_Force(analyseForce, 'Force_FWheel', F, tsim, ftype='txt')
-    
-    # Moment dans le guidon pour garder le vélo droit =========================
-    Fext = mbs_data.extforce_id["ExtForce_Guidon"]
-    if ixF == Fext:
-        sensor_FWheel = MbsSensor(mbs_data)
-        sensor_FWheel.comp_s_sensor(mbs_data.sensor_id['Sensor_FWheel'])
-        if(sensor_FWheel.P[3] < mbs_data.user_model['roue']['R0']):
-            # Trajectoire
-            T2_id = mbs_data.joint_id['T2Frame']
-            T_y = 1
-            T_yd = 1
-            phi0 = 0 #- T_y * mbs_data.q[T2_id] - T_yd * mbs_data.qd[T2_id]
-            # Gestion du moment à appliquer
-            R1_id = mbs_data.joint_id['R1Frame']
-            phi = mbs_data.q[R1_id]
-            phid = mbs_data.qd[R1_d]
-            K_phi = 80
-            K_phid = 125
-            Mz = - K_phi * (phi - phi0) - K_phid * phid
-            M_T = np.array([3., 0., 0., Mz])
-            M_I = matrix_vector_product(RxF.T,M_T)
-            for i in range(1,4):
-                M[i] = M_I[i]  
         
     # Concatenating force, torque and force application point to returned array.
     # This must not be modified.

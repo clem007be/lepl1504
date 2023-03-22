@@ -26,28 +26,30 @@ Contact : info@robotran.be
 # =============================================================================
 try:
     import MBsysPy as Robotran
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import matplotlib.gridspec as gridspec
 except:
     raise ImportError("MBsysPy not found/installed."
                       "See: https://www.robotran.eu/download/how-to-install/"
                       )
-
 # %%===========================================================================
 # Project loading
 # =============================================================================
 mbs_data = Robotran.MbsData('../dataR/Livrable2.mbs')
 
 #cleaning file analyse.txt
-try:
-    f = open('../analyse/analyse_RWheel.txt','w')
-    f.close()
-    f = open('../analyse/analyse_FWheel.txt','w')
-    f.close()
-    f = open('../analyse/Force_FWheel.txt','w')
-    f.close()
-    f = open('../analyse/Force_RWheel.txt','w')
-    f.close()
-except:
-    print('unable to open file')
+# try:
+#     f = open('../analyse/analyse_RWheel.txt','w')
+#     f.close()
+#     f = open('../analyse/analyse_FWheel.txt','w')
+#     f.close()
+#     f = open('../analyse/Force_FWheel.txt','w')
+#     f.close()
+#     f = open('../analyse/Force_RWheel.txt','w')
+#     f.close()
+# except:
+#     print('unable to open file')
 # %%===========================================================================
 # Partitionning
 # =============================================================================
@@ -67,23 +69,17 @@ results = mbs_dirdyn.run()
 # %%===========================================================================
 # Plotting results
 # =============================================================================
-try:
-    import matplotlib.pyplot as plt
-    import matplotlib.gridspec as gridspec
 
-except Exception:
-    raise RuntimeError('Unable to load matplotlib, plotting results unavailable.')
-
+# np.savetxt('../analyse/q5/v/stabilite/roulis0,2_v{}.txt'.format(i), np.array([results.q[:,5], results.qd[:,5]]))
 
 # Figure creation
 fig = plt.figure(num='Example of plot')
-fig.clear()
 fig.set_tight_layout(True)
 gs = gridspec.GridSpec(3,4)
 
-# Plotting data's
+# # Plotting data's
 for i in range(1,len(results.q[0])):
-# for i in [1,3,6,7,10]:
+# for i in [5]:
     axis = fig.add_subplot(gs[(i-1)//4, (i-1)%4])
     axis.plot(results.q[:, 0], results.q[:, i])
     
@@ -92,33 +88,9 @@ for i in range(1,len(results.q[0])):
     axis.set_xlabel('Time (s)')
     axis.set_ylabel('Coordinate value (m or rad)')
 
+
 # Figure enhancement
 # axis.set_xlim(left=mbs_dirdyn.get_options('t0'), right=mbs_dirdyn.get_options('tf'))
 
-
-# fig2 = plt.figure('Sensor')
-# fig2.clear()
-# gs = gridspec.GridSpec(3,2)
-
-# axis = fig2.add_subplot(gs[0,0])
-# axis.plot(results.q[:,0], results.q[:,10])
-# axis.grid(True)
-# axis.set_title('front wheel')
-# axis = fig2.add_subplot(gs[1,0])
-# axis.plot(results.qd[:,0], results.qd[:,10])
-# axis.grid(True)
-# axis = fig2.add_subplot(gs[2,0])
-# axis.plot(results.qdd[:,0], results.qdd[:,10])
-# axis.grid(True)
-# axis = fig2.add_subplot(gs[0,1])
-# axis.plot(results.q[:,0], results.q[:,7])
-# axis.grid(True)
-# axis.set_title('rear wheel')
-# axis = fig2.add_subplot(gs[1,1])
-# axis.plot(results.qd[:,0], results.qd[:,7])
-# axis.grid(True)
-# axis = fig2.add_subplot(gs[2,1])
-# axis.plot(results.qdd[:,0], results.qdd[:,7])
-# axis.grid(True)
-
 plt.show()
+

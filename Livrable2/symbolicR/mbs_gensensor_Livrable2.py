@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Mon Mar 20 02:18:32 2023
+#	==> Generation Date: Thu Mar 23 00:40:48 2023
 #
 #	==> Project name: Livrable2
 #
@@ -633,9 +633,9 @@ def sensor(sens, s, isens):
     OPcp10_18 = OPcp10_17+ROcp10_78*qdd[9]+qd[9]*(OMcp10_27*ROcp10_98-OMcp10_37*ROcp10_88)
     OPcp10_28 = OPcp10_27+ROcp10_88*qdd[9]+qd[9]*(-OMcp10_17*ROcp10_98+OMcp10_37*ROcp10_78)
     OPcp10_38 = OPcp10_37+ROcp10_98*qdd[9]+qd[9]*(OMcp10_17*ROcp10_88-OMcp10_27*ROcp10_78)
-    RLcp10_19 = ROcp10_78*s.dpt[3,6]
-    RLcp10_29 = ROcp10_88*s.dpt[3,6]
-    RLcp10_39 = ROcp10_98*s.dpt[3,6]
+    RLcp10_19 = ROcp10_78*s.dpt[3,7]
+    RLcp10_29 = ROcp10_88*s.dpt[3,7]
+    RLcp10_39 = ROcp10_98*s.dpt[3,7]
     POcp10_19 = POcp10_17+RLcp10_19
     POcp10_29 = POcp10_27+RLcp10_29
     POcp10_39 = POcp10_37+RLcp10_39

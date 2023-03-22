@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Mon Mar 20 02:18:32 2023
+#	==> Generation Date: Thu Mar 23 00:40:48 2023
 #
 #	==> Project name: Livrable2
 #
@@ -114,9 +114,9 @@ def invdyna(phi,s,tsim):
     OMp110 = C10*(OMp19-qd[10]*OM39)-S10*(OMp39+qd[10]*OM19)
     OMp210 = qdd[10]+OMp29
     OMp310 = C10*(OMp39+qd[10]*OM19)+S10*(OMp19-qd[10]*OM39)
-    ALPHA110 = C10*(ALPHA19+BETA39*s.dpt[3,6])-S10*(ALPHA38+BS99*s.dpt[3,6])
-    ALPHA210 = ALPHA29+BETA69*s.dpt[3,6]
-    ALPHA310 = C10*(ALPHA38+BS99*s.dpt[3,6])+S10*(ALPHA19+BETA39*s.dpt[3,6])
+    ALPHA110 = C10*(ALPHA19+BETA39*s.dpt[3,7])-S10*(ALPHA38+BS99*s.dpt[3,7])
+    ALPHA210 = ALPHA29+BETA69*s.dpt[3,7]
+    ALPHA310 = C10*(ALPHA38+BS99*s.dpt[3,7])+S10*(ALPHA19+BETA39*s.dpt[3,7])
  
 # Backward Dynamics
 
@@ -126,11 +126,14 @@ def invdyna(phi,s,tsim):
     Cq110 = -s.trq[1,10]+s.In[1,10]*OMp110-s.In[5,10]*OM210*OM310+s.In[9,10]*OM210*OM310
     Cq210 = -s.trq[2,10]+s.In[1,10]*OM110*OM310+s.In[5,10]*OMp210-s.In[9,10]*OM110*OM310
     Cq310 = -s.trq[3,10]-s.In[1,10]*OM110*OM210+s.In[5,10]*OM110*OM210+s.In[9,10]*OMp310
-    Fq19 = -s.frc[1,9]+Fs110*C10+Fs310*S10
-    Fq29 = -s.frc[2,9]+Fs210
-    Fq39 = -s.frc[3,9]-Fs110*S10+Fs310*C10
-    Cq19 = -s.trq[1,9]+Cq110*C10+Cq310*S10-Fs210*s.dpt[3,6]
-    Cq29 = -s.trq[2,9]+Cq210+s.dpt[3,6]*(Fs110*C10+Fs310*S10)
+    Fs19 = -s.frc[1,9]+s.m[9]*(ALPHA19+BETA39*s.l[3,9])
+    Fs29 = -s.frc[2,9]+s.m[9]*(ALPHA29+BETA69*s.l[3,9])
+    Fs39 = -s.frc[3,9]+s.m[9]*(ALPHA38+BS99*s.l[3,9])
+    Fq19 = Fs19+Fs110*C10+Fs310*S10
+    Fq29 = Fs210+Fs29
+    Fq39 = Fs39-Fs110*S10+Fs310*C10
+    Cq19 = -s.trq[1,9]+Cq110*C10+Cq310*S10-Fs210*s.dpt[3,7]-Fs29*s.l[3,9]
+    Cq29 = -s.trq[2,9]+Cq210+Fs19*s.l[3,9]+s.dpt[3,7]*(Fs110*C10+Fs310*S10)
     Cq39 = -s.trq[3,9]-Cq110*S10+Cq310*C10
     Fq18 = Fq19*C9-Fq29*S9
     Fq28 = Fq19*S9+Fq29*C9

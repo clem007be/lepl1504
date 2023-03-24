@@ -75,19 +75,18 @@ results = mbs_dirdyn.run()
 # Figure creation
 fig = plt.figure(num='Example of plot')
 fig.set_tight_layout(True)
-gs = gridspec.GridSpec(3,4)
-
-# # Plotting data's
-# for i in range(1,len(results.q[0])):
-# # for i in [5]:
-#     axis = fig.add_subplot(gs[(i-1)//4, (i-1)%4])
-#     axis.plot(results.q[:, 0], results.q[:, i])
+gs = gridspec.GridSpec(4,6)
+dic = mbs_data.joint_id
+# Plotting data's
+for i in dic:
+    id_j = mbs_data.joint_id[i]
+    axis = fig.add_subplot(gs[(id_j-1)//6, (id_j-1)%6])
+    axis.plot(results.q[:, 0], results.q[:, id_j])
     
-#     axis.set_title('q[{}]'.format(i))
-#     axis.grid(True)
-#     axis.set_xlabel('Time (s)')
-#     axis.set_ylabel('Coordinate value (m or rad)')
-
+    axis.set_title('{}'.format(i))
+    axis.grid(True)
+    axis.set_xlabel('Time (s)')
+    axis.set_ylabel('Coordinate value (m or rad)')
 
 # Figure enhancement
 # axis.set_xlim(left=mbs_dirdyn.get_options('t0'), right=mbs_dirdyn.get_options('tf'))

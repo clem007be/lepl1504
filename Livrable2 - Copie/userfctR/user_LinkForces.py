@@ -45,8 +45,8 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
             R1_id = mbs_data.joint_id['R1Frame']
             phi = mbs_data.q[R1_id]
             phid = mbs_data.qd[R1_id]
-            K_phi = 80
-            K_phid = 125
+            K_phi = 30
+            K_phid = 100
             Flink = - K_phi * (phi - phi0) - K_phid * phid
     
     # Amortisseur Arriere

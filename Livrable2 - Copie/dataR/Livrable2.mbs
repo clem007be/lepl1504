@@ -223,6 +223,9 @@
         <jointname>R1Frame</jointname>
         <type>R1</type>
         <nature>independent</nature>
+        <initialvalue>
+          <q>0.1</q>
+        </initialvalue>
         <graphics>
           <x2D>
             <position>
@@ -967,10 +970,10 @@
         </coordinates>
       </com>
       <inertia>
-        <Ixx>0.037</Ixx>
-        <Ixz>-0.012</Ixz>
-        <Iyy>0.093</Iyy>
-        <Izz>0.037</Izz>
+        <Ixx>0.017</Ixx>
+        <Ixz>-0.023</Ixz>
+        <Iyy>0.065</Iyy>
+        <Izz>0.017</Izz>
       </inertia>
       <point>
         <pointname>Point_0</pointname>
@@ -1264,6 +1267,9 @@
         <jointname>R3_Fourche_Rem</jointname>
         <type>R3</type>
         <nature>independent</nature>
+        <initialvalue>
+          <q>0.172</q>
+        </initialvalue>
         <graphics>
           <x2D>
             <position>
@@ -2645,7 +2651,7 @@
         <name>Front</name>
         <joint>base</joint>
         <position>
-          <x>3.0</x>
+          <x>4.0</x>
           <y>0.0</y>
           <z>0.1</z>
         </position>

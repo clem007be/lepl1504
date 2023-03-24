@@ -141,10 +141,15 @@
       <joint>
         <jointname>T3_Attache</jointname>
         <type>T3</type>
-        <nature>independent</nature>
+        <nature>driven</nature>
         <initialvalue>
-          <q>0.95</q>
+          <q>1.0</q>
         </initialvalue>
+        <symbols>
+          <q />
+          <qd />
+          <qdd />
+        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -165,42 +170,8 @@
         <graphics>
           <x2D>
             <position>
-              <x>317.0</x>
-              <y>453.0</y>
-            </position>
-          </x2D>
-          <x3D>
-            <x3D_joint />
-            <x3D_frame />
-          </x3D>
-        </graphics>
-      </joint>
-      <joint>
-        <jointname>R1_Attache</jointname>
-        <type>R1</type>
-        <nature>independent</nature>
-        <graphics>
-          <x2D>
-            <position>
-              <x>221.0</x>
-              <y>446.0</y>
-            </position>
-          </x2D>
-          <x3D>
-            <x3D_joint />
-            <x3D_frame />
-          </x3D>
-        </graphics>
-      </joint>
-      <joint>
-        <jointname>R2_Attache</jointname>
-        <type>R2</type>
-        <nature>independent</nature>
-        <graphics>
-          <x2D>
-            <position>
-              <x>300.0</x>
-              <y>354.0</y>
+              <x>303.0</x>
+              <y>340.0</y>
             </position>
           </x2D>
           <x3D>
@@ -233,8 +204,8 @@
         <graphics>
           <x2D>
             <position>
-              <x>479.0</x>
-              <y>551.0</y>
+              <x>482.0</x>
+              <y>537.0</y>
             </position>
           </x2D>
           <x3D />
@@ -291,12 +262,10 @@
       <joint>
         <jointname>Attache_Amortisseur</jointname>
         <type>R2</type>
-        <nature>driven</nature>
-        <symbols>
-          <q />
-          <qd />
-          <qdd />
-        </symbols>
+        <nature>independent</nature>
+        <initialvalue>
+          <q>-0.03</q>
+        </initialvalue>
         <graphics>
           <x2D>
             <position>
@@ -383,7 +352,7 @@
       </graphics>
     </body>
     <body>
-      <bodyname>Fourche</bodyname>
+      <bodyname>Fourche_Slider</bodyname>
       <parent>
         <bodyname>Amortisseur</bodyname>
         <pointname>Point_0</pointname>
@@ -393,7 +362,7 @@
         <type>R2</type>
         <nature>driven</nature>
         <initialvalue>
-          <q>-0.674</q>
+          <q>-0.4</q>
         </initialvalue>
         <symbols>
           <q />
@@ -403,8 +372,8 @@
         <graphics>
           <x2D>
             <position>
-              <x>924.0</x>
-              <y>567.0</y>
+              <x>931.0</x>
+              <y>541.0</y>
             </position>
           </x2D>
           <x3D>
@@ -413,36 +382,19 @@
           </x3D>
         </graphics>
       </joint>
-      <mass>3.4</mass>
+      <mass>1.2</mass>
       <com>
         <coordinates>
           <x>0.0</x>
           <y>0.0</y>
-          <z>-0.25</z>
+          <z>-0.1</z>
         </coordinates>
       </com>
       <inertia>
-        <Ixx>0.05</Ixx>
-        <Iyy>0.05</Iyy>
-        <Izz>0.005</Izz>
+        <Ixx>0.005</Ixx>
+        <Iyy>0.005</Iyy>
+        <Izz>0.001</Izz>
       </inertia>
-      <point>
-        <pointname>Point_0</pointname>
-        <coordinates>
-          <x>0.0</x>
-          <y>0.0</y>
-          <z>-0.5</z>
-        </coordinates>
-        <graphics>
-          <x2D>
-            <position>
-              <x>849.0</x>
-              <y>741.0</y>
-            </position>
-          </x2D>
-          <x3D />
-        </graphics>
-      </point>
       <point>
         <pointname>Point_1</pointname>
         <coordinates>
@@ -453,8 +405,25 @@
         <graphics>
           <x2D>
             <position>
-              <x>952.0</x>
-              <y>519.0</y>
+              <x>948.0</x>
+              <y>509.0</y>
+            </position>
+          </x2D>
+          <x3D />
+        </graphics>
+      </point>
+      <point>
+        <pointname>Point_2</pointname>
+        <coordinates>
+          <x>0.0</x>
+          <y>0.0</y>
+          <z>-0.2</z>
+        </coordinates>
+        <graphics>
+          <x2D>
+            <position>
+              <x>872.0</x>
+              <y>665.0</y>
             </position>
           </x2D>
           <x3D />
@@ -463,8 +432,8 @@
       <graphics>
         <x2D>
           <position>
-            <x>-59.0</x>
-            <y>-72.0</y>
+            <x>-56.0</x>
+            <y>-53.0</y>
           </position>
           <name_pos>
             <x>0.0</x>
@@ -472,25 +441,25 @@
           </name_pos>
           <shape>rectangle</shape>
           <size>
-            <x>72.0</x>
-            <y>279.0</y>
+            <x>70.0</x>
+            <y>217.0</y>
           </size>
           <control_points>
             <control_point>
-              <x>13.0</x>
-              <y>-72.0</y>
+              <x>19.585016812868844</x>
+              <y>-52.52854896271219</y>
             </control_point>
             <control_point>
-              <x>13.0</x>
-              <y>207.0</y>
+              <x>19.585016812868844</x>
+              <y>84.60885470818721</y>
             </control_point>
             <control_point>
-              <x>-59.0</x>
-              <y>207.0</y>
+              <x>-36.04416272001572</x>
+              <y>84.60885470818721</y>
             </control_point>
             <control_point>
-              <x>-59.0</x>
-              <y>-72.0</y>
+              <x>-36.04416272001572</x>
+              <y>-52.52854896271219</y>
             </control_point>
           </control_points>
           <angle>27.937142826538604</angle>
@@ -503,125 +472,9 @@
       </graphics>
     </body>
     <body>
-      <bodyname>FWheel_Rem</bodyname>
-      <parent>
-        <bodyname>Fourche</bodyname>
-        <pointname>Point_0</pointname>
-      </parent>
-      <joint>
-        <jointname>R2_FWheel_Rem</jointname>
-        <type>R2</type>
-        <nature>independent</nature>
-        <initialvalue>
-          <qd>0.001</qd>
-        </initialvalue>
-        <graphics>
-          <x2D>
-            <position>
-              <x>727.0</x>
-              <y>794.0</y>
-            </position>
-          </x2D>
-          <x3D>
-            <x3D_joint />
-            <x3D_frame />
-          </x3D>
-        </graphics>
-      </joint>
-      <mass>1.2</mass>
-      <inertia>
-        <Ixx>0.012</Ixx>
-        <Iyy>0.024</Iyy>
-        <Izz>0.012</Izz>
-      </inertia>
-      <point>
-        <pointname>origin</pointname>
-        <coordinates>
-          <x>0.0</x>
-          <y>0.0</y>
-          <z>0.0</z>
-        </coordinates>
-        <extforce name="ExtForce_FWheel_Rem" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true">
-          <x3D>
-            <force show="true" showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
-              <x_color R="255" G="0" B="0" />
-              <y_color R="0" G="255" B="0" />
-              <z_color R="0" G="0" B="255" />
-              <resultant_color R="0" G="0" B="0" />
-              <diameter>0.05</diameter>
-              <scale>1.0</scale>
-            </force>
-            <torque showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
-              <x_color R="255" G="0" B="0" />
-              <y_color R="0" G="255" B="0" />
-              <z_color R="0" G="0" B="255" />
-              <resultant_color R="0" G="0" B="0" />
-              <diameter>0.1</diameter>
-              <scale>1.0</scale>
-            </torque>
-          </x3D>
-        </extforce>
-      </point>
-      <graphics>
-        <x2D>
-          <position>
-            <x>-42.0</x>
-            <y>23.0</y>
-          </position>
-          <name_pos>
-            <x>0.0</x>
-            <y>0.0</y>
-          </name_pos>
-          <shape>circle</shape>
-          <size>
-            <x>76.0</x>
-            <y>76.0</y>
-          </size>
-          <control_points>
-            <control_point>
-              <x>34.0</x>
-              <y>23.0</y>
-            </control_point>
-          </control_points>
-          <angle>0.0</angle>
-        </x2D>
-        <x3D>
-          <x3D_com />
-          <x3D_points />
-          <x3D_lines />
-          <x3D_shapes>
-            <cylinder>
-              <name>New_Shape</name>
-              <position>
-                <x>0.0</x>
-                <y>0.0</y>
-                <z>0.0</z>
-              </position>
-              <scale>
-                <x>1.0</x>
-                <y>1.0</y>
-                <z>1.0</z>
-              </scale>
-              <rotation>
-                <x>0.0</x>
-                <y>0.0</y>
-                <z>0.0</z>
-              </rotation>
-              <color R="0" G="0" B="0" />
-              <specularColor R="255" G="255" B="255" />
-              <shininess>250.0</shininess>
-              <transparency>0.5</transparency>
-              <radius>0.2</radius>
-              <height>0.05</height>
-            </cylinder>
-          </x3D_shapes>
-        </x3D>
-      </graphics>
-    </body>
-    <body>
       <bodyname>Chassis_Front</bodyname>
       <parent>
-        <bodyname>Fourche</bodyname>
+        <bodyname>Fourche_Slider</bodyname>
         <pointname>Point_1</pointname>
       </parent>
       <joint>
@@ -646,7 +499,7 @@
         <type>R2</type>
         <nature>driven</nature>
         <initialvalue>
-          <q>0.674</q>
+          <q>0.4</q>
         </initialvalue>
         <symbols>
           <q />
@@ -1448,6 +1301,220 @@
         </x3D>
       </graphics>
     </body>
+    <body>
+      <bodyname>Fourche_Amortisseur</bodyname>
+      <parent>
+        <bodyname>Fourche_Slider</bodyname>
+        <pointname>Point_2</pointname>
+      </parent>
+      <joint>
+        <jointname>Amortisseur_FWheel_Rem</jointname>
+        <type>T3</type>
+        <nature>independent</nature>
+        <initialvalue>
+          <q>0.13</q>
+        </initialvalue>
+        <graphics>
+          <x2D>
+            <position>
+              <x>881.0</x>
+              <y>741.0</y>
+            </position>
+          </x2D>
+          <x3D>
+            <x3D_joint />
+            <x3D_frame />
+          </x3D>
+        </graphics>
+      </joint>
+      <mass>2.2</mass>
+      <com>
+        <coordinates>
+          <x>0.0</x>
+          <y>0.0</y>
+          <z>-0.2</z>
+        </coordinates>
+      </com>
+      <inertia>
+        <Ixx>0.031</Ixx>
+        <Iyy>0.031</Iyy>
+        <Izz>0.003</Izz>
+      </inertia>
+      <point>
+        <pointname>Point_0</pointname>
+        <coordinates>
+          <x>0.0</x>
+          <y>0.0</y>
+          <z>-0.4</z>
+        </coordinates>
+        <graphics>
+          <x2D>
+            <position>
+              <x>884.0</x>
+              <y>807.0</y>
+            </position>
+          </x2D>
+          <x3D />
+        </graphics>
+      </point>
+      <graphics>
+        <x2D>
+          <position>
+            <x>-25.0</x>
+            <y>-11.0</y>
+          </position>
+          <name_pos>
+            <x>0.0</x>
+            <y>0.0</y>
+          </name_pos>
+          <shape>rectangle</shape>
+          <size>
+            <x>49.0</x>
+            <y>95.0</y>
+          </size>
+          <control_points>
+            <control_point>
+              <x>24.0</x>
+              <y>-11.0</y>
+            </control_point>
+            <control_point>
+              <x>24.0</x>
+              <y>84.0</y>
+            </control_point>
+            <control_point>
+              <x>-25.0</x>
+              <y>84.0</y>
+            </control_point>
+            <control_point>
+              <x>-25.0</x>
+              <y>-11.0</y>
+            </control_point>
+          </control_points>
+          <angle>0.0</angle>
+        </x2D>
+        <x3D>
+          <x3D_com />
+          <x3D_points />
+          <x3D_lines />
+        </x3D>
+      </graphics>
+    </body>
+    <body>
+      <bodyname>FWheel_Rem</bodyname>
+      <parent>
+        <bodyname>Fourche_Amortisseur</bodyname>
+        <pointname>Point_0</pointname>
+      </parent>
+      <joint>
+        <jointname>R2_FWheel_Rem</jointname>
+        <type>R2</type>
+        <nature>independent</nature>
+        <initialvalue>
+          <qd>0.001</qd>
+        </initialvalue>
+        <graphics>
+          <x2D>
+            <position>
+              <x>727.0</x>
+              <y>794.0</y>
+            </position>
+          </x2D>
+          <x3D>
+            <x3D_joint />
+            <x3D_frame />
+          </x3D>
+        </graphics>
+      </joint>
+      <mass>1.2</mass>
+      <inertia>
+        <Ixx>0.012</Ixx>
+        <Iyy>0.024</Iyy>
+        <Izz>0.012</Izz>
+      </inertia>
+      <point>
+        <pointname>origin</pointname>
+        <coordinates>
+          <x>0.0</x>
+          <y>0.0</y>
+          <z>0.0</z>
+        </coordinates>
+        <extforce name="ExtForce_FWheel_Rem" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true">
+          <x3D>
+            <force show="true" showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
+              <x_color R="255" G="0" B="0" />
+              <y_color R="0" G="255" B="0" />
+              <z_color R="0" G="0" B="255" />
+              <resultant_color R="0" G="0" B="0" />
+              <diameter>0.05</diameter>
+              <scale>1.0</scale>
+            </force>
+            <torque showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
+              <x_color R="255" G="0" B="0" />
+              <y_color R="0" G="255" B="0" />
+              <z_color R="0" G="0" B="255" />
+              <resultant_color R="0" G="0" B="0" />
+              <diameter>0.1</diameter>
+              <scale>1.0</scale>
+            </torque>
+          </x3D>
+        </extforce>
+      </point>
+      <graphics>
+        <x2D>
+          <position>
+            <x>-42.0</x>
+            <y>23.0</y>
+          </position>
+          <name_pos>
+            <x>0.0</x>
+            <y>0.0</y>
+          </name_pos>
+          <shape>circle</shape>
+          <size>
+            <x>76.0</x>
+            <y>76.0</y>
+          </size>
+          <control_points>
+            <control_point>
+              <x>34.0</x>
+              <y>23.0</y>
+            </control_point>
+          </control_points>
+          <angle>0.0</angle>
+        </x2D>
+        <x3D>
+          <x3D_com />
+          <x3D_points />
+          <x3D_lines />
+          <x3D_shapes>
+            <cylinder>
+              <name>New_Shape</name>
+              <position>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+              </position>
+              <scale>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+              </scale>
+              <rotation>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+              </rotation>
+              <color R="0" G="0" B="0" />
+              <specularColor R="255" G="255" B="255" />
+              <shininess>250.0</shininess>
+              <transparency>0.5</transparency>
+              <radius>0.2</radius>
+              <height>0.05</height>
+            </cylinder>
+          </x3D_shapes>
+        </x3D>
+      </graphics>
+    </body>
   </bodytree>
   <links>
     <!--this is the link list-->
@@ -1525,21 +1592,39 @@
       </parameter>
     </user_model>
     <user_model>
-      <name>Amortisseur</name>
+      <name>Amortisseur_Arriere</name>
       <parameter>
         <name>K</name>
         <type>scalar</type>
-        <value>5000.0</value>
+        <value>14000.0</value>
       </parameter>
       <parameter>
         <name>D</name>
         <type>scalar</type>
-        <value>50.0</value>
+        <value>1500.0</value>
       </parameter>
       <parameter>
         <name>Z0</name>
         <type>scalar</type>
-        <value>0.35</value>
+        <value>0.3</value>
+      </parameter>
+    </user_model>
+    <user_model>
+      <name>Amortisseur_Avant</name>
+      <parameter>
+        <name>K</name>
+        <type>scalar</type>
+        <value>1000.0</value>
+      </parameter>
+      <parameter>
+        <name>D</name>
+        <type>scalar</type>
+        <value>100.0</value>
+      </parameter>
+      <parameter>
+        <name>Z0</name>
+        <type>scalar</type>
+        <value>0.05</value>
       </parameter>
     </user_model>
   </user_models>
@@ -1566,7 +1651,7 @@
         <joint>T1_Attache</joint>
         <position>
           <x>0.0</x>
-          <y>-1.0</y>
+          <y>-5.0</y>
           <z>0.0</z>
         </position>
         <target>

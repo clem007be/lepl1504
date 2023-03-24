@@ -28,7 +28,12 @@ def user_JointForces(mbs_data, tsim):
     """
     # cleaning previous forces value
     mbs_data.Qq[1:] = 0.
-
+    
+    id_j = mbs_data.joint_id['Amortisseur_FWheel_Rem']
+    K = mbs_data.user_model['Amortisseur_Avant']['K']
+    D = mbs_data.user_model['Amortisseur_Avant']['D']
+    Z0 = mbs_data.user_model['Amortisseur_Avant']['Z0']
+    mbs_data.Qq[id_j] = -(5000*(mbs_data.q[id_j]-0) + 500*mbs_data.qd[id_j] )
 
     # Example: damping in joint number 5
     # D = 0.5 # N/(m/s)

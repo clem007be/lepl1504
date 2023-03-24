@@ -33,9 +33,9 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
     linkD_id = mbs_data.link_id['Amortisseur_RoueD']
     
     if (identity == linkG_id or identity == linkD_id):
-        K = mbs_data.user_model['Amortisseur']['K']
-        D = mbs_data.user_model['Amortisseur']['D']
-        Z0 = mbs_data.user_model['Amortisseur']['Z0']
-        Flink = -8e3*(Z-0.3) + 1e4*Zd
+        K = mbs_data.user_model['Amortisseur_Arriere']['K']
+        D = mbs_data.user_model['Amortisseur_Arriere']['D']
+        Z0 = mbs_data.user_model['Amortisseur_Arriere']['Z0']
+        Flink = K*(Z-Z0) + D*Zd
 
     return Flink

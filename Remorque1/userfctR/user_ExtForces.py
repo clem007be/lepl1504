@@ -270,10 +270,4 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     Swr = mbs_data.SWr[ixF]
     Swr[1:] = [F[1], F[2], F[3], M[1], M[2], M[3], dxF[0], dxF[1], dxF[2]]
 
-
-    # Concatenating force, torque and force application point to returned array.
-    # This must not be modified.
-    Swr = mbs_data.SWr[ixF]
-    Swr[1:] = [F[1], F[2], F[3], M[1], M[2], M[3], dxF[0], dxF[1], dxF[2]]
-
     return Swr

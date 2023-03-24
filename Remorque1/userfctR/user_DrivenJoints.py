@@ -32,13 +32,13 @@ def user_DrivenJoints(mbs_data, tsim):
     mbs_data.qdd[id_j] = a0
     
     # Maintien de T3
-    id_j = mbs_data.joint_id['Attache_Amortisseur']
-    mbs_data.q[id_j] = 0
+    id_j = mbs_data.joint_id['T3_Attache']
+    mbs_data.q[id_j] = 1.08
     mbs_data.qd[id_j] = 0
     mbs_data.qdd[id_j] = 0
     # Inclinaison fourche
     id_j = mbs_data.joint_id['Attache_Fourche']
-    mbs_data.q[id_j] = -0.674
+    mbs_data.q[id_j] = -0.4
     mbs_data.qd[id_j] = 0
     mbs_data.qdd[id_j] = 0
     
@@ -56,9 +56,8 @@ def user_DrivenJoints(mbs_data, tsim):
     
     #
     id_j = mbs_data.joint_id['R2_Fourche_Rem']
-    mbs_data.q[id_j] = 0.674
+    mbs_data.q[id_j] = 0.4
     mbs_data.qd[id_j] = 0
     mbs_data.qdd[id_j] = 0
-    
     
     return

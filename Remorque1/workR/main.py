@@ -75,7 +75,7 @@ mbs_part.run()
 # =============================================================================
 mbs_data.process = 3
 mbs_dirdyn = Robotran.MbsDirdyn(mbs_data)
-mbs_dirdyn.set_options(dt0=1e-3, tf=2.0, save2file=1)
+mbs_dirdyn.set_options(dt0=1e-3, tf=3.0, save2file=1)
 results = mbs_dirdyn.run()
 
 # =============================================================================
@@ -83,7 +83,14 @@ results = mbs_dirdyn.run()
 # =============================================================================
 
 fig = plt.figure()
-axis = fig.gca()
-
-axis.plot(results.q[:,0], results.q[:,13])
+fig.set_tight_layout(True)
+gs = gridspec.GridSpec(4, 4)
+dic = mbs_data.joint_id
+for i in dic:
+    id_j = mbs_data.joint_id[i]
+    axis = fig.add_subplot(gs[(id_j-1)//4,(id_j-1)%4])
+    axis.plot(results.q[:,0], results.q[:,id_j])
+    axis.set_title('{}'.format(i))
+    axis.grid(True)
+    
 plt.show()

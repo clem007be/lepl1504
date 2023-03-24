@@ -1,0 +1,105 @@
+
+##############################################################
+#	file4.gen 13/03/2023 15:39:38    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+ Warning (error_data): useless process for this multibody model !
+
+
+##############################################################
+#	file6.gen 13/03/2023 15:39:38    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+ ERROR : The link(1D or 3D) menus require the presence of link(s) (1D or 3D) in the MBS 
+
+
+##############################################################
+#	file3.gen 13/03/2023 15:39:38    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+ Warning (error_data): useless process for this multibody model !
+
+
+##############################################################
+#	file2.gen 13/03/2023 15:39:38    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+ ERROR : The link(1D or 3D) menus require the presence of link(s) (1D or 3D) in the MBS 
+
+
+##############################################################
+#	file5.gen 13/03/2023 15:39:38    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+ Warning (error_data): useless process for this multibody model !
+
+
+##############################################################
+#	file0.gen 13/03/2023 15:39:38    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+	Computation of the kinematics........
+
+	Computation of the dynamics.....................
+
+		Joints    8   7   6   5   4   3   2   1
+
+	Elimination of the superfluous equations.....................
+
+
+		Maximum simultaneous symbolic expressions :  1438
+
+		Maximum number of allocated Kbytes :  67
+
+
+	The symbolic equations have been generated 
+	in the directory: /usr/local/robotran/users/LEPL1504/upload/
+
+
+ 		*** Generation symbolique reussie ! ***
+
+
+
+
+##############################################################
+#	file1.gen 13/03/2023 15:39:38    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+ Warning (error_data): useless process for this multibody model !
+
+
+##############################################################
+#	file1b.gen 13/03/2023 15:39:38    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+	Elimination of the superfluous equations.....................
+
+
+		Maximum simultaneous symbolic expressions :  1201
+
+		Maximum number of allocated Kbytes :  56
+
+
+	The symbolic equations have been generated 
+	in the directory: /usr/local/robotran/users/LEPL1504/upload/
+
+
+ 		*** Generation symbolique reussie ! ***
+
+
+

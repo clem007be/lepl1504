@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Thu Mar 23 15:37:09 2023
+#	==> Generation Date: Fri Mar 24 01:00:00 2023
 #
 #	==> Project name: Remorque
 #
@@ -44,27 +44,27 @@ def link(frc, trq, Flink, Z, Zd, s, tsim):
  
 # Link anchor points Kinematics
 
-    RLlnk1_12 = s.dpt[1,14]*C18
-    RLlnk1_32 = -s.dpt[1,14]*S18
-    POlnk1_12 = RLlnk1_12+s.dpt[1,12]
-    POlnk1_32 = RLlnk1_32+s.dpt[3,12]
+    RLlnk1_12 = s.dpt[1,15]*C18
+    RLlnk1_32 = -s.dpt[1,15]*S18
+    POlnk1_12 = RLlnk1_12+s.dpt[1,13]
+    POlnk1_32 = RLlnk1_32+s.dpt[3,13]
     ORlnk1_12 = qd[18]*RLlnk1_32
     ORlnk1_32 = -qd[18]*RLlnk1_12
-    Plnk11 = -POlnk1_12+s.dpt[1,13]
-    Plnk31 = -POlnk1_32+s.dpt[3,13]
+    Plnk11 = -POlnk1_12+s.dpt[1,14]
+    Plnk31 = -POlnk1_32+s.dpt[3,14]
     PPlnk1 = Plnk11*Plnk11+Plnk31*Plnk31
     Z1 = sqrt(PPlnk1)
     e11 = Plnk11/Z1
     e31 = Plnk31/Z1
     Zd1 = -ORlnk1_12*e11-ORlnk1_32*e31
-    RLlnk3_12 = s.dpt[1,17]*C21
-    RLlnk3_32 = -s.dpt[1,17]*S21
-    POlnk3_12 = RLlnk3_12+s.dpt[1,15]
-    POlnk3_32 = RLlnk3_32+s.dpt[3,15]
+    RLlnk3_12 = s.dpt[1,19]*C21
+    RLlnk3_32 = -s.dpt[1,19]*S21
+    POlnk3_12 = RLlnk3_12+s.dpt[1,17]
+    POlnk3_32 = RLlnk3_32+s.dpt[3,17]
     ORlnk3_12 = qd[21]*RLlnk3_32
     ORlnk3_32 = -qd[21]*RLlnk3_12
-    Plnk12 = -POlnk3_12+s.dpt[1,16]
-    Plnk32 = -POlnk3_32+s.dpt[3,16]
+    Plnk12 = -POlnk3_12+s.dpt[1,18]
+    Plnk32 = -POlnk3_32+s.dpt[3,18]
     PPlnk2 = Plnk12*Plnk12+Plnk32*Plnk32
     Z2 = sqrt(PPlnk2)
     e12 = Plnk12/Z2
@@ -80,16 +80,16 @@ def link(frc, trq, Flink, Z, Zd, s, tsim):
 
     fPlnk11 = Flink1*(e11*C18-e31*S18)
     fPlnk31 = Flink1*(e11*S18+e31*C18)
-    trqlnk18_1_2 = -fPlnk31*s.dpt[1,14]
+    trqlnk18_1_2 = -fPlnk31*(s.dpt[1,15]-s.l[1,18])
     fSlnk11 = Flink1*e11
     fSlnk31 = Flink1*e31
-    trqlnk17_1_2 = -fSlnk11*s.dpt[3,13]+fSlnk31*s.dpt[1,13]
+    trqlnk17_1_2 = -fSlnk11*s.dpt[3,14]+fSlnk31*(s.dpt[1,14]-s.l[1,17])
     fPlnk12 = Flink2*(e12*C21-e32*S21)
     fPlnk32 = Flink2*(e12*S21+e32*C21)
-    trqlnk21_2_2 = -fPlnk32*s.dpt[1,17]
+    trqlnk21_2_2 = -fPlnk32*(s.dpt[1,19]-s.l[1,21])
     fSlnk12 = Flink2*e12
     fSlnk32 = Flink2*e32
-    trqlnk20_2_2 = -fSlnk12*s.dpt[3,16]+fSlnk32*s.dpt[1,16]
+    trqlnk20_2_2 = -fSlnk12*s.dpt[3,18]+fSlnk32*(s.dpt[1,18]-s.l[1,20])
  
 # Symbolic model output
 

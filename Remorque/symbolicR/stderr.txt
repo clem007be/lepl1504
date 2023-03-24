@@ -1,6 +1,6 @@
 
 ##############################################################
-#	file7.gen 23/03/2023 15:37:09    errors
+#	file7.gen 24/03/2023 01:00:00    errors
 ##############################################################
 git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 
@@ -17,32 +17,9 @@ git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 	Elimination of the superfluous equations.....................
 
 
-		Maximum simultaneous symbolic expressions :  2216
+		Maximum simultaneous symbolic expressions :  2908
 
-		Maximum number of allocated Kbytes :  103
-
-
-	The symbolic equations have been generated 
-	in the directory: /usr/local/robotran/users/LEPL1504/upload/
-
-
- 		*** Generation symbolique reussie ! ***
-
-
-
-
-##############################################################
-#	file4.gen 23/03/2023 15:37:09    errors
-##############################################################
-git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
-
-
-	Elimination of the superfluous equations.....................
-
-
-		Maximum simultaneous symbolic expressions :  389
-
-		Maximum number of allocated Kbytes :  18
+		Maximum number of allocated Kbytes :  136
 
 
 	The symbolic equations have been generated 
@@ -55,16 +32,7 @@ git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 
 
 ##############################################################
-#	file6.gen 23/03/2023 15:37:09    errors
-##############################################################
-git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
-
-
- ERROR : The link(1D or 3D) menus require the presence of link(s) (1D or 3D) in the MBS 
-
-
-##############################################################
-#	file3.gen 23/03/2023 15:37:09    errors
+#	file4.gen 24/03/2023 01:00:00    errors
 ##############################################################
 git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 
@@ -72,30 +40,7 @@ git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 	Elimination of the superfluous equations.....................
 
 
-		Maximum simultaneous symbolic expressions :  447
-
-		Maximum number of allocated Kbytes :  20
-
-
-	The symbolic equations have been generated 
-	in the directory: /usr/local/robotran/users/LEPL1504/upload/
-
-
- 		*** Generation symbolique reussie ! ***
-
-
-
-
-##############################################################
-#	file2.gen 23/03/2023 15:37:09    errors
-##############################################################
-git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
-
-
-	Elimination of the superfluous equations.....................
-
-
-		Maximum simultaneous symbolic expressions :  469
+		Maximum simultaneous symbolic expressions :  464
 
 		Maximum number of allocated Kbytes :  21
 
@@ -110,16 +55,85 @@ git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 
 
 ##############################################################
-#	file5.gen 23/03/2023 15:37:09    errors
+#	file6.gen 24/03/2023 01:00:00    errors
 ##############################################################
 git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 
 
- Warning (error_data): useless process for this multibody model !
+ ERROR : The link(1D or 3D) menus require the presence of link(s) (1D or 3D) in the MBS 
 
 
 ##############################################################
-#	file0.gen 23/03/2023 15:37:09    errors
+#	file3.gen 24/03/2023 01:00:00    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+	Elimination of the superfluous equations.....................
+
+
+		Maximum simultaneous symbolic expressions :  522
+
+		Maximum number of allocated Kbytes :  24
+
+
+	The symbolic equations have been generated 
+	in the directory: /usr/local/robotran/users/LEPL1504/upload/
+
+
+ 		*** Generation symbolique reussie ! ***
+
+
+
+
+##############################################################
+#	file2.gen 24/03/2023 01:00:00    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+	Elimination of the superfluous equations.....................
+
+
+		Maximum simultaneous symbolic expressions :  548
+
+		Maximum number of allocated Kbytes :  25
+
+
+	The symbolic equations have been generated 
+	in the directory: /usr/local/robotran/users/LEPL1504/upload/
+
+
+ 		*** Generation symbolique reussie ! ***
+
+
+
+
+##############################################################
+#	file5.gen 24/03/2023 01:00:00    errors
+##############################################################
+git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
+
+
+	Elimination of the superfluous equations.....................
+
+
+		Maximum simultaneous symbolic expressions :  6148
+
+		Maximum number of allocated Kbytes :  288
+
+
+	The symbolic equations have been generated 
+	in the directory: /usr/local/robotran/users/LEPL1504/upload/
+
+
+ 		*** Generation symbolique reussie ! ***
+
+
+
+
+##############################################################
+#	file0.gen 24/03/2023 01:00:00    errors
 ##############################################################
 git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 
@@ -136,9 +150,9 @@ git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 	Elimination of the superfluous equations.....................
 
 
-		Maximum simultaneous symbolic expressions :  3734
+		Maximum simultaneous symbolic expressions :  9548
 
-		Maximum number of allocated Kbytes :  175
+		Maximum number of allocated Kbytes :  447
 
 
 	The symbolic equations have been generated 
@@ -151,16 +165,7 @@ git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 
 
 ##############################################################
-#	file1.gen 23/03/2023 15:37:09    errors
-##############################################################
-git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
-
-
- Warning (error_data): useless process for this multibody model !
-
-
-##############################################################
-#	file1b.gen 23/03/2023 15:37:09    errors
+#	file1.gen 24/03/2023 01:00:00    errors
 ##############################################################
 git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 
@@ -168,9 +173,9 @@ git hash : 8f46effdc05c898000a15b4c4dfc8f70efce4fc0
 	Elimination of the superfluous equations.....................
 
 
-		Maximum simultaneous symbolic expressions :  21734
+		Maximum simultaneous symbolic expressions :  5818
 
-		Maximum number of allocated Kbytes :  1018
+		Maximum number of allocated Kbytes :  272
 
 
 	The symbolic equations have been generated 

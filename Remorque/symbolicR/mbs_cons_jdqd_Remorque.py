@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Thu Mar 23 15:37:09 2023
+#	==> Generation Date: Fri Mar 24 01:00:00 2023
 #
 #	==> Project name: Remorque
 #
@@ -47,14 +47,14 @@ def cons_jdqd(Jdqd, s):
  
 # Constraints Quadratic Terms
 
-    RLjpqp2_12 = s.dpt[1,13]*C17+s.dpt[3,13]*S17
-    RLjpqp2_32 = -s.dpt[1,13]*S17+s.dpt[3,13]*C17
+    RLjpqp2_12 = s.dpt[1,14]*C17+s.dpt[3,14]*S17
+    RLjpqp2_32 = -s.dpt[1,14]*S17+s.dpt[3,14]*C17
     ORjpqp2_12 = RLjpqp2_32*qd[17]
     ORjpqp2_32 = -RLjpqp2_12*qd[17]
     Apqpjpqp2_12 = ORjpqp2_32*qd[17]
     Apqpjpqp2_32 = -ORjpqp2_12*qd[17]
-    RLjpqp4_12 = s.dpt[1,16]*C20+s.dpt[3,16]*S20
-    RLjpqp4_32 = -s.dpt[1,16]*S20+s.dpt[3,16]*C20
+    RLjpqp4_12 = s.dpt[1,18]*C20+s.dpt[3,18]*S20
+    RLjpqp4_32 = -s.dpt[1,18]*S20+s.dpt[3,18]*C20
     ORjpqp4_12 = RLjpqp4_32*qd[20]
     ORjpqp4_32 = -RLjpqp4_12*qd[20]
     Apqpjpqp4_12 = ORjpqp4_32*qd[20]

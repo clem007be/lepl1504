@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Thu Mar 23 15:37:09 2023
+#	==> Generation Date: Fri Mar 24 01:00:00 2023
 #
 #	==> Project name: Remorque
 #
@@ -43,15 +43,15 @@ def cons_hJ(h, Jac, s):
  
 # Constraints and Constraints Jacobian
 
-    POlp1_12 = q[16]+s.dpt[1,10]
-    RLlp2_12 = s.dpt[1,13]*C17+s.dpt[3,13]*S17
-    RLlp2_32 = -s.dpt[1,13]*S17+s.dpt[3,13]*C17
+    POlp1_12 = q[16]+s.dpt[1,11]
+    RLlp2_12 = s.dpt[1,14]*C17+s.dpt[3,14]*S17
+    RLlp2_32 = -s.dpt[1,14]*S17+s.dpt[3,14]*C17
     POlp2_32 = RLlp2_32+s.dpt[3,6]
     h_1 = POlp1_12-RLlp2_12
     h_3 = -POlp2_32
-    POlp3_12 = q[16]+s.dpt[1,11]
-    RLlp4_12 = s.dpt[1,16]*C20+s.dpt[3,16]*S20
-    RLlp4_32 = -s.dpt[1,16]*S20+s.dpt[3,16]*C20
+    POlp3_12 = q[16]+s.dpt[1,12]
+    RLlp4_12 = s.dpt[1,18]*C20+s.dpt[3,18]*S20
+    RLlp4_32 = -s.dpt[1,18]*S20+s.dpt[3,18]*C20
     POlp4_32 = RLlp4_32+s.dpt[3,7]
     h_7 = POlp3_12-RLlp4_12
     h_9 = -POlp4_32

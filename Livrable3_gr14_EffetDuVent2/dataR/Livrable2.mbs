@@ -145,7 +145,7 @@
         <type>T1</type>
         <nature>driven</nature>
         <initialvalue>
-          <qd>7.5</qd>
+          <qd>4.0</qd>
         </initialvalue>
         <symbols>
           <q />
@@ -276,7 +276,7 @@
           <y>0.0</y>
           <z>0.0</z>
         </coordinates>
-        <sensor name="Sensor_Frame" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true" Jac="true" />
+        <sensor name="Sensor_Chassis" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true" Jac="true" />
       </point>
       <point>
         <pointname>WheelPoint1</pointname>
@@ -466,7 +466,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -486,11 +485,11 @@
         <sensor name="Sensor_RWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true" Jac="true" />
         <extforce name="ExtForce_RWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true">
           <x3D>
-            <force show="true" showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
+            <force show="true" showResultant="true" drawPosition="end">
               <x_color R="255" G="0" B="0" />
               <y_color R="0" G="255" B="0" />
               <z_color R="0" G="0" B="255" />
-              <resultant_color R="0" G="0" B="0" />
+              <resultant_color R="255" G="146" B="0" />
               <diameter>0.05</diameter>
               <scale>1.0</scale>
             </force>
@@ -635,7 +634,7 @@
           </x3D>
         </graphics>
       </joint>
-      <mass>0.7</mass>
+      <mass>1.0</mass>
       <com>
         <coordinates>
           <x>0.0</x>
@@ -689,7 +688,7 @@
         </graphics>
       </point>
       <point>
-        <pointname>guidon</pointname>
+        <pointname>guidonGauche</pointname>
         <coordinates>
           <x>0.0</x>
           <y>0.3</y>
@@ -700,6 +699,23 @@
             <position>
               <x>998.0</x>
               <y>403.0</y>
+            </position>
+          </x2D>
+          <x3D />
+        </graphics>
+      </point>
+      <point>
+        <pointname>guidonDroit</pointname>
+        <coordinates>
+          <x>0.0</x>
+          <y>-0.3</y>
+          <z>0.0</z>
+        </coordinates>
+        <graphics>
+          <x2D>
+            <position>
+              <x>961.0</x>
+              <y>451.0</y>
             </position>
           </x2D>
           <x3D />
@@ -773,10 +789,10 @@
               </size>
             </box>
             <cylinder>
-              <name>guidon</name>
+              <name>guidonDroit</name>
               <position>
                 <x>0.0</x>
-                <y>0.0</y>
+                <y>-0.15</y>
                 <z>0.0</z>
               </position>
               <scale>
@@ -789,12 +805,36 @@
                 <y>0.0</y>
                 <z>0.0</z>
               </rotation>
-              <color R="65" G="243" B="77" />
+              <color R="255" G="204" B="51" />
               <specularColor R="255" G="255" B="255" />
               <shininess>250.0</shininess>
               <transparency>0.0</transparency>
               <radius>0.025</radius>
-              <height>0.75</height>
+              <height>0.3</height>
+            </cylinder>
+            <cylinder>
+              <name>guidonGauche</name>
+              <position>
+                <x>0.0</x>
+                <y>0.15</y>
+                <z>0.0</z>
+              </position>
+              <scale>
+                <x>1.0</x>
+                <y>1.0</y>
+                <z>1.0</z>
+              </scale>
+              <rotation>
+                <x>0.0</x>
+                <y>0.0</y>
+                <z>0.0</z>
+              </rotation>
+              <color R="0" G="255" B="204" />
+              <specularColor R="255" G="255" B="255" />
+              <shininess>250.0</shininess>
+              <transparency>0.0</transparency>
+              <radius>0.025</radius>
+              <height>0.3</height>
             </cylinder>
           </x3D_shapes>
         </x3D>
@@ -822,7 +862,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -842,13 +881,13 @@
         <sensor name="Sensor_FWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true" Jac="true" />
         <extforce name="ExtForce_FWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true">
           <x3D>
-            <force show="true" showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
+            <force show="true" showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="start">
               <x_color R="255" G="0" B="0" />
               <y_color R="0" G="255" B="0" />
               <z_color R="0" G="0" B="255" />
-              <resultant_color R="0" G="0" B="0" />
-              <diameter>0.05</diameter>
-              <scale>1.0</scale>
+              <resultant_color R="255" G="146" B="0" />
+              <diameter>0.5</diameter>
+              <scale>5.0</scale>
             </force>
             <torque showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
               <x_color R="255" G="0" B="0" />
@@ -963,7 +1002,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -983,7 +1021,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1053,7 +1090,6 @@
           <angle>-178.13232116056582</angle>
         </x2D>
         <x3D>
-          <x3D_com />
           <x3D_points />
           <x3D_lines />
         </x3D>
@@ -1086,7 +1122,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1156,7 +1191,6 @@
           <angle>0.0</angle>
         </x2D>
         <x3D>
-          <x3D_com />
           <x3D_points />
           <x3D_lines />
         </x3D>
@@ -1189,7 +1223,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1259,7 +1292,6 @@
           <angle>0.0</angle>
         </x2D>
         <x3D>
-          <x3D_com />
           <x3D_points />
           <x3D_lines />
         </x3D>
@@ -1287,7 +1319,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1357,7 +1388,6 @@
           <angle>0.0</angle>
         </x2D>
         <x3D>
-          <x3D_com />
           <x3D_points />
           <x3D_lines />
         </x3D>
@@ -1390,7 +1420,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1477,7 +1506,6 @@
           <angle>27.937142826538604</angle>
         </x2D>
         <x3D>
-          <x3D_com />
           <x3D_points />
           <x3D_lines />
         </x3D>
@@ -1502,7 +1530,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1527,7 +1554,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1597,7 +1623,6 @@
           <angle>0.0</angle>
         </x2D>
         <x3D>
-          <x3D_com />
           <x3D_points />
           <x3D_lines />
         </x3D>
@@ -1627,7 +1652,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1790,7 +1814,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1877,7 +1900,6 @@
           <angle>0.0</angle>
         </x2D>
         <x3D>
-          <x3D_com />
           <x3D_points />
           <x3D_lines />
         </x3D>
@@ -1905,7 +1927,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -2045,7 +2066,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -2132,7 +2152,6 @@
           <angle>0.0</angle>
         </x2D>
         <x3D>
-          <x3D_com />
           <x3D_points />
           <x3D_lines />
         </x3D>
@@ -2160,7 +2179,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -2308,7 +2326,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -2389,7 +2406,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -2487,7 +2503,6 @@
           </x2D>
           <x3D>
             <x3D_joint />
-            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -2612,14 +2627,14 @@
   <links>
     <!--this is the link list-->
     <link>
-      <name>Link_Guidon</name>
+      <name>Link_GuidonGauche</name>
       <endpoint1>
         <bodyname>Chassis</bodyname>
         <pointname>Pilote</pointname>
       </endpoint1>
       <endpoint2>
         <bodyname>Fourche</bodyname>
-        <pointname>guidon</pointname>
+        <pointname>guidonGauche</pointname>
       </endpoint2>
       <graphics>
         <x3D>
@@ -2652,6 +2667,22 @@
       <endpoint2>
         <bodyname>Attache_RoueD</bodyname>
         <pointname>Point_1</pointname>
+      </endpoint2>
+      <graphics>
+        <x3D>
+          <shown />
+        </x3D>
+      </graphics>
+    </link>
+    <link>
+      <name>Link_GuidonDroit</name>
+      <endpoint1>
+        <bodyname>Chassis</bodyname>
+        <pointname>Pilote</pointname>
+      </endpoint1>
+      <endpoint2>
+        <bodyname>Fourche</bodyname>
+        <pointname>guidonDroit</pointname>
       </endpoint2>
       <graphics>
         <x3D>
@@ -2851,7 +2882,7 @@
         <joint>T3Frame</joint>
         <position>
           <x>5.0</x>
-          <y>5.0</y>
+          <y>-5.0</y>
           <z>5.0</z>
         </position>
         <target>
@@ -2872,7 +2903,7 @@
       </viewpoint>
       <viewpoint>
         <name>Front</name>
-        <joint>base</joint>
+        <joint>R3Frame</joint>
         <position>
           <x>4.0</x>
           <y>0.0</y>

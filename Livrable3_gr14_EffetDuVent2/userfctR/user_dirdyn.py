@@ -50,6 +50,9 @@ def user_dirdyn_loop(mbs_data, mbs_dirdyn):
     -------
     None.
     """
+    sensorChassis = MbsSensor(mbs_data)
+    sensorChassis.comp_s_sensor(mbs_data.sensor_id['Sensor_Chassis'])
+    mbs_data.set_output(sensorChassis.P[2], "Sensor_Chassis")
     
     return
 

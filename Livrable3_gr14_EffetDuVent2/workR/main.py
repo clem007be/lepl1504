@@ -63,7 +63,7 @@ mbs_part.run()
 # =============================================================================
 mbs_data.process = 3
 mbs_dirdyn = Robotran.MbsDirdyn(mbs_data)
-mbs_dirdyn.set_options(dt0=1e-3, tf=3.0, save2file=1)
+mbs_dirdyn.set_options(dt0=1e-3, tf=4.0, save2file=1)
 results = mbs_dirdyn.run()
 
 # %%===========================================================================
@@ -73,25 +73,25 @@ results = mbs_dirdyn.run()
 # np.savetxt('../analyse/q5/v/stabilite/roulis0,2_v{}.txt'.format(i), np.array([results.q[:,5], results.qd[:,5]]))
 
 # Figure creation
-fig = plt.figure(num='Example of plot')
+fig = plt.figure(num='Fourche')
 fig.set_tight_layout(True)
 gs = gridspec.GridSpec(5,5)
 dic = mbs_data.joint_id
 axis = fig.add_subplot(gs[:,:])
-axis.plot(results.q[:,0], results.q[:,5])
+axis.plot(results.q[:,0], results.q[:,9])
 axis.set_xlabel('Temps (s)')
-axis.set_ylabel('Angle de roulis (rad)')
+axis.set_ylabel('Angle (rad)')
 axis.grid(True)
 
 # plt.savefig('../graphe/Inclinaison_q5.svg')
 
-fig3 = plt.figure()
+fig3 = plt.figure(num="déplacement latéral")
 fig3.set_tight_layout(True)
 gs = gridspec.GridSpec(5,5)
 axis = fig3.add_subplot(gs[:,:])
-axis.plot(results.q[:,0], results.qd[:,5])
+axis.plot(results.t, results.outputs['Sensor_Chassis'])
 axis.set_xlabel('Temps (s)')
-axis.set_ylabel('Vitesse angulaire de roulis (rad/s)')
+axis.set_ylabel('Distance en Y (m)')
 axis.grid(True)
 
 # plt.savefig('../graphe/Inclinaison_qd5.svg')
@@ -110,9 +110,9 @@ axis.grid(True)
 # Figure enhancement
 # axis.set_xlim(left=mbs_dirdyn.get_options('t0'), right=mbs_dirdyn.get_options('tf'))
 
-fig2 = plt.figure()
+fig2 = plt.figure(num="Force Guidon Gauche")
 axis = fig2.gca()
-id_link = mbs_data.link_id['Link_Guidon']
+id_link = mbs_data.link_id['Link_GuidonGauche']
 axis.plot(results.t, results.Fl[:,id_link])
 axis.set_xlabel('Temps (s)')
 axis.set_ylabel('Force (N)')

@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Tue May  9 12:04:10 2023
+#	==> Generation Date: Tue May  9 18:38:44 2023
 #
 #	==> Project name: Livrable2
 #
@@ -120,7 +120,7 @@ def extforces(frc, trq, s, tsim):
  
 # Augmented Joint Position Vectors
 
-    Dz253 = q[25]+s.dpt[3,17]
+    Dz253 = q[25]+s.dpt[3,18]
  
 # Augmented Joint Position Vectors
 
@@ -504,9 +504,9 @@ def extforces(frc, trq, s, tsim):
     OPcp7_18 = OPcp7_17+qd[12]*(OMcp7_27*ROcp7_611-OMcp7_37*ROcp7_511)+qdd[12]*ROcp7_411
     OPcp7_28 = OPcp7_27+qd[12]*(-OMcp7_17*ROcp7_611+OMcp7_37*ROcp7_411)+qdd[12]*ROcp7_511
     OPcp7_38 = OPcp7_37+qd[12]*(OMcp7_17*ROcp7_511-OMcp7_27*ROcp7_411)+qdd[12]*ROcp7_611
-    RLcp7_19 = ROcp7_112*s.dpt[1,12]
-    RLcp7_29 = ROcp7_212*s.dpt[1,12]
-    RLcp7_39 = ROcp7_312*s.dpt[1,12]
+    RLcp7_19 = ROcp7_112*s.dpt[1,13]
+    RLcp7_29 = ROcp7_212*s.dpt[1,13]
+    RLcp7_39 = ROcp7_312*s.dpt[1,13]
     POcp7_19 = POcp7_17+RLcp7_19
     POcp7_29 = POcp7_27+RLcp7_29
     POcp7_39 = POcp7_37+RLcp7_39
@@ -525,9 +525,9 @@ def extforces(frc, trq, s, tsim):
     ACcp7_19 = ACcp7_17+OMcp7_28*ORcp7_39-OMcp7_38*ORcp7_29+OPcp7_28*RLcp7_39-OPcp7_38*RLcp7_29
     ACcp7_29 = ACcp7_27-OMcp7_18*ORcp7_39+OMcp7_38*ORcp7_19-OPcp7_18*RLcp7_39+OPcp7_38*RLcp7_19
     ACcp7_39 = ACcp7_37+OMcp7_18*ORcp7_29-OMcp7_28*ORcp7_19+OPcp7_18*RLcp7_29-OPcp7_28*RLcp7_19
-    RLcp7_110 = ROcp7_113*s.dpt[1,13]
-    RLcp7_210 = ROcp7_213*s.dpt[1,13]
-    RLcp7_310 = ROcp7_313*s.dpt[1,13]
+    RLcp7_110 = ROcp7_113*s.dpt[1,14]
+    RLcp7_210 = ROcp7_213*s.dpt[1,14]
+    RLcp7_310 = ROcp7_313*s.dpt[1,14]
     POcp7_110 = POcp7_19+RLcp7_110
     POcp7_210 = POcp7_29+RLcp7_210
     POcp7_310 = POcp7_39+RLcp7_310
@@ -546,9 +546,9 @@ def extforces(frc, trq, s, tsim):
     ACcp7_110 = ACcp7_19+OMcp7_29*ORcp7_310-OMcp7_39*ORcp7_210+OPcp7_29*RLcp7_310-OPcp7_39*RLcp7_210
     ACcp7_210 = ACcp7_29-OMcp7_19*ORcp7_310+OMcp7_39*ORcp7_110-OPcp7_19*RLcp7_310+OPcp7_39*RLcp7_110
     ACcp7_310 = ACcp7_39+OMcp7_19*ORcp7_210-OMcp7_29*ORcp7_110+OPcp7_19*RLcp7_210-OPcp7_29*RLcp7_110
-    RLcp7_111 = ROcp7_114*s.dpt[1,14]
-    RLcp7_211 = ROcp7_214*s.dpt[1,14]
-    RLcp7_311 = ROcp7_314*s.dpt[1,14]
+    RLcp7_111 = ROcp7_114*s.dpt[1,15]
+    RLcp7_211 = ROcp7_214*s.dpt[1,15]
+    RLcp7_311 = ROcp7_314*s.dpt[1,15]
     POcp7_111 = POcp7_110+RLcp7_111
     POcp7_211 = POcp7_210+RLcp7_211
     POcp7_311 = POcp7_310+RLcp7_311
@@ -567,9 +567,9 @@ def extforces(frc, trq, s, tsim):
     ACcp7_111 = ACcp7_110+OMcp7_210*ORcp7_311-OMcp7_310*ORcp7_211+OPcp7_210*RLcp7_311-OPcp7_310*RLcp7_211
     ACcp7_211 = ACcp7_210-OMcp7_110*ORcp7_311+OMcp7_310*ORcp7_111-OPcp7_110*RLcp7_311+OPcp7_310*RLcp7_111
     ACcp7_311 = ACcp7_310+OMcp7_110*ORcp7_211-OMcp7_210*ORcp7_111+OPcp7_110*RLcp7_211-OPcp7_210*RLcp7_111
-    RLcp7_112 = ROcp7_115*s.dpt[1,15]
-    RLcp7_212 = ROcp7_215*s.dpt[1,15]
-    RLcp7_312 = ROcp7_315*s.dpt[1,15]
+    RLcp7_112 = ROcp7_115*s.dpt[1,16]
+    RLcp7_212 = ROcp7_215*s.dpt[1,16]
+    RLcp7_312 = ROcp7_315*s.dpt[1,16]
     POcp7_112 = POcp7_111+RLcp7_112
     POcp7_212 = POcp7_211+RLcp7_212
     POcp7_312 = POcp7_311+RLcp7_312
@@ -588,9 +588,9 @@ def extforces(frc, trq, s, tsim):
     ACcp7_112 = ACcp7_111+OMcp7_211*ORcp7_312-OMcp7_311*ORcp7_212+OPcp7_211*RLcp7_312-OPcp7_311*RLcp7_212
     ACcp7_212 = ACcp7_211-OMcp7_111*ORcp7_312+OMcp7_311*ORcp7_112-OPcp7_111*RLcp7_312+OPcp7_311*RLcp7_112
     ACcp7_312 = ACcp7_311+OMcp7_111*ORcp7_212-OMcp7_211*ORcp7_112+OPcp7_111*RLcp7_212-OPcp7_211*RLcp7_112
-    RLcp7_113 = ROcp7_716*s.dpt[3,16]
-    RLcp7_213 = ROcp7_816*s.dpt[3,16]
-    RLcp7_313 = ROcp7_916*s.dpt[3,16]
+    RLcp7_113 = ROcp7_716*s.dpt[3,17]
+    RLcp7_213 = ROcp7_816*s.dpt[3,17]
+    RLcp7_313 = ROcp7_916*s.dpt[3,17]
     POcp7_113 = POcp7_112+RLcp7_113
     POcp7_213 = POcp7_212+RLcp7_213
     POcp7_313 = POcp7_312+RLcp7_313
@@ -615,9 +615,9 @@ def extforces(frc, trq, s, tsim):
     OPcp7_114 = OPcp7_113+qd[18]*(OMcp7_213*ROcp7_617-OMcp7_313*ROcp7_517)+qdd[18]*ROcp7_417
     OPcp7_214 = OPcp7_213+qd[18]*(-OMcp7_113*ROcp7_617+OMcp7_313*ROcp7_417)+qdd[18]*ROcp7_517
     OPcp7_314 = OPcp7_313+qd[18]*(OMcp7_113*ROcp7_517-OMcp7_213*ROcp7_417)+qdd[18]*ROcp7_617
-    RLcp7_115 = ROcp7_718*s.dpt[3,18]
-    RLcp7_215 = ROcp7_818*s.dpt[3,18]
-    RLcp7_315 = ROcp7_918*s.dpt[3,18]
+    RLcp7_115 = ROcp7_718*s.dpt[3,19]
+    RLcp7_215 = ROcp7_818*s.dpt[3,19]
+    RLcp7_315 = ROcp7_918*s.dpt[3,19]
     POcp7_115 = POcp7_113+RLcp7_115
     POcp7_215 = POcp7_213+RLcp7_215
     POcp7_315 = POcp7_313+RLcp7_315
@@ -636,9 +636,9 @@ def extforces(frc, trq, s, tsim):
     ACcp7_115 = ACcp7_113+OMcp7_214*ORcp7_315-OMcp7_314*ORcp7_215+OPcp7_214*RLcp7_315-OPcp7_314*RLcp7_215
     ACcp7_215 = ACcp7_213-OMcp7_114*ORcp7_315+OMcp7_314*ORcp7_115-OPcp7_114*RLcp7_315+OPcp7_314*RLcp7_115
     ACcp7_315 = ACcp7_313+OMcp7_114*ORcp7_215-OMcp7_214*ORcp7_115+OPcp7_114*RLcp7_215-OPcp7_214*RLcp7_115
-    RLcp7_116 = ROcp7_119*s.dpt[1,19]+ROcp7_417*s.dpt[2,19]+ROcp7_719*s.dpt[3,19]
-    RLcp7_216 = ROcp7_219*s.dpt[1,19]+ROcp7_517*s.dpt[2,19]+ROcp7_819*s.dpt[3,19]
-    RLcp7_316 = ROcp7_319*s.dpt[1,19]+ROcp7_617*s.dpt[2,19]+ROcp7_919*s.dpt[3,19]
+    RLcp7_116 = ROcp7_119*s.dpt[1,20]+ROcp7_417*s.dpt[2,20]+ROcp7_719*s.dpt[3,20]
+    RLcp7_216 = ROcp7_219*s.dpt[1,20]+ROcp7_517*s.dpt[2,20]+ROcp7_819*s.dpt[3,20]
+    RLcp7_316 = ROcp7_319*s.dpt[1,20]+ROcp7_617*s.dpt[2,20]+ROcp7_919*s.dpt[3,20]
     POcp7_116 = POcp7_115+RLcp7_116
     POcp7_216 = POcp7_215+RLcp7_216
     POcp7_316 = POcp7_315+RLcp7_316
@@ -657,9 +657,9 @@ def extforces(frc, trq, s, tsim):
     ACcp7_116 = ACcp7_115+OMcp7_215*ORcp7_316-OMcp7_315*ORcp7_216+OPcp7_215*RLcp7_316-OPcp7_315*RLcp7_216
     ACcp7_216 = ACcp7_215-OMcp7_115*ORcp7_316+OMcp7_315*ORcp7_116-OPcp7_115*RLcp7_316+OPcp7_315*RLcp7_116
     ACcp7_316 = ACcp7_315+OMcp7_115*ORcp7_216-OMcp7_215*ORcp7_116+OPcp7_115*RLcp7_216-OPcp7_215*RLcp7_116
-    RLcp7_117 = ROcp7_120*s.dpt[1,24]
-    RLcp7_217 = ROcp7_220*s.dpt[1,24]
-    RLcp7_317 = ROcp7_320*s.dpt[1,24]
+    RLcp7_117 = ROcp7_120*s.dpt[1,25]
+    RLcp7_217 = ROcp7_220*s.dpt[1,25]
+    RLcp7_317 = ROcp7_320*s.dpt[1,25]
     POcp7_117 = POcp7_116+RLcp7_117
     POcp7_217 = POcp7_216+RLcp7_217
     POcp7_317 = POcp7_316+RLcp7_317
@@ -815,9 +815,9 @@ def extforces(frc, trq, s, tsim):
     OPcp8_18 = OPcp8_17+qd[12]*(OMcp8_27*ROcp8_611-OMcp8_37*ROcp8_511)+qdd[12]*ROcp8_411
     OPcp8_28 = OPcp8_27+qd[12]*(-OMcp8_17*ROcp8_611+OMcp8_37*ROcp8_411)+qdd[12]*ROcp8_511
     OPcp8_38 = OPcp8_37+qd[12]*(OMcp8_17*ROcp8_511-OMcp8_27*ROcp8_411)+qdd[12]*ROcp8_611
-    RLcp8_19 = ROcp8_112*s.dpt[1,12]
-    RLcp8_29 = ROcp8_212*s.dpt[1,12]
-    RLcp8_39 = ROcp8_312*s.dpt[1,12]
+    RLcp8_19 = ROcp8_112*s.dpt[1,13]
+    RLcp8_29 = ROcp8_212*s.dpt[1,13]
+    RLcp8_39 = ROcp8_312*s.dpt[1,13]
     POcp8_19 = POcp8_17+RLcp8_19
     POcp8_29 = POcp8_27+RLcp8_29
     POcp8_39 = POcp8_37+RLcp8_39
@@ -836,9 +836,9 @@ def extforces(frc, trq, s, tsim):
     ACcp8_19 = ACcp8_17+OMcp8_28*ORcp8_39-OMcp8_38*ORcp8_29+OPcp8_28*RLcp8_39-OPcp8_38*RLcp8_29
     ACcp8_29 = ACcp8_27-OMcp8_18*ORcp8_39+OMcp8_38*ORcp8_19-OPcp8_18*RLcp8_39+OPcp8_38*RLcp8_19
     ACcp8_39 = ACcp8_37+OMcp8_18*ORcp8_29-OMcp8_28*ORcp8_19+OPcp8_18*RLcp8_29-OPcp8_28*RLcp8_19
-    RLcp8_110 = ROcp8_113*s.dpt[1,13]
-    RLcp8_210 = ROcp8_213*s.dpt[1,13]
-    RLcp8_310 = ROcp8_313*s.dpt[1,13]
+    RLcp8_110 = ROcp8_113*s.dpt[1,14]
+    RLcp8_210 = ROcp8_213*s.dpt[1,14]
+    RLcp8_310 = ROcp8_313*s.dpt[1,14]
     POcp8_110 = POcp8_19+RLcp8_110
     POcp8_210 = POcp8_29+RLcp8_210
     POcp8_310 = POcp8_39+RLcp8_310
@@ -857,9 +857,9 @@ def extforces(frc, trq, s, tsim):
     ACcp8_110 = ACcp8_19+OMcp8_29*ORcp8_310-OMcp8_39*ORcp8_210+OPcp8_29*RLcp8_310-OPcp8_39*RLcp8_210
     ACcp8_210 = ACcp8_29-OMcp8_19*ORcp8_310+OMcp8_39*ORcp8_110-OPcp8_19*RLcp8_310+OPcp8_39*RLcp8_110
     ACcp8_310 = ACcp8_39+OMcp8_19*ORcp8_210-OMcp8_29*ORcp8_110+OPcp8_19*RLcp8_210-OPcp8_29*RLcp8_110
-    RLcp8_111 = ROcp8_114*s.dpt[1,14]
-    RLcp8_211 = ROcp8_214*s.dpt[1,14]
-    RLcp8_311 = ROcp8_314*s.dpt[1,14]
+    RLcp8_111 = ROcp8_114*s.dpt[1,15]
+    RLcp8_211 = ROcp8_214*s.dpt[1,15]
+    RLcp8_311 = ROcp8_314*s.dpt[1,15]
     POcp8_111 = POcp8_110+RLcp8_111
     POcp8_211 = POcp8_210+RLcp8_211
     POcp8_311 = POcp8_310+RLcp8_311
@@ -878,9 +878,9 @@ def extforces(frc, trq, s, tsim):
     ACcp8_111 = ACcp8_110+OMcp8_210*ORcp8_311-OMcp8_310*ORcp8_211+OPcp8_210*RLcp8_311-OPcp8_310*RLcp8_211
     ACcp8_211 = ACcp8_210-OMcp8_110*ORcp8_311+OMcp8_310*ORcp8_111-OPcp8_110*RLcp8_311+OPcp8_310*RLcp8_111
     ACcp8_311 = ACcp8_310+OMcp8_110*ORcp8_211-OMcp8_210*ORcp8_111+OPcp8_110*RLcp8_211-OPcp8_210*RLcp8_111
-    RLcp8_112 = ROcp8_115*s.dpt[1,15]
-    RLcp8_212 = ROcp8_215*s.dpt[1,15]
-    RLcp8_312 = ROcp8_315*s.dpt[1,15]
+    RLcp8_112 = ROcp8_115*s.dpt[1,16]
+    RLcp8_212 = ROcp8_215*s.dpt[1,16]
+    RLcp8_312 = ROcp8_315*s.dpt[1,16]
     POcp8_112 = POcp8_111+RLcp8_112
     POcp8_212 = POcp8_211+RLcp8_212
     POcp8_312 = POcp8_311+RLcp8_312
@@ -899,9 +899,9 @@ def extforces(frc, trq, s, tsim):
     ACcp8_112 = ACcp8_111+OMcp8_211*ORcp8_312-OMcp8_311*ORcp8_212+OPcp8_211*RLcp8_312-OPcp8_311*RLcp8_212
     ACcp8_212 = ACcp8_211-OMcp8_111*ORcp8_312+OMcp8_311*ORcp8_112-OPcp8_111*RLcp8_312+OPcp8_311*RLcp8_112
     ACcp8_312 = ACcp8_311+OMcp8_111*ORcp8_212-OMcp8_211*ORcp8_112+OPcp8_111*RLcp8_212-OPcp8_211*RLcp8_112
-    RLcp8_113 = ROcp8_716*s.dpt[3,16]
-    RLcp8_213 = ROcp8_816*s.dpt[3,16]
-    RLcp8_313 = ROcp8_916*s.dpt[3,16]
+    RLcp8_113 = ROcp8_716*s.dpt[3,17]
+    RLcp8_213 = ROcp8_816*s.dpt[3,17]
+    RLcp8_313 = ROcp8_916*s.dpt[3,17]
     POcp8_113 = POcp8_112+RLcp8_113
     POcp8_213 = POcp8_212+RLcp8_213
     POcp8_313 = POcp8_312+RLcp8_313
@@ -926,9 +926,9 @@ def extforces(frc, trq, s, tsim):
     OPcp8_114 = OPcp8_113+qd[18]*(OMcp8_213*ROcp8_617-OMcp8_313*ROcp8_517)+qdd[18]*ROcp8_417
     OPcp8_214 = OPcp8_213+qd[18]*(-OMcp8_113*ROcp8_617+OMcp8_313*ROcp8_417)+qdd[18]*ROcp8_517
     OPcp8_314 = OPcp8_313+qd[18]*(OMcp8_113*ROcp8_517-OMcp8_213*ROcp8_417)+qdd[18]*ROcp8_617
-    RLcp8_115 = ROcp8_718*s.dpt[3,18]
-    RLcp8_215 = ROcp8_818*s.dpt[3,18]
-    RLcp8_315 = ROcp8_918*s.dpt[3,18]
+    RLcp8_115 = ROcp8_718*s.dpt[3,19]
+    RLcp8_215 = ROcp8_818*s.dpt[3,19]
+    RLcp8_315 = ROcp8_918*s.dpt[3,19]
     POcp8_115 = POcp8_113+RLcp8_115
     POcp8_215 = POcp8_213+RLcp8_215
     POcp8_315 = POcp8_313+RLcp8_315
@@ -947,9 +947,9 @@ def extforces(frc, trq, s, tsim):
     ACcp8_115 = ACcp8_113+OMcp8_214*ORcp8_315-OMcp8_314*ORcp8_215+OPcp8_214*RLcp8_315-OPcp8_314*RLcp8_215
     ACcp8_215 = ACcp8_213-OMcp8_114*ORcp8_315+OMcp8_314*ORcp8_115-OPcp8_114*RLcp8_315+OPcp8_314*RLcp8_115
     ACcp8_315 = ACcp8_313+OMcp8_114*ORcp8_215-OMcp8_214*ORcp8_115+OPcp8_114*RLcp8_215-OPcp8_214*RLcp8_115
-    RLcp8_116 = ROcp8_119*s.dpt[1,20]+ROcp8_417*s.dpt[2,20]+ROcp8_719*s.dpt[3,20]
-    RLcp8_216 = ROcp8_219*s.dpt[1,20]+ROcp8_517*s.dpt[2,20]+ROcp8_819*s.dpt[3,20]
-    RLcp8_316 = ROcp8_319*s.dpt[1,20]+ROcp8_617*s.dpt[2,20]+ROcp8_919*s.dpt[3,20]
+    RLcp8_116 = ROcp8_119*s.dpt[1,21]+ROcp8_417*s.dpt[2,21]+ROcp8_719*s.dpt[3,21]
+    RLcp8_216 = ROcp8_219*s.dpt[1,21]+ROcp8_517*s.dpt[2,21]+ROcp8_819*s.dpt[3,21]
+    RLcp8_316 = ROcp8_319*s.dpt[1,21]+ROcp8_617*s.dpt[2,21]+ROcp8_919*s.dpt[3,21]
     POcp8_116 = POcp8_115+RLcp8_116
     POcp8_216 = POcp8_215+RLcp8_216
     POcp8_316 = POcp8_315+RLcp8_316
@@ -968,9 +968,9 @@ def extforces(frc, trq, s, tsim):
     ACcp8_116 = ACcp8_115+OMcp8_215*ORcp8_316-OMcp8_315*ORcp8_216+OPcp8_215*RLcp8_316-OPcp8_315*RLcp8_216
     ACcp8_216 = ACcp8_215-OMcp8_115*ORcp8_316+OMcp8_315*ORcp8_116-OPcp8_115*RLcp8_316+OPcp8_315*RLcp8_116
     ACcp8_316 = ACcp8_315+OMcp8_115*ORcp8_216-OMcp8_215*ORcp8_116+OPcp8_115*RLcp8_216-OPcp8_215*RLcp8_116
-    RLcp8_117 = ROcp8_122*s.dpt[1,27]
-    RLcp8_217 = ROcp8_222*s.dpt[1,27]
-    RLcp8_317 = ROcp8_322*s.dpt[1,27]
+    RLcp8_117 = ROcp8_122*s.dpt[1,28]
+    RLcp8_217 = ROcp8_222*s.dpt[1,28]
+    RLcp8_317 = ROcp8_322*s.dpt[1,28]
     POcp8_117 = POcp8_116+RLcp8_117
     POcp8_217 = POcp8_216+RLcp8_217
     POcp8_317 = POcp8_316+RLcp8_317
@@ -1102,9 +1102,9 @@ def extforces(frc, trq, s, tsim):
     OPcp9_18 = OPcp9_17+qd[12]*(OMcp9_27*ROcp9_611-OMcp9_37*ROcp9_511)+qdd[12]*ROcp9_411
     OPcp9_28 = OPcp9_27+qd[12]*(-OMcp9_17*ROcp9_611+OMcp9_37*ROcp9_411)+qdd[12]*ROcp9_511
     OPcp9_38 = OPcp9_37+qd[12]*(OMcp9_17*ROcp9_511-OMcp9_27*ROcp9_411)+qdd[12]*ROcp9_611
-    RLcp9_19 = ROcp9_112*s.dpt[1,12]
-    RLcp9_29 = ROcp9_212*s.dpt[1,12]
-    RLcp9_39 = ROcp9_312*s.dpt[1,12]
+    RLcp9_19 = ROcp9_112*s.dpt[1,13]
+    RLcp9_29 = ROcp9_212*s.dpt[1,13]
+    RLcp9_39 = ROcp9_312*s.dpt[1,13]
     POcp9_19 = POcp9_17+RLcp9_19
     POcp9_29 = POcp9_27+RLcp9_29
     POcp9_39 = POcp9_37+RLcp9_39
@@ -1123,9 +1123,9 @@ def extforces(frc, trq, s, tsim):
     ACcp9_19 = ACcp9_17+OMcp9_28*ORcp9_39-OMcp9_38*ORcp9_29+OPcp9_28*RLcp9_39-OPcp9_38*RLcp9_29
     ACcp9_29 = ACcp9_27-OMcp9_18*ORcp9_39+OMcp9_38*ORcp9_19-OPcp9_18*RLcp9_39+OPcp9_38*RLcp9_19
     ACcp9_39 = ACcp9_37+OMcp9_18*ORcp9_29-OMcp9_28*ORcp9_19+OPcp9_18*RLcp9_29-OPcp9_28*RLcp9_19
-    RLcp9_110 = ROcp9_113*s.dpt[1,13]
-    RLcp9_210 = ROcp9_213*s.dpt[1,13]
-    RLcp9_310 = ROcp9_313*s.dpt[1,13]
+    RLcp9_110 = ROcp9_113*s.dpt[1,14]
+    RLcp9_210 = ROcp9_213*s.dpt[1,14]
+    RLcp9_310 = ROcp9_313*s.dpt[1,14]
     POcp9_110 = POcp9_19+RLcp9_110
     POcp9_210 = POcp9_29+RLcp9_210
     POcp9_310 = POcp9_39+RLcp9_310
@@ -1144,9 +1144,9 @@ def extforces(frc, trq, s, tsim):
     ACcp9_110 = ACcp9_19+OMcp9_29*ORcp9_310-OMcp9_39*ORcp9_210+OPcp9_29*RLcp9_310-OPcp9_39*RLcp9_210
     ACcp9_210 = ACcp9_29-OMcp9_19*ORcp9_310+OMcp9_39*ORcp9_110-OPcp9_19*RLcp9_310+OPcp9_39*RLcp9_110
     ACcp9_310 = ACcp9_39+OMcp9_19*ORcp9_210-OMcp9_29*ORcp9_110+OPcp9_19*RLcp9_210-OPcp9_29*RLcp9_110
-    RLcp9_111 = ROcp9_114*s.dpt[1,14]
-    RLcp9_211 = ROcp9_214*s.dpt[1,14]
-    RLcp9_311 = ROcp9_314*s.dpt[1,14]
+    RLcp9_111 = ROcp9_114*s.dpt[1,15]
+    RLcp9_211 = ROcp9_214*s.dpt[1,15]
+    RLcp9_311 = ROcp9_314*s.dpt[1,15]
     POcp9_111 = POcp9_110+RLcp9_111
     POcp9_211 = POcp9_210+RLcp9_211
     POcp9_311 = POcp9_310+RLcp9_311
@@ -1165,9 +1165,9 @@ def extforces(frc, trq, s, tsim):
     ACcp9_111 = ACcp9_110+OMcp9_210*ORcp9_311-OMcp9_310*ORcp9_211+OPcp9_210*RLcp9_311-OPcp9_310*RLcp9_211
     ACcp9_211 = ACcp9_210-OMcp9_110*ORcp9_311+OMcp9_310*ORcp9_111-OPcp9_110*RLcp9_311+OPcp9_310*RLcp9_111
     ACcp9_311 = ACcp9_310+OMcp9_110*ORcp9_211-OMcp9_210*ORcp9_111+OPcp9_110*RLcp9_211-OPcp9_210*RLcp9_111
-    RLcp9_112 = ROcp9_115*s.dpt[1,15]
-    RLcp9_212 = ROcp9_215*s.dpt[1,15]
-    RLcp9_312 = ROcp9_315*s.dpt[1,15]
+    RLcp9_112 = ROcp9_115*s.dpt[1,16]
+    RLcp9_212 = ROcp9_215*s.dpt[1,16]
+    RLcp9_312 = ROcp9_315*s.dpt[1,16]
     POcp9_112 = POcp9_111+RLcp9_112
     POcp9_212 = POcp9_211+RLcp9_212
     POcp9_312 = POcp9_311+RLcp9_312
@@ -1201,9 +1201,9 @@ def extforces(frc, trq, s, tsim):
     ACcp9_113 = ACcp9_112+(2.0)*qd[25]*(OMcp9_212*ROcp9_916-OMcp9_312*ROcp9_816)+qdd[25]*ROcp9_716+OMcp9_212*ORcp9_313-OMcp9_312*ORcp9_213+OPcp9_212*RLcp9_313-OPcp9_312*RLcp9_213
     ACcp9_213 = ACcp9_212+(2.0)*qd[25]*(-OMcp9_112*ROcp9_916+OMcp9_312*ROcp9_716)+qdd[25]*ROcp9_816-OMcp9_112*ORcp9_313+OMcp9_312*ORcp9_113-OPcp9_112*RLcp9_313+OPcp9_312*RLcp9_113
     ACcp9_313 = ACcp9_312+(2.0)*qd[25]*(OMcp9_112*ROcp9_816-OMcp9_212*ROcp9_716)+qdd[25]*ROcp9_916+OMcp9_112*ORcp9_213-OMcp9_212*ORcp9_113+OPcp9_112*RLcp9_213-OPcp9_212*RLcp9_113
-    RLcp9_114 = ROcp9_716*s.dpt[3,30]
-    RLcp9_214 = ROcp9_816*s.dpt[3,30]
-    RLcp9_314 = ROcp9_916*s.dpt[3,30]
+    RLcp9_114 = ROcp9_716*s.dpt[3,31]
+    RLcp9_214 = ROcp9_816*s.dpt[3,31]
+    RLcp9_314 = ROcp9_916*s.dpt[3,31]
     POcp9_114 = POcp9_113+RLcp9_114
     POcp9_214 = POcp9_213+RLcp9_214
     POcp9_314 = POcp9_313+RLcp9_314

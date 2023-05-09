@@ -63,7 +63,7 @@ mbs_part.run()
 # =============================================================================
 mbs_data.process = 3
 mbs_dirdyn = Robotran.MbsDirdyn(mbs_data)
-mbs_dirdyn.set_options(dt0=1e-3, tf=5.0, save2file=1)
+mbs_dirdyn.set_options(dt0=1e-3, tf=3.0, save2file=1)
 results = mbs_dirdyn.run()
 
 # %%===========================================================================
@@ -83,7 +83,7 @@ axis.set_xlabel('Temps (s)')
 axis.set_ylabel('Angle de roulis (rad)')
 axis.grid(True)
 
-plt.savefig('../graphe/Inclinaison_q5.svg')
+# plt.savefig('../graphe/Inclinaison_q5.svg')
 
 fig3 = plt.figure()
 fig3.set_tight_layout(True)
@@ -94,7 +94,7 @@ axis.set_xlabel('Temps (s)')
 axis.set_ylabel('Vitesse angulaire de roulis (rad/s)')
 axis.grid(True)
 
-plt.savefig('../graphe/Inclinaison_qd5.svg')
+# plt.savefig('../graphe/Inclinaison_qd5.svg')
 
 # Plotting data's
 # for i in dic:
@@ -118,7 +118,7 @@ axis.set_xlabel('Temps (s)')
 axis.set_ylabel('Force (N)')
 axis.grid(True)
 
-plt.savefig('../graphe/FLink_Guidon.svg')
+# plt.savefig('../graphe/FLink_Guidon.svg')
 
 plt.show()
 

@@ -30,8 +30,8 @@ def user_JointForces(mbs_data, tsim):
     mbs_data.Qq[1:] = 0.
     
     id_j = mbs_data.joint_id['Amortisseur_FWheel_Rem']
-    K = 80e3 # mbs_data.user_model['Amortisseur_Avant']['K']
-    D = 10e3 # mbs_data.user_model['Amortisseur_Avant']['D']
+    K = mbs_data.user_model['Amortisseur_Avant']['K']
+    D = mbs_data.user_model['Amortisseur_Avant']['D']
     Z0 = mbs_data.user_model['Amortisseur_Avant']['Z0']
     mbs_data.Qq[id_j] = -(K*(mbs_data.q[id_j]-Z0) + D*mbs_data.qd[id_j] )
 

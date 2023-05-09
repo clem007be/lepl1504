@@ -3,6 +3,7 @@
 # Author: Robotran Team
 # (c) Universite catholique de Louvain, 2020
 
+from MBsysPy import MbsSensor
 
 def user_DrivenJoints(mbs_data, tsim):
     """Set the values of the driven joints directly in the MbsData structure.
@@ -23,13 +24,22 @@ def user_DrivenJoints(mbs_data, tsim):
     """
     
     # Cadre Vélo
-    id_j = mbs_data.joint_id['T1Frame']
-    p0 = mbs_data.q0[id_j]
-    v0 = mbs_data.qd0[id_j]
-    a0 = mbs_data.qdd0[id_j]
-    mbs_data.q[id_j] = p0 + v0*tsim + a0/2 * tsim**2
-    mbs_data.qd[id_j] = v0 + a0 * tsim
-    mbs_data.qdd[id_j] = a0
+    id_T1 = mbs_data.joint_id['T1Frame']
+    # id_T2 = mbs_data.joint_id['T2Frame']
+    # sensor_Frame = MbsSensor(mbs_data)
+    # sensor_Frame.comp_s_sensor(mbs_data.sensor_id['Sensor_Frame'])
+    
+    p0_T1 = mbs_data.q0[id_T1]
+    v0_T1 = mbs_data.qd0[id_T1]
+    a0_T1 = mbs_data.qdd0[id_T1]
+    # p0_T2 = mbs_data.q0[id_T2]
+    # v0_T2 = mbs_data.qd0[id_T2]
+    # a0_T2 = mbs_data.qdd0[id_T2]
+    
+    mbs_data.q[id_T1] = p0_T1 + v0_T1*tsim + a0_T1/2 * tsim**2
+    mbs_data.qd[id_T1] = v0_T1 + a0_T1 * tsim
+    mbs_data.qdd[id_T1] = a0_T1
+    # mbs_data.q[id_T2] = 
     
     # Angle Alpha
     id_j = mbs_data.joint_id['Alpha']

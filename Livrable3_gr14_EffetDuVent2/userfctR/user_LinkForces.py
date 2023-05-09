@@ -4,6 +4,7 @@
 # (c) Universite catholique de Louvain, 2020
 
 from MBsysPy import MbsSensor
+import numpy as np
 
 def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
     """Compute the force in the given link.
@@ -36,6 +37,7 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
         sensor_FWheel = MbsSensor(mbs_data)
         sensor_FWheel.comp_s_sensor(mbs_data.sensor_id['Sensor_FWheel'])
         if(sensor_FWheel.P[3] < mbs_data.user_model['roue']['R0']):
+            
             # Trajectoire
             T2_id = mbs_data.joint_id['T2Frame']
             T_y = 1
@@ -45,9 +47,15 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
             R1_id = mbs_data.joint_id['R1Frame']
             phi = mbs_data.q[R1_id]
             phid = mbs_data.qd[R1_id]
-            K_phi = 30
-            K_phid = 100
-            Flink = - K_phi * (phi - phi0) - K_phid * phid
+            w = 1e-2
+            if (tsim < 2 or tsim > 3):
+                K_phi = 30
+                K_phid = 100
+                Flink = - K_phi * (phi - phi0) - K_phid * phid
+            else:
+                R3_id = mbs_data.joint_id['R3Fourche']
+                mbs_data.q[R3_id] = np.sin(w*tsim)
+                Flink = 0
     
     # Amortisseur Arriere
     linkG_id = mbs_data.link_id['Amortisseur_RoueG']

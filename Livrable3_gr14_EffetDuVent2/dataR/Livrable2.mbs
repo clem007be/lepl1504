@@ -223,9 +223,6 @@
         <jointname>R1Frame</jointname>
         <type>R1</type>
         <nature>independent</nature>
-        <initialvalue>
-          <q>0.1</q>
-        </initialvalue>
         <graphics>
           <x2D>
             <position>
@@ -272,6 +269,15 @@
         <Iyy>1.2</Iyy>
         <Izz>0.2</Izz>
       </inertia>
+      <point>
+        <pointname>origin</pointname>
+        <coordinates>
+          <x>0.0</x>
+          <y>0.0</y>
+          <z>0.0</z>
+        </coordinates>
+        <sensor name="Sensor_Frame" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true" Jac="true" />
+      </point>
       <point>
         <pointname>WheelPoint1</pointname>
         <coordinates>
@@ -1487,9 +1493,6 @@
         <jointname>R3_Fourche_Rem</jointname>
         <type>R3</type>
         <nature>independent</nature>
-        <initialvalue>
-          <q>0.172</q>
-        </initialvalue>
         <graphics>
           <x2D>
             <position>
@@ -2694,7 +2697,7 @@
       <parameter>
         <name>D</name>
         <type>scalar</type>
-        <value>500.0</value>
+        <value>1000.0</value>
       </parameter>
       <parameter>
         <name>R0</name>
@@ -2712,7 +2715,7 @@
       <parameter>
         <name>D</name>
         <type>scalar</type>
-        <value>50.0</value>
+        <value>30.0</value>
       </parameter>
       <parameter>
         <name>R0</name>

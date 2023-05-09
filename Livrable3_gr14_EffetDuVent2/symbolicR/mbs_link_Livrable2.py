@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Tue May  9 11:13:02 2023
+#	==> Generation Date: Tue May  9 12:04:10 2023
 #
 #	==> Project name: Livrable2
 #
@@ -40,7 +40,7 @@ def link(frc, trq, Flink, Z, Zd, s, tsim):
  
 # Augmented Joint Position Vectors
 
-    Dz253 = q[25]+s.dpt[3,16]
+    Dz253 = q[25]+s.dpt[3,17]
  
 # Augmented Joint Position Vectors
 
@@ -53,45 +53,45 @@ def link(frc, trq, Flink, Z, Zd, s, tsim):
     ROlnk2_69 = S8*S9
     OMlnk2_12 = qd[9]*S8
     OMlnk2_32 = qd[9]*C8
-    RLlnk2_13 = ROlnk2_49*s.dpt[2,9]
-    RLlnk2_23 = s.dpt[2,9]*C9
-    RLlnk2_33 = ROlnk2_69*s.dpt[2,9]
-    POlnk2_13 = RLlnk2_13+s.dpt[1,3]
-    POlnk2_33 = RLlnk2_33+s.dpt[3,3]
+    RLlnk2_13 = ROlnk2_49*s.dpt[2,10]
+    RLlnk2_23 = s.dpt[2,10]*C9
+    RLlnk2_33 = ROlnk2_69*s.dpt[2,10]
+    POlnk2_13 = RLlnk2_13+s.dpt[1,4]
+    POlnk2_33 = RLlnk2_33+s.dpt[3,4]
     ORlnk2_13 = qd[8]*RLlnk2_33-OMlnk2_32*RLlnk2_23
     ORlnk2_23 = -OMlnk2_12*RLlnk2_33+OMlnk2_32*RLlnk2_13
     ORlnk2_33 = -qd[8]*RLlnk2_13+OMlnk2_12*RLlnk2_23
-    Plnk31 = POlnk2_33-s.dpt[3,4]
+    Plnk31 = POlnk2_33-s.dpt[3,5]
     PPlnk1 = POlnk2_13*POlnk2_13+Plnk31*Plnk31+RLlnk2_23*RLlnk2_23
     Z1 = sqrt(PPlnk1)
     e11 = POlnk2_13/Z1
     e21 = RLlnk2_23/Z1
     e31 = Plnk31/Z1
     Zd1 = ORlnk2_13*e11+ORlnk2_23*e21+ORlnk2_33*e31
-    RLlnk4_12 = s.dpt[1,24]*C20+s.dpt[3,24]*S20
-    RLlnk4_32 = -s.dpt[1,24]*S20+s.dpt[3,24]*C20
-    POlnk4_12 = RLlnk4_12+s.dpt[1,18]
-    POlnk4_32 = RLlnk4_32+s.dpt[3,18]
+    RLlnk4_12 = s.dpt[1,25]*C20+s.dpt[3,25]*S20
+    RLlnk4_32 = -s.dpt[1,25]*S20+s.dpt[3,25]*C20
+    POlnk4_12 = RLlnk4_12+s.dpt[1,19]
+    POlnk4_32 = RLlnk4_32+s.dpt[3,19]
     ORlnk4_12 = qd[20]*RLlnk4_32
     ORlnk4_32 = -qd[20]*RLlnk4_12
-    Plnk12 = POlnk4_12-s.dpt[1,20]
-    Plnk22 = s.dpt[2,18]-s.dpt[2,20]
-    Plnk32 = POlnk4_32-s.dpt[3,20]
+    Plnk12 = POlnk4_12-s.dpt[1,21]
+    Plnk22 = s.dpt[2,19]-s.dpt[2,21]
+    Plnk32 = POlnk4_32-s.dpt[3,21]
     PPlnk2 = Plnk12*Plnk12+Plnk22*Plnk22+Plnk32*Plnk32
     Z2 = sqrt(PPlnk2)
     e12 = Plnk12/Z2
     e22 = Plnk22/Z2
     e32 = Plnk32/Z2
     Zd2 = ORlnk4_12*e12+ORlnk4_32*e32
-    RLlnk6_12 = s.dpt[1,27]*C22+s.dpt[3,27]*S22
-    RLlnk6_32 = -s.dpt[1,27]*S22+s.dpt[3,27]*C22
-    POlnk6_12 = RLlnk6_12+s.dpt[1,19]
-    POlnk6_32 = RLlnk6_32+s.dpt[3,19]
+    RLlnk6_12 = s.dpt[1,28]*C22+s.dpt[3,28]*S22
+    RLlnk6_32 = -s.dpt[1,28]*S22+s.dpt[3,28]*C22
+    POlnk6_12 = RLlnk6_12+s.dpt[1,20]
+    POlnk6_32 = RLlnk6_32+s.dpt[3,20]
     ORlnk6_12 = qd[22]*RLlnk6_32
     ORlnk6_32 = -qd[22]*RLlnk6_12
-    Plnk13 = POlnk6_12-s.dpt[1,21]
-    Plnk23 = s.dpt[2,19]-s.dpt[2,21]
-    Plnk33 = POlnk6_32-s.dpt[3,21]
+    Plnk13 = POlnk6_12-s.dpt[1,22]
+    Plnk23 = s.dpt[2,20]-s.dpt[2,22]
+    Plnk33 = POlnk6_32-s.dpt[3,22]
     PPlnk3 = Plnk13*Plnk13+Plnk23*Plnk23+Plnk33*Plnk33
     Z3 = sqrt(PPlnk3)
     e13 = Plnk13/Z3
@@ -110,42 +110,42 @@ def link(frc, trq, Flink, Z, Zd, s, tsim):
     fPlnk11 = Flink1*e11
     fPlnk21 = Flink1*e21
     fPlnk31 = Flink1*e31
-    trqlnk6_1_1 = -fPlnk21*(s.dpt[3,4]-s.l[3,6])
-    trqlnk6_1_2 = fPlnk11*(s.dpt[3,4]-s.l[3,6])+fPlnk31*s.l[1,6]
+    trqlnk6_1_1 = -fPlnk21*(s.dpt[3,5]-s.l[3,6])
+    trqlnk6_1_2 = fPlnk11*(s.dpt[3,5]-s.l[3,6])+fPlnk31*s.l[1,6]
     trqlnk6_1_3 = -fPlnk21*s.l[1,6]
     fSlnk11 = Flink1*(ROlnk2_19*e11+ROlnk2_39*e31+e21*S9)
     fSlnk21 = Flink1*(ROlnk2_49*e11+ROlnk2_69*e31+e21*C9)
     fSlnk31 = Flink1*(e11*S8+e31*C8)
-    trqlnk9_1_1 = -fSlnk21*s.l[3,9]-fSlnk31*s.dpt[2,9]
+    trqlnk9_1_1 = -fSlnk21*s.l[3,9]-fSlnk31*s.dpt[2,10]
     trqlnk9_1_2 = fSlnk11*s.l[3,9]
-    trqlnk9_1_3 = fSlnk11*s.dpt[2,9]
+    trqlnk9_1_3 = fSlnk11*s.dpt[2,10]
     fPlnk12 = Flink2*e12
     fPlnk22 = Flink2*e22
     fPlnk32 = Flink2*e32
-    trqlnk19_2_1 = -fPlnk22*(s.dpt[3,20]-s.l[3,19])+fPlnk32*s.dpt[2,20]
-    trqlnk19_2_2 = fPlnk12*(s.dpt[3,20]-s.l[3,19])-fPlnk32*(s.dpt[1,20]-s.l[1,19])
-    trqlnk19_2_3 = -fPlnk12*s.dpt[2,20]+fPlnk22*(s.dpt[1,20]-s.l[1,19])
+    trqlnk19_2_1 = -fPlnk22*(s.dpt[3,21]-s.l[3,19])+fPlnk32*s.dpt[2,21]
+    trqlnk19_2_2 = fPlnk12*(s.dpt[3,21]-s.l[3,19])-fPlnk32*(s.dpt[1,21]-s.l[1,19])
+    trqlnk19_2_3 = -fPlnk12*s.dpt[2,21]+fPlnk22*(s.dpt[1,21]-s.l[1,19])
     fSlnk12 = Flink2*(e12*C20-e32*S20)
     fSlnk22 = Flink2*e22
     fSlnk32 = Flink2*(e12*S20+e32*C20)
-    trqlnk20_2_1 = fSlnk22*s.dpt[3,24]
-    trqlnk20_2_2 = -fSlnk12*s.dpt[3,24]+fSlnk32*(s.dpt[1,24]-s.l[1,20])
-    trqlnk20_2_3 = -fSlnk22*(s.dpt[1,24]-s.l[1,20])
+    trqlnk20_2_1 = fSlnk22*s.dpt[3,25]
+    trqlnk20_2_2 = -fSlnk12*s.dpt[3,25]+fSlnk32*(s.dpt[1,25]-s.l[1,20])
+    trqlnk20_2_3 = -fSlnk22*(s.dpt[1,25]-s.l[1,20])
     fPlnk13 = Flink3*e13
     fPlnk23 = Flink3*e23
     fPlnk33 = Flink3*e33
     frclnk19_3_1 = fPlnk12+fPlnk13
     frclnk19_3_2 = fPlnk22+fPlnk23
     frclnk19_3_3 = fPlnk32+fPlnk33
-    trqlnk19_3_1 = trqlnk19_2_1-fPlnk23*(s.dpt[3,21]-s.l[3,19])+fPlnk33*s.dpt[2,21]
-    trqlnk19_3_2 = trqlnk19_2_2+fPlnk13*(s.dpt[3,21]-s.l[3,19])-fPlnk33*(s.dpt[1,21]-s.l[1,19])
-    trqlnk19_3_3 = trqlnk19_2_3-fPlnk13*s.dpt[2,21]+fPlnk23*(s.dpt[1,21]-s.l[1,19])
+    trqlnk19_3_1 = trqlnk19_2_1-fPlnk23*(s.dpt[3,22]-s.l[3,19])+fPlnk33*s.dpt[2,22]
+    trqlnk19_3_2 = trqlnk19_2_2+fPlnk13*(s.dpt[3,22]-s.l[3,19])-fPlnk33*(s.dpt[1,22]-s.l[1,19])
+    trqlnk19_3_3 = trqlnk19_2_3-fPlnk13*s.dpt[2,22]+fPlnk23*(s.dpt[1,22]-s.l[1,19])
     fSlnk13 = Flink3*(e13*C22-e33*S22)
     fSlnk23 = Flink3*e23
     fSlnk33 = Flink3*(e13*S22+e33*C22)
-    trqlnk22_3_1 = fSlnk23*s.dpt[3,27]
-    trqlnk22_3_2 = -fSlnk13*s.dpt[3,27]+fSlnk33*(s.dpt[1,27]-s.l[1,22])
-    trqlnk22_3_3 = -fSlnk23*(s.dpt[1,27]-s.l[1,22])
+    trqlnk22_3_1 = fSlnk23*s.dpt[3,28]
+    trqlnk22_3_2 = -fSlnk13*s.dpt[3,28]+fSlnk33*(s.dpt[1,28]-s.l[1,22])
+    trqlnk22_3_3 = -fSlnk23*(s.dpt[1,28]-s.l[1,22])
  
 # Symbolic model output
 

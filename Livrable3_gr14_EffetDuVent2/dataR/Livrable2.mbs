@@ -170,15 +170,10 @@
       <joint>
         <jointname>T1Frame</jointname>
         <type>T1</type>
-        <nature>driven</nature>
+        <nature>independent</nature>
         <initialvalue>
-          <qd>3.0</qd>
+          <qd>5.0</qd>
         </initialvalue>
-        <symbols>
-          <q />
-          <qd />
-          <qdd />
-        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -304,6 +299,26 @@
           <z>0.0</z>
         </coordinates>
         <sensor name="Sensor_Chassis" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true" Jac="true" />
+        <extforce name="ExtForce_Drive" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true">
+          <x3D>
+            <force show="true" showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
+              <x_color R="255" G="0" B="0" />
+              <y_color R="0" G="255" B="0" />
+              <z_color R="0" G="0" B="255" />
+              <resultant_color R="0" G="0" B="0" />
+              <diameter>0.05</diameter>
+              <scale>1.0</scale>
+            </force>
+            <torque showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
+              <x_color R="255" G="0" B="0" />
+              <y_color R="0" G="255" B="0" />
+              <z_color R="0" G="0" B="255" />
+              <resultant_color R="0" G="0" B="0" />
+              <diameter>0.1</diameter>
+              <scale>1.0</scale>
+            </torque>
+          </x3D>
+        </extforce>
       </point>
       <point>
         <pointname>WheelPoint1</pointname>
@@ -480,10 +495,15 @@
       <joint>
         <jointname>R2RWheel</jointname>
         <type>R2</type>
-        <nature>independent</nature>
+        <nature>driven</nature>
         <initialvalue>
-          <qd>0.001</qd>
+          <qd>14.286</qd>
         </initialvalue>
+        <symbols>
+          <q />
+          <qd />
+          <qdd />
+        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -512,13 +532,13 @@
         <sensor name="Sensor_RWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true" Jac="true" />
         <extforce name="ExtForce_RWheel" Pos="true" Rot="true" Vit="true" Om="true" Acc="true" Omp="true">
           <x3D>
-            <force show="true" showResultant="true" drawPosition="end">
+            <force show="true" showResultant="true" drawPosition="start">
               <x_color R="255" G="0" B="0" />
               <y_color R="0" G="255" B="0" />
               <z_color R="0" G="0" B="255" />
               <resultant_color R="255" G="146" B="0" />
-              <diameter>0.05</diameter>
-              <scale>1.0</scale>
+              <diameter>1.0</diameter>
+              <scale>100.0</scale>
             </force>
             <torque showCompX="true" showCompY="true" showCompZ="true" showResultant="true" drawPosition="end">
               <x_color R="255" G="0" B="0" />
@@ -534,8 +554,8 @@
       <graphics>
         <x2D>
           <position>
-            <x>-30.0</x>
-            <y>30.0</y>
+            <x>-35.0</x>
+            <y>22.0</y>
           </position>
           <name_pos>
             <x>0.0</x>
@@ -548,8 +568,8 @@
           </size>
           <control_points>
             <control_point>
-              <x>25.0</x>
-              <y>30.0</y>
+              <x>20.0</x>
+              <y>22.0</y>
             </control_point>
           </control_points>
           <angle>0.0</angle>
@@ -878,7 +898,7 @@
         <type>R2</type>
         <nature>independent</nature>
         <initialvalue>
-          <qd>0.001</qd>
+          <qd>0.1</qd>
         </initialvalue>
         <graphics>
           <x2D>
@@ -1029,6 +1049,23 @@
           </x2D>
           <x3D>
             <x3D_joint />
+          </x3D>
+        </graphics>
+      </joint>
+      <joint>
+        <jointname>Joint_2</jointname>
+        <type>R1</type>
+        <nature>independent</nature>
+        <graphics>
+          <x2D>
+            <position>
+              <x>670.0</x>
+              <y>226.0</y>
+            </position>
+          </x2D>
+          <x3D>
+            <x3D_joint />
+            <x3D_frame />
           </x3D>
         </graphics>
       </joint>
@@ -1943,7 +1980,7 @@
         <type>R2</type>
         <nature>independent</nature>
         <initialvalue>
-          <qd>0.001</qd>
+          <qd>0.1</qd>
         </initialvalue>
         <graphics>
           <x2D>
@@ -1994,8 +2031,8 @@
       <graphics>
         <x2D>
           <position>
-            <x>-52.0</x>
-            <y>32.0</y>
+            <x>-51.0</x>
+            <y>34.0</y>
           </position>
           <name_pos>
             <x>0.0</x>
@@ -2008,8 +2045,8 @@
           </size>
           <control_points>
             <control_point>
-              <x>25.0</x>
-              <y>32.0</y>
+              <x>26.0</x>
+              <y>34.0</y>
             </control_point>
           </control_points>
           <angle>0.0</angle>
@@ -2039,7 +2076,7 @@
               <color R="153" G="153" B="153" />
               <specularColor R="255" G="255" B="255" />
               <shininess>250.0</shininess>
-              <transparency>0.20000000298023224</transparency>
+              <transparency>0.0</transparency>
               <radius>0.2</radius>
               <height>0.05</height>
             </cylinder>
@@ -2195,7 +2232,7 @@
         <type>R2</type>
         <nature>independent</nature>
         <initialvalue>
-          <qd>0.001</qd>
+          <qd>0.1</qd>
         </initialvalue>
         <graphics>
           <x2D>
@@ -2246,8 +2283,8 @@
       <graphics>
         <x2D>
           <position>
-            <x>-50.0</x>
-            <y>47.0</y>
+            <x>-49.0</x>
+            <y>46.0</y>
           </position>
           <name_pos>
             <x>0.0</x>
@@ -2260,8 +2297,8 @@
           </size>
           <control_points>
             <control_point>
-              <x>27.0</x>
-              <y>47.0</y>
+              <x>28.0</x>
+              <y>46.0</y>
             </control_point>
           </control_points>
           <angle>0.0</angle>
@@ -2291,7 +2328,7 @@
               <color R="153" G="153" B="153" />
               <specularColor R="255" G="255" B="255" />
               <shininess>250.0</shininess>
-              <transparency>0.20000000298023224</transparency>
+              <transparency>0.0</transparency>
               <radius>0.2</radius>
               <height>0.05</height>
             </cylinder>
@@ -2519,7 +2556,7 @@
         <type>R2</type>
         <nature>independent</nature>
         <initialvalue>
-          <qd>0.001</qd>
+          <qd>0.1</qd>
         </initialvalue>
         <graphics>
           <x2D>
@@ -2570,7 +2607,7 @@
       <graphics>
         <x2D>
           <position>
-            <x>-42.0</x>
+            <x>-40.0</x>
             <y>23.0</y>
           </position>
           <name_pos>
@@ -2584,7 +2621,7 @@
           </size>
           <control_points>
             <control_point>
-              <x>34.0</x>
+              <x>36.0</x>
               <y>23.0</y>
             </control_point>
           </control_points>
@@ -2615,7 +2652,7 @@
               <color R="153" G="153" B="153" />
               <specularColor R="255" G="255" B="255" />
               <shininess>250.0</shininess>
-              <transparency>0.20000000298023224</transparency>
+              <transparency>0.0</transparency>
               <radius>0.2</radius>
               <height>0.05</height>
             </cylinder>
@@ -2858,7 +2895,7 @@
       <!--This is the viewpoint list-->
       <viewpoint>
         <name>Lateral_//</name>
-        <joint>T1Frame</joint>
+        <joint>R3Frame</joint>
         <position>
           <x>0.0</x>
           <y>-4.0</y>

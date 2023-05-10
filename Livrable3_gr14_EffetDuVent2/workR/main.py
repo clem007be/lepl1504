@@ -29,6 +29,7 @@ try:
     import numpy as np
     import matplotlib.pyplot as plt
     import matplotlib.gridspec as gridspec
+    
 except:
     raise ImportError("MBsysPy not found/installed."
                       "See: https://www.robotran.eu/download/how-to-install/"
@@ -37,6 +38,28 @@ except:
 # Project loading
 # =============================================================================
 mbs_data = Robotran.MbsData('../dataR/Livrable2.mbs')
+
+T1Frame = mbs_data.joint_id['T1Frame']
+T2Frame = mbs_data.joint_id['T2Frame']
+R3Frame = mbs_data.joint_id['R3Frame']
+R2RWheel = mbs_data.joint_id['R2RWheel']
+R2FWheel = mbs_data.joint_id['R2FWheel']
+R2_FWheel_Rem = mbs_data.joint_id['R2_FWheel_Rem']
+R2_RoueG = mbs_data.joint_id['R2_RoueG']
+R2_RoueD = mbs_data.joint_id['R2_RoueD']
+
+theta = 0 # rad
+vitesse = 5 # m/s
+
+mbs_data.q0[R3Frame] = theta
+mbs_data.qd0[T1Frame] = vitesse * np.cos(theta)
+mbs_data.qd0[T2Frame] = vitesse * np.sin(theta)
+mbs_data.qd0[R2RWheel] = vitesse/0.35
+mbs_data.qd0[R2FWheel] = vitesse/0.35
+mbs_data.qd0[R2_FWheel_Rem] = vitesse/0.2
+mbs_data.qd0[R2_RoueG] = vitesse/0.2
+mbs_data.qd0[R2_RoueD] = vitesse/0.2
+
 
 #cleaning file analyse.txt
 # try:
@@ -73,15 +96,31 @@ results = mbs_dirdyn.run()
 # np.savetxt('../analyse/q5/v/stabilite/roulis0,2_v{}.txt'.format(i), np.array([results.q[:,5], results.qd[:,5]]))
 
 # Figure creation
-fig = plt.figure(num='Fourche')
-fig.set_tight_layout(True)
-gs = gridspec.GridSpec(5,5)
 dic = mbs_data.joint_id
-axis = fig.add_subplot(gs[:,:])
-axis.plot(results.q[:,0], results.q[:,9])
-axis.set_xlabel('Temps (s)')
-axis.set_ylabel('Angle (rad)')
+fig = plt.figure(num='R3Fourche')
+fig.set_tight_layout(True)
+gs = gridspec.GridSpec(1,1)
+id_j = mbs_data.joint_id['R3Fourche']
+axis = fig.add_subplot(gs[0,0])
+axis.plot(results.q[:, 0], results.q[:, id_j])
 axis.grid(True)
+axis.set_xlabel('Time (s)')
+axis.set_ylabel('Coordinate value (m or rad)')
+# Plotting data's
+# for i in dic:
+#     id_j = mbs_data.joint_id[i]
+#     axis = fig.add_subplot(gs[(id_j-1)//5, (id_j-1)%5])
+#     axis.plot(results.q[:, 0], results.q[:, id_j])
+    
+#     axis.set_title('{}'.format(i))
+#     axis.grid(True)
+#     axis.set_xlabel('Time (s)')
+#     axis.set_ylabel('Coordinate value (m or rad)')
+# axis = fig.add_subplot(gs[:,:])
+# axis.plot(results.q[:,0], results.q[:,9])
+# axis.set_xlabel('Temps (s)')
+# axis.set_ylabel('Angle (rad)')
+# axis.grid(True)
 
 # plt.savefig('../graphe/Inclinaison_q5.svg')
 
@@ -107,17 +146,6 @@ axis.set_ylabel('Vitesse en y (m/s)')
 axis.grid(True)
 
 # plt.savefig('../graphe/Inclinaison_qd5.svg')
-
-# Plotting data's
-# for i in dic:
-#     id_j = mbs_data.joint_id[i]
-#     axis = fig.add_subplot(gs[(id_j-1)//5, (id_j-1)%5])
-#     axis.plot(results.q[:, 0], results.q[:, id_j])
-    
-#     axis.set_title('{}'.format(i))
-#     axis.grid(True)
-#     axis.set_xlabel('Time (s)')
-#     axis.set_ylabel('Coordinate value (m or rad)')
 
 # Figure enhancement
 # axis.set_xlim(left=mbs_dirdyn.get_options('t0'), right=mbs_dirdyn.get_options('tf'))

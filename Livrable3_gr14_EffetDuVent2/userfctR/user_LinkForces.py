@@ -31,32 +31,39 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
 
     Flink = 0.0
     
-    # Guidon Gauche
+    # Guidon droit
     link_id = mbs_data.link_id['Link_GuidonGauche']
     if (identity == link_id):
         sensor_FWheel = MbsSensor(mbs_data)
         sensor_FWheel.comp_s_sensor(mbs_data.sensor_id['Sensor_FWheel'])
         if(sensor_FWheel.P[3] < mbs_data.user_model['roue']['R0']):
             # Trajectoire
-            # R1Frame = mbs_data.joint_id['R1Frame']
             R3Frame = mbs_data.joint_id['R3Frame']
-            # R3Fourche = mbs_data.joint_id['R3Fourche']
-            # phi = mbs_data.q[R1Frame]
-            # phid = mbs_data.qd[R1Frame]
+            R3Fourche = mbs_data.joint_id['R3Fourche']
+            R1Frame = mbs_data.joint_id['R1Frame']
+            phi = mbs_data.q[R1Frame]
+            phid = mbs_data.qd[R1Frame]
             theta = mbs_data.q[R3Frame]
             # thetad = mbs_data.qd[R3Frame]
-            # deltad = mbs_data.qd[R3Fourche]
-            theta0 = np.pi
-            phi0 = 0
+            delta = mbs_data.q[R3Fourche]
+            deltad = mbs_data.qd[R3Fourche]
+            theta0 = -np.pi
+            
             # Gestion du moment à appliquer
-            if (theta != theta0 and tsim > 1):
-                K_theta = 50
-                K_thetad = 30
-                Flink = - K_theta * (theta - theta0) #- K_thetad * thetad
-            # else:
-            #     K_phi = 30
-            #     K_phid = 100
-            #     Flink = - K_phi * (phi - phi0) - K_phid * phid
+            # if (theta != theta0 and tsim < -1 ):#and abs(delta) < np.pi/3):
+            #     K_theta = 15
+            #     D_deltad = 30
+            #     Flink = K_theta * (theta - theta0) - D_deltad * phid
+            if (theta > theta0 and tsim > 1):
+                phi0 = 0.5
+                K_phi = 100
+                K_phid = 125
+            else:# (theta > theta0 and tsim > 1):
+                phi0 = 0
+                K_phi = 100
+                K_phid = 125
+            Flink = - K_phi * (phi - phi0) - K_phid * phid
+
     
     # Amortisseur Arriere
     linkG_id = mbs_data.link_id['Amortisseur_RoueG']

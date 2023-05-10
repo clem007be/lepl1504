@@ -38,55 +38,25 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
         sensor_FWheel.comp_s_sensor(mbs_data.sensor_id['Sensor_FWheel'])
         if(sensor_FWheel.P[3] < mbs_data.user_model['roue']['R0']):
             # Trajectoire
-            R1Frame = mbs_data.joint_id['R1Frame']
+            # R1Frame = mbs_data.joint_id['R1Frame']
             R3Frame = mbs_data.joint_id['R3Frame']
-            R3Fourche = mbs_data.joint_id['R3Fourche']
-            phi = mbs_data.q[R1Frame]
-            phid = mbs_data.qd[R1Frame]
+            # R3Fourche = mbs_data.joint_id['R3Fourche']
+            # phi = mbs_data.q[R1Frame]
+            # phid = mbs_data.qd[R1Frame]
             theta = mbs_data.q[R3Frame]
-            deltad = mbs_data.qd[R3Fourche]
-            theta0 = np.pi/2
+            # thetad = mbs_data.qd[R3Frame]
+            # deltad = mbs_data.qd[R3Fourche]
+            theta0 = np.pi
             phi0 = 0
             # Gestion du moment à appliquer
-            # if (theta != theta0 and tsim > 1):
-            #     K_theta = 50
-            #     D_deltad = 30
-            #     Flink = - K_theta * (theta - theta0) - D_deltad * deltad
+            if (theta != theta0 and tsim > 1):
+                K_theta = 50
+                K_thetad = 30
+                Flink = - K_theta * (theta - theta0) #- K_thetad * thetad
             # else:
-            K_phi = 30
-            K_phid = 100
-            Flink = 0#- K_phi * (phi - phi0) - K_phid * phid
-                
-                
-    #Guidon Droit
-    link_id = mbs_data.link_id['Link_GuidonDroit']
-    if (identity == link_id):
-        Flink = 0
-    #     sensor_FWheel = MbsSensor(mbs_data)
-    #     sensor_FWheel.comp_s_sensor(mbs_data.sensor_id['Sensor_FWheel'])
-    #     if(sensor_FWheel.P[3] < mbs_data.user_model['roue']['R0']):
-    #         # Trajectoire
-    #         T2_id = mbs_data.joint_id['T2Frame']
-    #         T_y = 1
-    #         T_yd = 1
-    #         phi0 = 0 #- T_y * mbs_data.q[T2_id] - T_yd * mbs_data.qd[T2_id]
-    #         # Gestion du moment à appliquer
-    #         R1_id = mbs_data.joint_id['R1Frame']
-    #         phi = mbs_data.q[R1_id]
-    #         phid = mbs_data.qd[R1_id]
-    #         R3_id = mbs_data.joint_id['R3Fourche']
-    #         w = 0.13*np.pi
-            
-    #         if (tsim > 1 and tsim < 2 ):
-    #             mbs_data.q[R3_id] = np.cos(w * (tsim - 1)) - 1
-    #             Flink = - 5 * np.exp(-(6.5 * (tsim - 1.5)**2))
-    #         # elif (tsim > 3 and tsim < 4):
-    #         #     mbs_data.q[R3_id] = -np.cos(w * (tsim - 4)) + 1
-    #         #     Flink = 0
-    #         else:
-    #             K_phi =30
-    #             K_phid = 100
-    #             Flink =  K_phi * (phi - phi0) + K_phid * phid
+            #     K_phi = 30
+            #     K_phid = 100
+            #     Flink = - K_phi * (phi - phi0) - K_phid * phid
     
     # Amortisseur Arriere
     linkG_id = mbs_data.link_id['Amortisseur_RoueG']

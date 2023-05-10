@@ -39,17 +39,17 @@ except:
 mbs_data = Robotran.MbsData('../dataR/Livrable2.mbs')
 
 #cleaning file analyse.txt
-try:
-    f = open('../analyse/analyse_RWheel.txt','w')
-    f.close()
-    f = open('../analyse/analyse_FWheel.txt','w')
-    f.close()
-    f = open('../analyse/Force_FWheel.txt','w')
-    f.close()
-    f = open('../analyse/Force_RWheel.txt','w')
-    f.close()
-except:
-    print('unable to open file')
+# try:
+#     f = open('../analyse/analyse_RWheel.txt','w')
+#     f.close()
+#     f = open('../analyse/analyse_FWheel.txt','w')
+#     f.close()
+#     f = open('../analyse/Force_FWheel.txt','w')
+#     f.close()
+#     f = open('../analyse/Force_RWheel.txt','w')
+#     f.close()
+# except:
+#     print('unable to open file')
 # %%===========================================================================
 # Partitionning
 # =============================================================================
@@ -63,7 +63,7 @@ mbs_part.run()
 # =============================================================================
 mbs_data.process = 3
 mbs_dirdyn = Robotran.MbsDirdyn(mbs_data)
-mbs_dirdyn.set_options(dt0=1e-3, tf=3.0, save2file=1)
+mbs_dirdyn.set_options(dt0=1e-3, tf=10.0, save2file=1)
 results = mbs_dirdyn.run()
 
 # %%===========================================================================

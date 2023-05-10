@@ -102,7 +102,7 @@
             </size>
           </box>
           <box>
-            <name>New_Shape</name>
+            <name>x</name>
             <position>
               <x>0.0</x>
               <y>0.0</y>
@@ -124,7 +124,34 @@
             <transparency>0.5</transparency>
             <size>
               <x>100.0</x>
-              <y>0.5</y>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y</name>
+            <position>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
               <z>0.05</z>
             </size>
           </box>
@@ -143,10 +170,15 @@
       <joint>
         <jointname>T1Frame</jointname>
         <type>T1</type>
-        <nature>independent</nature>
+        <nature>driven</nature>
         <initialvalue>
-          <qd>4.0</qd>
+          <qd>3.0</qd>
         </initialvalue>
+        <symbols>
+          <q />
+          <qd />
+          <qdd />
+        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -2877,7 +2909,7 @@
         <joint>T3Frame</joint>
         <position>
           <x>5.0</x>
-          <y>-5.0</y>
+          <y>5.0</y>
           <z>5.0</z>
         </position>
         <target>

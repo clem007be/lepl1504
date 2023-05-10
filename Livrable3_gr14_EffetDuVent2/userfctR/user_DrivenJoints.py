@@ -44,9 +44,9 @@ def user_DrivenJoints(mbs_data, tsim):
     mbs_data.q[id_T1] = p * cos(theta)
     mbs_data.qd[id_T1] = v * cos(theta)
     mbs_data.qdd[id_T1] = a * cos(theta)
-    mbs_data.q[id_T2] = p * sin(theta)
-    mbs_data.qd[id_T2] = v * sin(theta)
-    mbs_data.qdd[id_T2] = a * sin(theta)
+    # mbs_data.q[id_T2] = p * sin(theta)
+    # mbs_data.qd[id_T2] = v * sin(theta)
+    # mbs_data.qdd[id_T2] = a * sin(theta)
     
     # Angle Alpha
     id_j = mbs_data.joint_id['Alpha']

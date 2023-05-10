@@ -105,8 +105,8 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     idpt = mbs_data.xfidpt[ixF]
     dxF = mbs_data.dpt[1:, idpt]
     
-    analyseTGC = True
-    analyseForce = True
+    analyseTGC = False
+    analyseForce = False
     
     # Roue arrière ============================================================
     Fext = mbs_data.extforce_id["ExtForce_RWheel"]
@@ -141,16 +141,16 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
             Cphi = mbs_data.user_model['roue']['Cphi/FN'] * FN
             CMz = CFy * mbs_data.user_model['roue']['coefRWheel']
             Mz = CMz * tgc_dic['angslip']
-            VxF_T = matrix_vector_product(R_T_I, VxF)
+            VxF_T = matrix_vector_product(R_T_I.T, VxF)
             Flat = -CFy * tgc_dic['angslip'] - Cphi * tgc_dic['angcamb'] - CMz * OMxF[3]/VxF_T[1]
             Flat_T = np.array([3., 0., Flat, 0.])
             M_T = np.array([3., 0., 0., Mz])
             
             # Changement de base T -> I =======================================
-            FN_I = matrix_vector_product(R_T_I.T, FN_T)
-            Flong_I = matrix_vector_product(R_T_I.T, Flong_T)
-            Flat_I = matrix_vector_product(R_T_I.T, Flat_T)
-            M_I = matrix_vector_product(R_T_I.T, M_T)
+            FN_I = matrix_vector_product(R_T_I, FN_T)
+            Flong_I = matrix_vector_product(R_T_I, Flong_T)
+            Flat_I = matrix_vector_product(R_T_I, Flat_T)
+            M_I = matrix_vector_product(R_T_I, M_T)
             
             # Assignation des forces ==========================================
             for i in range(1,4):
@@ -193,16 +193,16 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
             Cphi = mbs_data.user_model['roue']['Cphi/FN'] * FN
             CMz = CFy * mbs_data.user_model['roue']['coefFWheel']
             Mz = CMz * tgc_dic['angslip']
-            VxF_T = matrix_vector_product(R_T_I, VxF)
+            VxF_T = matrix_vector_product(R_T_I.T, VxF)
             Flat = -CFy * tgc_dic['angslip'] - Cphi * tgc_dic['angcamb'] - CMz * OMxF[3]/VxF_T[1]
             Flat_T = np.array([3., 0., Flat, 0.])
             M_T = np.array([3., 0., 0., Mz])
             
             # Changement de base T -> I =======================================
-            FN_I = matrix_vector_product(R_T_I.T, FN_T)
-            Flong_I = matrix_vector_product(R_T_I.T, Flong_T)
-            Flat_I = matrix_vector_product(R_T_I.T, Flat_T)
-            M_I = matrix_vector_product(R_T_I.T, M_T)
+            FN_I = matrix_vector_product(R_T_I, FN_T)
+            Flong_I = matrix_vector_product(R_T_I, Flong_T)
+            Flat_I = matrix_vector_product(R_T_I, Flat_T)
+            M_I = matrix_vector_product(R_T_I, M_T)
             
             # Assignation des forces ==========================================
             for i in range(1,4):
@@ -244,16 +244,16 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
             Cphi = mbs_data.user_model['Roue_Rem']['Cphi/FN'] * FN
             CMz = CFy * mbs_data.user_model['Roue_Rem']['coefRoue']
             Mz = CMz * tgc_dic['angslip']
-            VxF_T = matrix_vector_product(R_T_I, VxF)
+            VxF_T = matrix_vector_product(R_T_I.T, VxF)
             Flat = -CFy * tgc_dic['angslip'] - Cphi * tgc_dic['angcamb'] - CMz * OMxF[3]/VxF_T[1]
             Flat_T = np.array([3., 0., Flat, 0.])
             M_T = np.array([3., 0., 0., Mz])
             
             # Changement de base T -> I =======================================
-            FN_I = matrix_vector_product(R_T_I.T, FN_T)
-            Flong_I = matrix_vector_product(R_T_I.T, Flong_T)
-            Flat_I = matrix_vector_product(R_T_I.T, Flat_T)
-            M_I = matrix_vector_product(R_T_I.T, M_T)
+            FN_I = matrix_vector_product(R_T_I, FN_T)
+            Flong_I = matrix_vector_product(R_T_I, Flong_T)
+            Flat_I = matrix_vector_product(R_T_I, Flat_T)
+            M_I = matrix_vector_product(R_T_I, M_T)
             
             # Assignation des forces ==========================================
             for i in range(1,4):
@@ -296,16 +296,16 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
             Cphi = mbs_data.user_model['Roue_Rem']['Cphi/FN'] * FN
             CMz = CFy * mbs_data.user_model['Roue_Rem']['coefRoue']
             Mz = CMz * tgc_dic['angslip']
-            VxF_T = matrix_vector_product(R_T_I, VxF)
+            VxF_T = matrix_vector_product(R_T_I.T, VxF)
             Flat = -CFy * tgc_dic['angslip'] - Cphi * tgc_dic['angcamb'] - CMz * OMxF[3]/VxF_T[1]
             Flat_T = np.array([3., 0., Flat, 0.])
             M_T = np.array([3., 0., 0., Mz])
             
             # Changement de base T -> I =======================================
-            FN_I = matrix_vector_product(R_T_I.T, FN_T)
-            Flong_I = matrix_vector_product(R_T_I.T, Flong_T)
-            Flat_I = matrix_vector_product(R_T_I.T, Flat_T)
-            M_I = matrix_vector_product(R_T_I.T, M_T)
+            FN_I = matrix_vector_product(R_T_I, FN_T)
+            Flong_I = matrix_vector_product(R_T_I, Flong_T)
+            Flat_I = matrix_vector_product(R_T_I, Flat_T)
+            M_I = matrix_vector_product(R_T_I, M_T)
             
             # Assignation des forces ==========================================
             for i in range(1,4):
@@ -348,16 +348,16 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
             Cphi = mbs_data.user_model['Roue_Rem']['Cphi/FN'] * FN
             CMz = CFy * mbs_data.user_model['Roue_Rem']['coefRoue']
             Mz = CMz * tgc_dic['angslip']
-            VxF_T = matrix_vector_product(R_T_I, VxF)
+            VxF_T = matrix_vector_product(R_T_I.T, VxF)
             Flat = -CFy * tgc_dic['angslip'] - Cphi * tgc_dic['angcamb'] - CMz * OMxF[3]/VxF_T[1]
             Flat_T = np.array([3., 0., Flat, 0.])
             M_T = np.array([3., 0., 0., Mz])
             
             # Changement de base T -> I =======================================
-            FN_I = matrix_vector_product(R_T_I.T, FN_T)
-            Flong_I = matrix_vector_product(R_T_I.T, Flong_T)
-            Flat_I = matrix_vector_product(R_T_I.T, Flat_T)
-            M_I = matrix_vector_product(R_T_I.T, M_T)
+            FN_I = matrix_vector_product(R_T_I, FN_T)
+            Flong_I = matrix_vector_product(R_T_I, Flong_T)
+            Flat_I = matrix_vector_product(R_T_I, Flat_T)
+            M_I = matrix_vector_product(R_T_I, M_T)
             
             # Assignation des forces ==========================================
             for i in range(1,4):

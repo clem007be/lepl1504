@@ -105,8 +105,8 @@ def user_ExtForces(PxF, RxF, VxF, OMxF, AxF, OMPxF, mbs_data, tsim, ixF):
     idpt = mbs_data.xfidpt[ixF]
     dxF = mbs_data.dpt[1:, idpt]
     
-    analyseTGC = False
-    analyseForce = False
+    analyseTGC = True
+    analyseForce = True
     
     # Roue arrière ============================================================
     Fext = mbs_data.extforce_id["ExtForce_RWheel"]

@@ -39,17 +39,17 @@ except:
 mbs_data = Robotran.MbsData('../dataR/Livrable2.mbs')
 
 #cleaning file analyse.txt
-# try:
-#     f = open('../analyse/analyse_RWheel.txt','w')
-#     f.close()
-#     f = open('../analyse/analyse_FWheel.txt','w')
-#     f.close()
-#     f = open('../analyse/Force_FWheel.txt','w')
-#     f.close()
-#     f = open('../analyse/Force_RWheel.txt','w')
-#     f.close()
-# except:
-#     print('unable to open file')
+try:
+    f = open('../analyse/analyse_RWheel.txt','w')
+    f.close()
+    f = open('../analyse/analyse_FWheel.txt','w')
+    f.close()
+    f = open('../analyse/Force_FWheel.txt','w')
+    f.close()
+    f = open('../analyse/Force_RWheel.txt','w')
+    f.close()
+except:
+    print('unable to open file')
 # %%===========================================================================
 # Partitionning
 # =============================================================================
@@ -63,7 +63,7 @@ mbs_part.run()
 # =============================================================================
 mbs_data.process = 3
 mbs_dirdyn = Robotran.MbsDirdyn(mbs_data)
-mbs_dirdyn.set_options(dt0=1e-3, tf=4.0, save2file=1)
+mbs_dirdyn.set_options(dt0=1e-3, tf=3.0, save2file=1)
 results = mbs_dirdyn.run()
 
 # %%===========================================================================
@@ -87,11 +87,23 @@ axis.grid(True)
 
 fig3 = plt.figure(num="déplacement latéral")
 fig3.set_tight_layout(True)
-gs = gridspec.GridSpec(5,5)
-axis = fig3.add_subplot(gs[:,:])
-axis.plot(results.t, results.outputs['Sensor_Chassis'])
+gs = gridspec.GridSpec(3,1)
+axis = fig3.add_subplot(gs[0,0])
+axis.plot(results.t, results.outputs['ChassisP2'])
 axis.set_xlabel('Temps (s)')
 axis.set_ylabel('Distance en Y (m)')
+axis.grid(True)
+
+axis = fig3.add_subplot(gs[1,0])
+axis.plot(results.t, results.outputs['ChassisV1'])
+axis.set_xlabel('Temps (s)')
+axis.set_ylabel('Vitesse en x (m/s)')
+axis.grid(True)
+
+axis = fig3.add_subplot(gs[2,0])
+axis.plot(results.t, results.outputs['ChassisV2'])
+axis.set_xlabel('Temps (s)')
+axis.set_ylabel('Vitesse en y (m/s)')
 axis.grid(True)
 
 # plt.savefig('../graphe/Inclinaison_qd5.svg')
@@ -109,6 +121,13 @@ axis.grid(True)
 
 # Figure enhancement
 # axis.set_xlim(left=mbs_dirdyn.get_options('t0'), right=mbs_dirdyn.get_options('tf'))
+
+fig4 = plt.figure(num="R3Frame")
+axis = fig4.gca()
+axis.plot(results.q[:,0], results.q[:,4])
+axis.set_xlabel('Temps (s)')
+axis.set_ylabel('R3Frame (rad)')
+axis.grid(True)
 
 fig2 = plt.figure(num="Force Guidon Gauche")
 axis = fig2.gca()

@@ -4,6 +4,7 @@
 # (c) Universite catholique de Louvain, 2020
 
 from MBsysPy import MbsSensor
+from numpy import *
 
 def user_DrivenJoints(mbs_data, tsim):
     """Set the values of the driven joints directly in the MbsData structure.
@@ -23,23 +24,29 @@ def user_DrivenJoints(mbs_data, tsim):
     None
     """
     
-    # Cadre Vélo
+    # Cadre Vélo vitesse constante
     id_T1 = mbs_data.joint_id['T1Frame']
-    # id_T2 = mbs_data.joint_id['T2Frame']
-    # sensor_Frame = MbsSensor(mbs_data)
-    # sensor_Frame.comp_s_sensor(mbs_data.sensor_id['Sensor_Frame'])
+    id_T2 = mbs_data.joint_id['T2Frame']
+    id_R3 = mbs_data.joint_id['R3Frame']
     
     p0_T1 = mbs_data.q0[id_T1]
     v0_T1 = mbs_data.qd0[id_T1]
     a0_T1 = mbs_data.qdd0[id_T1]
-    # p0_T2 = mbs_data.q0[id_T2]
-    # v0_T2 = mbs_data.qd0[id_T2]
-    # a0_T2 = mbs_data.qdd0[id_T2]
+    p0_T2 = mbs_data.q0[id_T2]
+    v0_T2 = mbs_data.qd0[id_T2]
+    a0_T2 = mbs_data.qdd0[id_T2]
     
-    mbs_data.q[id_T1] = p0_T1 + v0_T1*tsim + a0_T1/2 * tsim**2
-    mbs_data.qd[id_T1] = v0_T1 + a0_T1 * tsim
-    mbs_data.qdd[id_T1] = a0_T1
-    # mbs_data.q[id_T2] = 
+    theta = mbs_data.q[id_R3]
+    a = sqrt(a0_T1**2 + a0_T2**2)
+    v = sqrt((v0_T1 + a0_T1*tsim)**2 + (v0_T2 + a0_T2*tsim)**2)
+    p = sqrt((p0_T1 + v0_T1*tsim + a0_T1/2 * tsim**2)**2 + (p0_T2 + v0_T2 * tsim - a0_T2/2 * tsim**2)**2)
+    
+    mbs_data.q[id_T1] = p * cos(theta)
+    mbs_data.qd[id_T1] = v * cos(theta)
+    mbs_data.qdd[id_T1] = a * cos(theta)
+    mbs_data.q[id_T2] = p * sin(theta)
+    mbs_data.qd[id_T2] = v * sin(theta)
+    mbs_data.qdd[id_T2] = a * sin(theta)
     
     # Angle Alpha
     id_j = mbs_data.joint_id['Alpha']

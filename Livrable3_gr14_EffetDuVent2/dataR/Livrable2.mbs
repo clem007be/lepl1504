@@ -92,7 +92,7 @@
               <z>0.0</z>
             </rotation>
             <color R="0" G="0" B="0" />
-            <specularColor R="255" G="255" B="255" />
+            <specularColor R="255" G="0" B="51" />
             <shininess>250.0</shininess>
             <transparency>0.699999988079071</transparency>
             <size>
@@ -143,15 +143,10 @@
       <joint>
         <jointname>T1Frame</jointname>
         <type>T1</type>
-        <nature>driven</nature>
+        <nature>independent</nature>
         <initialvalue>
           <qd>4.0</qd>
         </initialvalue>
-        <symbols>
-          <q />
-          <qd />
-          <qdd />
-        </symbols>
         <graphics>
           <x2D>
             <position>
@@ -2905,7 +2900,7 @@
         <name>Front</name>
         <joint>R3Frame</joint>
         <position>
-          <x>4.0</x>
+          <x>5.0</x>
           <y>0.0</y>
           <z>0.1</z>
         </position>

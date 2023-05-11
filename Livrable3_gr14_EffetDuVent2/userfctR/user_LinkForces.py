@@ -37,15 +37,28 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
         sensor_FWheel = MbsSensor(mbs_data)
         sensor_FWheel.comp_s_sensor(mbs_data.sensor_id['Sensor_FWheel'])
         if(sensor_FWheel.P[3] < mbs_data.user_model['roue']['R0']):
-            # Trajectoire
             R1Frame = mbs_data.joint_id['R1Frame']
+            T2Frame = mbs_data.joint_id['T2Frame']
+            T1Frame = mbs_data.joint_id['T1Frame']
+            
+            x_init = 4
+            x_max = 15
+            y = mbs_data.q[T2Frame]
+            yd = mbs_data.qd[T2Frame]
             phi = mbs_data.q[R1Frame]
             phid = mbs_data.qd[R1Frame]
-            phi0 = 0
             K_phi = 100
             K_phid = 125
+            T2 = .38
+            T2_d = .45
+            if (mbs_data.q[T1Frame] > x_init and mbs_data.q[T1Frame] < x_max):
+                y0 = 2
+            else:
+                y0 = 0
+            phi0 = T2 * (y-y0) + T2_d * yd
+            # mbs_data.set_output(phi0, "phi0")
             Flink = - K_phi * (phi - phi0) - K_phid * phid
-
+            
     # Amortisseur Arriere
     linkG_id = mbs_data.link_id['Amortisseur_RoueG']
     linkD_id = mbs_data.link_id['Amortisseur_RoueD']

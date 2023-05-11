@@ -155,6 +155,141 @@
               <z>0.05</z>
             </size>
           </box>
+          <box>
+            <name>x_12m</name>
+            <position>
+              <x>12.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>0.1</x>
+              <y>10.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y_2m</name>
+            <position>
+              <x>0.0</x>
+              <y>2.0</y>
+              <z>0.0</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>100.0</x>
+              <y>0.1</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>1stWall</name>
+            <position>
+              <x>2.0</x>
+              <y>0.62</y>
+              <z>0.0</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.10000000149011612</transparency>
+            <size>
+              <x>4.0</x>
+              <y>0.04</y>
+              <z>1.0</z>
+            </size>
+          </box>
+          <box>
+            <name>2ndWallD</name>
+            <position>
+              <x>10.0</x>
+              <y>1.62</y>
+              <z>0.0</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.10000000149011612</transparency>
+            <size>
+              <x>4.0</x>
+              <y>0.04</y>
+              <z>1.0</z>
+            </size>
+          </box>
+          <box>
+            <name>2ndWallG</name>
+            <position>
+              <x>10.0</x>
+              <y>3.52</y>
+              <z>0.0</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.10000000149011612</transparency>
+            <size>
+              <x>4.0</x>
+              <y>0.04</y>
+              <z>1.0</z>
+            </size>
+          </box>
         </x3D_shapes>
       </x3D>
     </graphics>
@@ -190,9 +325,6 @@
         <jointname>T2Frame</jointname>
         <type>T2</type>
         <nature>independent</nature>
-        <initialvalue>
-          <q>1.0</q>
-        </initialvalue>
         <graphics>
           <x2D>
             <position>
@@ -3001,7 +3133,7 @@
             <box>
               <name>New_Shape</name>
               <position>
-                <x>-0.0</x>
+                <x>-0.03</x>
                 <y>0.0</y>
                 <z>0.45</z>
               </position>
@@ -3057,23 +3189,11 @@
         </graphics>
       </joint>
       <mass>0.005</mass>
-      <com>
-        <coordinates>
-          <x>0.0</x>
-          <y>0.0</y>
-          <z>0.2</z>
-        </coordinates>
-      </com>
-      <inertia>
-        <Ixx>18.85</Ixx>
-        <Iyy>29.71</Iyy>
-        <Izz>26.89</Izz>
-      </inertia>
       <graphics>
         <x2D>
           <position>
-            <x>-5.0</x>
-            <y>-5.0</y>
+            <x>-3.0</x>
+            <y>-4.0</y>
           </position>
           <name_pos>
             <x>0.0</x>
@@ -3086,8 +3206,8 @@
           </size>
           <control_points>
             <control_point>
-              <x>49.0</x>
-              <y>-5.0</y>
+              <x>51.0</x>
+              <y>-4.0</y>
             </control_point>
           </control_points>
           <angle>0.0</angle>
@@ -3716,7 +3836,7 @@
         <joint>R3Frame</joint>
         <position>
           <x>-0.5</x>
-          <y>-4.0</y>
+          <y>-7.0</y>
           <z>0.5</z>
         </position>
         <target>
@@ -3726,7 +3846,7 @@
         </target>
         <up>
           <x>0.0</x>
-          <y>0.0</y>
+          <y>-4.0</y>
           <z>1.0</z>
         </up>
         <projection>parallel</projection>
@@ -3737,24 +3857,24 @@
       </viewpoint>
       <viewpoint>
         <name>Top</name>
-        <joint>T3Frame</joint>
+        <joint>R3Frame</joint>
         <position>
-          <x>0.0</x>
+          <x>-1.0</x>
           <y>0.0</y>
           <z>5.0</z>
         </position>
         <target>
-          <x>0.0</x>
+          <x>-1.0</x>
           <y>0.0</y>
           <z>0.0</z>
         </target>
         <up>
           <x>1.0</x>
           <y>0.0</y>
-          <z>0.0</z>
+          <z>3.0</z>
         </up>
         <projection>parallel</projection>
-        <scale>0.07</scale>
+        <scale>0.05</scale>
         <fieldOfView>0.785</fieldOfView>
         <frontClipDst>0.01</frontClipDst>
         <backClipDst>50.0</backClipDst>
@@ -3764,7 +3884,7 @@
         <joint>T3Frame</joint>
         <position>
           <x>5.0</x>
-          <y>5.0</y>
+          <y>-5.0</y>
           <z>5.0</z>
         </position>
         <target>

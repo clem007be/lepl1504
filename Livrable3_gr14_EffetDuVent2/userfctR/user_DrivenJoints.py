@@ -28,39 +28,6 @@ def user_DrivenJoints(mbs_data, tsim):
     mbs_data.q[id_j] = mbs_data.q0[id_j] + mbs_data.qd0[id_j]*tsim
     mbs_data.qd[id_j] = mbs_data.qd0[id_j]
     
-    #Cadre vélo 
-    # id_j = mbs_data.joint_id['T1Frame']
-    # p0 = mbs_data.q0[id_j]
-    # v0 = mbs_data.qd0[id_j]
-    # a0 = mbs_data.qdd0[id_j]
-    # mbs_data.q[id_j] = p0 + v0*tsim + a0/2 * tsim**2
-    # mbs_data.qd[id_j] = v0 + a0 * tsim
-    # mbs_data.qdd[id_j] = a0
-    
-    # Cadre Vélo vitesse constante
-    # id_T1 = mbs_data.joint_id['T1Frame']
-    # id_T2 = mbs_data.joint_id['T2Frame']
-    # id_R3 = mbs_data.joint_id['R3Frame']
-    
-    # p0_T1 = mbs_data.q0[id_T1]
-    # v0_T1 = mbs_data.qd0[id_T1]
-    # a0_T1 = mbs_data.qdd0[id_T1]
-    # p0_T2 = mbs_data.q0[id_T2]
-    # v0_T2 = mbs_data.qd0[id_T2]
-    # a0_T2 = mbs_data.qdd0[id_T2]
-    
-    # theta = mbs_data.q[id_R3]
-    # a = sqrt(a0_T1**2 + a0_T2**2)
-    # v = sqrt((v0_T1 + a0_T1*tsim)**2 + (v0_T2 + a0_T2*tsim)**2)
-    # p = sqrt((p0_T1 + v0_T1*tsim + a0_T1/2 * tsim**2)**2 + (p0_T2 + v0_T2 * tsim - a0_T2/2 * tsim**2)**2)
-    
-    # mbs_data.q[id_T1] = p * cos(theta)
-    # mbs_data.qd[id_T1] = v * cos(theta)
-    # mbs_data.qdd[id_T1] = a * cos(theta)
-    # mbs_data.q[id_T2] = p * sin(theta)
-    # mbs_data.qd[id_T2] = v * sin(theta)
-    # mbs_data.qdd[id_T2] = a * sin(theta)
-    
     # Angle Alpha
     id_j = mbs_data.joint_id['Alpha']
     mbs_data.q[id_j] = mbs_data.q0[id_j]
@@ -85,7 +52,7 @@ def user_DrivenJoints(mbs_data, tsim):
     mbs_data.qd[id_j] = 0
     mbs_data.qdd[id_j] = 0
     
-    #
+    # 
     id_j = mbs_data.joint_id['R2_Fourche_Rem']
     mbs_data.q[id_j] = mbs_data.q0[id_j]
     mbs_data.qd[id_j] = 0
@@ -101,4 +68,17 @@ def user_DrivenJoints(mbs_data, tsim):
     mbs_data.qd[id_j] = 0
     mbs_data.qdd[id_j] = 0
     
+    # Charge
+    id_j = mbs_data.joint_id['Joint_ChargeAv']
+    mbs_data.q[id_j] = mbs_data.q0[id_j]
+    mbs_data.qd[id_j] = 0
+    mbs_data.qdd[id_j] = 0
+    id_j = mbs_data.joint_id['Joint_ChargeM']
+    mbs_data.q[id_j] = mbs_data.q0[id_j]
+    mbs_data.qd[id_j] = 0
+    mbs_data.qdd[id_j] = 0
+    id_j = mbs_data.joint_id['Joint_ChargeAr']
+    mbs_data.q[id_j] = mbs_data.q0[id_j]
+    mbs_data.qd[id_j] = 0
+    mbs_data.qdd[id_j] = 0
     return

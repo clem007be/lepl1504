@@ -38,25 +38,35 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
         sensor_FWheel.comp_s_sensor(mbs_data.sensor_id['Sensor_FWheel'])
         if(sensor_FWheel.P[3] < mbs_data.user_model['roue']['R0']):
             R1Frame = mbs_data.joint_id['R1Frame']
-            T2Frame = mbs_data.joint_id['T2Frame']
-            T1Frame = mbs_data.joint_id['T1Frame']
-            
-            x_init = 4
-            x_max = 15
-            y = mbs_data.q[T2Frame]
-            yd = mbs_data.qd[T2Frame]
             phi = mbs_data.q[R1Frame]
             phid = mbs_data.qd[R1Frame]
             K_phi = 100
             K_phid = 125
+            
+            #Evitement /!\/!\/!\ mutuellement EXCLUSIF avec Demi-tour !!!
+            T2Frame = mbs_data.joint_id['T2Frame']
+            T1Frame = mbs_data.joint_id['T1Frame']
+            y = mbs_data.q[T2Frame]
+            yd = mbs_data.qd[T2Frame]
             T2 = .38
             T2_d = .45
+            x_init = 4      # distance du départ de la manoeuvre
+            x_max = 15      # distance à laquelle le rabattement commence 
             if (mbs_data.q[T1Frame] > x_init and mbs_data.q[T1Frame] < x_max):
                 y0 = 2
             else:
                 y0 = 0
             phi0 = T2 * (y-y0) + T2_d * yd
-            # mbs_data.set_output(phi0, "phi0")
+            
+            #Demi-tour !!! mutuellement EXCLUSIF avec Evitement !!!
+            # R3Frame = mbs_data.joint_id['R3Frame']
+            # theta = mbs_data.q[R3Frame]
+            # theta0 = -np.pi
+            # phi0 = 0
+            # if(theta > theta0 and tsim > 1):
+            #     phi0 = 0.3      # angle de roulis pour le demi-tour
+            
+            
             Flink = - K_phi * (phi - phi0) - K_phid * phid
             
     # Amortisseur Arriere

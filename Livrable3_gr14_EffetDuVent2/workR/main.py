@@ -38,7 +38,7 @@ except:
 # Project loading
 # =============================================================================
 try:
-    v = [20] #[12,15,18,20]
+    v = [18]#[12,15,18,20]
     for i in v:
         print(i)
         mbs_data = Robotran.MbsData('../dataR/Livrable2.mbs')
@@ -94,14 +94,14 @@ try:
         # =============================================================================
         mbs_data.process = 3
         mbs_dirdyn = Robotran.MbsDirdyn(mbs_data)
-        mbs_dirdyn.set_options(dt0=1e-3, tf=15.0, save2file=1)
+        mbs_dirdyn.set_options(dt0=1e-3, tf=12.0, save2file=1)
         results = mbs_dirdyn.run()
         
         # %%===========================================================================
         # Plotting results
         # =============================================================================
         
-        np.savetxt('../analyse/Evitement/v{}_m{}.txt'.format(i,m), np.array([results.outputs["ChassisP1"], results.outputs["ChassisP2"]]))
+        # np.savetxt('../analyse/Evitement/v{}_m{}.txt'.format(i,m), np.array([results.outputs["ChassisP1"], results.outputs["ChassisP2"]]))
         
         # Figure creation
         # FGuidon = mbs_data.link_id['Link_GuidonGauche']
@@ -121,15 +121,15 @@ try:
         fig = plt.figure(num="Trajectoire")
         fig.set_tight_layout(True)
         gs = gridspec.GridSpec(2,1)
-        axis = fig.add_subplot(gs[0,0])
+        axis = fig.add_subplot(gs[:,:])
         axis.plot(results.outputs["ChassisP1"], results.outputs["ChassisP2"])
         plt.title('Trajectoire')
         axis.grid(True)
         axis.set_aspect('equal','box')
-        axis = fig.add_subplot(gs[1,0])
-        axis.plot(results.qd[:,0], results.qd[:,2])
-        plt.title('q2')
-        axis.grid(True)
+        # axis = fig.add_subplot(gs[1,0])
+        # axis.plot(results.qd[:,0], results.qd[:,2])
+        # plt.title('q2')
+        # axis.grid(True)
         
         # fig = plt.figure(num="R1Frame")
         # fig.set_tight_layout(True)
@@ -157,7 +157,7 @@ try:
         #     axis.set_ylabel('Coordinate value (m or rad)')
         
         # plt.show()
-        # ws.PlaySound('../Messenger.wav', ws.SND_FILENAME)
+        
 except:
     raise RuntimeError("Ca va pas")
 finally:

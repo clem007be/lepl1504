@@ -10,7 +10,7 @@
 #
 #	http://www.robotran.be 
 #
-#	==> Generation Date: Fri May 12 00:48:11 2023
+#	==> Generation Date: Fri May 12 03:48:11 2023
 #
 #	==> Project name: Livrable2
 #
@@ -341,6 +341,11 @@ def invdyna(phi,s,tsim):
     ALPHA126 = ALPHA125+q[26]*BETA325+(2.0)*qd[26]*OM220
     ALPHA226 = ALPHA225+q[26]*BETA625-(2.0)*qd[26]*OM120
     ALPHA326 = qdd[26]+ALPHA325+q[26]*BS925
+    BS327 = OM120*OM320
+    BS627 = OM220*OM320
+    BS927 = -OM120*OM120-OM220*OM220
+    BETA327 = BS327+OMp220
+    BETA627 = BS627-OMp120
     ALPHA127 = ALPHA125+q[27]*BETA325+(2.0)*qd[27]*OM220+BS125*s.dpt[1,30]
     ALPHA227 = ALPHA225+q[27]*BETA625-(2.0)*qd[27]*OM120+BETA425*s.dpt[1,30]
     ALPHA327 = qdd[27]+ALPHA325+q[27]*BS925+BETA725*s.dpt[1,30]
@@ -385,9 +390,12 @@ def invdyna(phi,s,tsim):
     Fs128 = -s.frc[1,28]+s.m[28]*ALPHA128
     Fs228 = -s.frc[2,28]+s.m[28]*ALPHA228
     Fs328 = -s.frc[3,28]+s.m[28]*ALPHA328
-    Fs127 = -s.frc[1,27]+s.m[27]*ALPHA127
-    Fs227 = -s.frc[2,27]+s.m[27]*ALPHA227
-    Fs327 = -s.frc[3,27]+s.m[27]*ALPHA327
+    Fs127 = -s.frc[1,27]+s.m[27]*(ALPHA127+BETA327*s.l[3,27])
+    Fs227 = -s.frc[2,27]+s.m[27]*(ALPHA227+BETA627*s.l[3,27])
+    Fs327 = -s.frc[3,27]+s.m[27]*(ALPHA327+BS927*s.l[3,27])
+    Cq127 = -s.trq[1,27]+s.In[1,27]*OMp120-s.In[5,27]*OM220*OM320+s.In[9,27]*OM220*OM320-Fs227*s.l[3,27]
+    Cq227 = -s.trq[2,27]+s.In[1,27]*OM120*OM320+s.In[5,27]*OMp220-s.In[9,27]*OM120*OM320+Fs127*s.l[3,27]
+    Cq327 = -s.trq[3,27]-s.In[1,27]*OM120*OM220+s.In[5,27]*OM120*OM220+s.In[9,27]*OMp320
     Fs126 = -s.frc[1,26]+s.m[26]*ALPHA126
     Fs226 = -s.frc[2,26]+s.m[26]*ALPHA226
     Fs326 = -s.frc[3,26]+s.m[26]*ALPHA326
@@ -397,9 +405,9 @@ def invdyna(phi,s,tsim):
     Fq125 = Fs125+Fs126+Fs127+Fs128
     Fq225 = Fs225+Fs226+Fs227+Fs228
     Fq325 = Fs325+Fs326+Fs327+Fs328
-    Cq125 = -s.trq[1,25]-s.trq[1,26]-s.trq[1,27]-s.trq[1,28]-q[26]*Fs226-q[27]*Fs227-q[28]*Fs228+s.In[1,25]*OMp120-s.In[5,25]*OM220*OM320+s.In[9,25]*OM220*OM320-Fs225*s.l[3,25]
-    Cq225 = -s.trq[2,25]-s.trq[2,26]-s.trq[2,27]-s.trq[2,28]+q[26]*Fs126+q[27]*Fs127+q[28]*Fs128+s.In[1,25]*OM120*OM320+s.In[5,25]*OMp220-s.In[9,25]*OM120*OM320+Fs125*s.l[3,25]-Fs327*s.dpt[1,30]-Fs328*s.dpt[1,31]
-    Cq325 = -s.trq[3,25]-s.trq[3,26]-s.trq[3,27]-s.trq[3,28]-s.In[1,25]*OM120*OM220+s.In[5,25]*OM120*OM220+s.In[9,25]*OMp320+Fs227*s.dpt[1,30]+Fs228*s.dpt[1,31]
+    Cq125 = -s.trq[1,25]-s.trq[1,26]-s.trq[1,28]+Cq127-q[26]*Fs226-q[27]*Fs227-q[28]*Fs228+s.In[1,25]*OMp120-s.In[5,25]*OM220*OM320+s.In[9,25]*OM220*OM320-Fs225*s.l[3,25]
+    Cq225 = -s.trq[2,25]-s.trq[2,26]-s.trq[2,28]+Cq227+q[26]*Fs126+q[27]*Fs127+q[28]*Fs128+s.In[1,25]*OM120*OM320+s.In[5,25]*OMp220-s.In[9,25]*OM120*OM320+Fs125*s.l[3,25]-Fs327*s.dpt[1,30]-Fs328*s.dpt[1,31]
+    Cq325 = -s.trq[3,25]-s.trq[3,26]-s.trq[3,28]+Cq327-s.In[1,25]*OM120*OM220+s.In[5,25]*OM120*OM220+s.In[9,25]*OMp320+Fs227*s.dpt[1,30]+Fs228*s.dpt[1,31]
     Fs124 = -s.frc[1,24]+s.m[24]*ALPHA124
     Fs224 = -s.frc[2,24]+s.m[24]*ALPHA224
     Fs324 = -s.frc[3,24]+s.m[24]*ALPHA324

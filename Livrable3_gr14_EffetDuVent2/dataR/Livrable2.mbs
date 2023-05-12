@@ -157,6 +157,7 @@
           </box>
           <box>
             <name>x_12m</name>
+            <hide />
             <position>
               <x>12.0</x>
               <y>0.0</y>
@@ -184,6 +185,7 @@
           </box>
           <box>
             <name>y_2m</name>
+            <hide />
             <position>
               <x>0.0</x>
               <y>2.0</y>
@@ -211,6 +213,7 @@
           </box>
           <box>
             <name>1stWall</name>
+            <hide />
             <position>
               <x>2.0</x>
               <y>0.62</y>
@@ -238,6 +241,7 @@
           </box>
           <box>
             <name>2ndWallD</name>
+            <hide />
             <position>
               <x>10.0</x>
               <y>1.62</y>
@@ -265,6 +269,7 @@
           </box>
           <box>
             <name>2ndWallG</name>
+            <hide />
             <position>
               <x>10.0</x>
               <y>3.52</y>
@@ -3188,12 +3193,12 @@
           </x3D>
         </graphics>
       </joint>
-      <mass>0.005</mass>
+      <mass>32.3</mass>
       <graphics>
         <x2D>
           <position>
             <x>-3.0</x>
-            <y>-4.0</y>
+            <y>-5.0</y>
           </position>
           <name_pos>
             <x>0.0</x>
@@ -3207,7 +3212,7 @@
           <control_points>
             <control_point>
               <x>51.0</x>
-              <y>-4.0</y>
+              <y>-5.0</y>
             </control_point>
           </control_points>
           <angle>0.0</angle>
@@ -3247,7 +3252,19 @@
           </x3D>
         </graphics>
       </joint>
-      <mass>0.0025</mass>
+      <mass>0.1</mass>
+      <com>
+        <coordinates>
+          <x>0.0</x>
+          <y>0.0</y>
+          <z>0.1</z>
+        </coordinates>
+      </com>
+      <inertia>
+        <Ixx>4.71</Ixx>
+        <Iyy>7.43</Iyy>
+        <Izz>6.72</Izz>
+      </inertia>
       <graphics>
         <x2D>
           <position>
@@ -3306,7 +3323,7 @@
           </x3D>
         </graphics>
       </joint>
-      <mass>0.0025</mass>
+      <mass>0.1</mass>
       <graphics>
         <x2D>
           <position>
@@ -3907,7 +3924,7 @@
         <name>Front</name>
         <joint>R3Frame</joint>
         <position>
-          <x>5.0</x>
+          <x>7.0</x>
           <y>0.0</y>
           <z>0.1</z>
         </position>

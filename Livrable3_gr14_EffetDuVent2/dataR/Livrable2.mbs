@@ -15,7 +15,7 @@
     <point>
       <pointname>Point_4</pointname>
       <coordinates>
-        <x>50.0</x>
+        <x>75.0</x>
         <y>0.0</y>
         <z>0.0</z>
       </coordinates>
@@ -23,7 +23,7 @@
         <x2D>
           <position>
             <x>832.0</x>
-            <y>692.0</y>
+            <y>691.0</y>
           </position>
         </x2D>
         <x3D />
@@ -75,7 +75,7 @@
         <x3D_lines />
         <x3D_shapes>
           <box>
-            <name>New_Shape</name>
+            <name>NewShape</name>
             <position>
               <x>0.0</x>
               <y>0.0</y>
@@ -96,7 +96,7 @@
             <shininess>250.0</shininess>
             <transparency>0.699999988079071</transparency>
             <size>
-              <x>100.0</x>
+              <x>200.0</x>
               <y>100.0</y>
               <z>0.05</z>
             </size>
@@ -123,7 +123,7 @@
             <shininess>250.0</shininess>
             <transparency>0.5</transparency>
             <size>
-              <x>100.0</x>
+              <x>200.0</x>
               <y>1.0</y>
               <z>0.05</z>
             </size>
@@ -295,6 +295,1113 @@
               <z>1.0</z>
             </size>
           </box>
+          <box>
+            <name>y2</name>
+            <position>
+              <x>0.0</x>
+              <y>-2.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>200.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y4</name>
+            <position>
+              <x>0.0</x>
+              <y>-4.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>200.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y6</name>
+            <position>
+              <x>0.0</x>
+              <y>-6.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>200.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y8</name>
+            <position>
+              <x>0.0</x>
+              <y>-8.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>200.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y10</name>
+            <position>
+              <x>0.0</x>
+              <y>-10.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>100.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y12</name>
+            <position>
+              <x>0.0</x>
+              <y>-12.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>100.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y14</name>
+            <position>
+              <x>0.0</x>
+              <y>-14.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>100.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y16</name>
+            <position>
+              <x>0.0</x>
+              <y>-16.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>100.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y18</name>
+            <position>
+              <x>0.0</x>
+              <y>-18.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>100.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y20</name>
+            <position>
+              <x>0.0</x>
+              <y>-20.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>100.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x2</name>
+            <position>
+              <x>2.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x4</name>
+            <position>
+              <x>4.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x6</name>
+            <position>
+              <x>6.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x8</name>
+            <position>
+              <x>8.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x10</name>
+            <position>
+              <x>10.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x12</name>
+            <position>
+              <x>12.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x14</name>
+            <position>
+              <x>14.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x16</name>
+            <position>
+              <x>16.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x18</name>
+            <position>
+              <x>18.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x20</name>
+            <position>
+              <x>20.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x22</name>
+            <position>
+              <x>22.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y_2</name>
+            <position>
+              <x>0.0</x>
+              <y>2.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>200.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y_4</name>
+            <position>
+              <x>0.0</x>
+              <y>4.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>200.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>y_6</name>
+            <position>
+              <x>0.0</x>
+              <y>6.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>200.0</x>
+              <y>1.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x24</name>
+            <position>
+              <x>24.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x26</name>
+            <position>
+              <x>26.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x28</name>
+            <position>
+              <x>28.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x30</name>
+            <position>
+              <x>30.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x32</name>
+            <position>
+              <x>32.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x56</name>
+            <position>
+              <x>56.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x54</name>
+            <position>
+              <x>54.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x52</name>
+            <position>
+              <x>52.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x50</name>
+            <position>
+              <x>50.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x48</name>
+            <position>
+              <x>48.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x46</name>
+            <position>
+              <x>46.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x44</name>
+            <position>
+              <x>44.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>5.0</z>
+            </size>
+          </box>
+          <box>
+            <name>x42</name>
+            <position>
+              <x>42.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x40</name>
+            <position>
+              <x>40.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x38</name>
+            <position>
+              <x>38.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x36</name>
+            <position>
+              <x>36.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
+          <box>
+            <name>x34</name>
+            <position>
+              <x>34.0</x>
+              <y>0.0</y>
+              <z>-0.025</z>
+            </position>
+            <scale>
+              <x>1.0</x>
+              <y>1.0</y>
+              <z>1.0</z>
+            </scale>
+            <rotation>
+              <x>0.0</x>
+              <y>0.0</y>
+              <z>0.0</z>
+            </rotation>
+            <color R="0" G="0" B="0" />
+            <specularColor R="255" G="255" B="255" />
+            <shininess>250.0</shininess>
+            <transparency>0.5</transparency>
+            <size>
+              <x>1.0</x>
+              <y>100.0</y>
+              <z>0.05</z>
+            </size>
+          </box>
         </x3D_shapes>
       </x3D>
     </graphics>
@@ -312,7 +1419,7 @@
         <type>T1</type>
         <nature>independent</nature>
         <initialvalue>
-          <qd>5.0</qd>
+          <qd>4.17</qd>
         </initialvalue>
         <graphics>
           <x2D>
@@ -758,7 +1865,7 @@
         <type>R2</type>
         <nature>driven</nature>
         <initialvalue>
-          <qd>14.286</qd>
+          <qd>11.9</qd>
         </initialvalue>
         <symbols>
           <q />
@@ -3891,7 +4998,7 @@
           <z>3.0</z>
         </up>
         <projection>parallel</projection>
-        <scale>0.05</scale>
+        <scale>0.04</scale>
         <fieldOfView>0.785</fieldOfView>
         <frontClipDst>0.01</frontClipDst>
         <backClipDst>50.0</backClipDst>

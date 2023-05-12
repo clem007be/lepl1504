@@ -64,7 +64,8 @@ def user_LinkForces(Z, Zd, mbs_data, tsim, identity):
             # theta0 = -np.pi
             # phi0 = 0
             # if(theta > theta0 and tsim > 1):
-            #     phi0 = 0.3      # angle de roulis pour le demi-tour
+            #     phi0 = 0.3        # angle de roulis pour le demi-tour 
+            #                       # [0.3, 0.4, 0.5, 0.6] autres valeurs analysées 
             
             
             Flink = - K_phi * (phi - phi0) - K_phid * phid
